@@ -1,0 +1,50 @@
+/* app.css */
+header {
+  background-color: #222;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: right;
+
+}
+
+/* Responsive Grid */
+.grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .container, header, footer {
+      padding: 10px;
+  }
+
+  .grid {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+}
