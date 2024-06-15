@@ -1,0 +1,33 @@
+.agreements {
+	@apply grid grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-8;
+	.agreement {
+		@apply grid gap-4;
+		h4 {
+			@apply text-lg font-bold text-right;
+			@media (max-width: 640px) {
+				@apply text-sm;
+			}
+		}
+		.agreement-pdf {
+			@apply bg-[#33393F] grid items-center justify-center rounded-lg gap-2 px-4 py-6;
+			@media (max-width: 640px) {
+				@apply gap-1 px-2 py-4;
+			}
+			* {
+				@apply text-center mx-auto;
+			}
+			strong {
+				@apply text-white;
+				@media (max-width: 640px) {
+					@apply text-xs;
+				}
+			}
+			span {
+				@apply text-[#F1D7B5];
+				@media (max-width: 640px) {
+					@apply text-xs;
+				}
+			}
+		}
+	}
+}

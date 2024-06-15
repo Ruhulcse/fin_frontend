@@ -1,0 +1,102 @@
+// import tailwind files
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// add page styles file here
+@import 'home';
+@import 'courses';
+@import 'agreements';
+@import 'workout-programs';
+@import 'modal';
+
+// add global styles here
+body {
+	background: #22272c;
+	scroll-behavior: smooth;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 5000s ease-in-out 0s;
+	-webkit-text-fill-color: #ececec !important;
+}
+.basic-input .input-area {
+	input[type='date']::-webkit-calendar-picker-indicator {
+		background: transparent;
+		bottom: 0;
+		color: transparent;
+		cursor: pointer;
+		height: auto;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: auto;
+	}
+	select {
+		appearance: none;
+	}
+}
+.auth-header {
+	@apply relative mb-4;
+	span {
+		@apply text-[15px] block relative w-max m-auto px-[20px] xl:px-[30px] z-10 bg-primary xl:bg-[#292E33];
+	}
+	.line {
+		height: 1px;
+		border-bottom: 1px solid #33393f;
+		width: 100%;
+		@apply absolute z-[5px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+	}
+}
+.abs-center {
+	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+.flex-center-between {
+	@apply flex items-center justify-between;
+}
+.dashboard {
+	@apply min-h-dvh grid grid-rows-[auto_1fr_auto];
+}
+.auth {
+	@apply min-h-dvh;
+}
+.section-title {
+	font-size: 36px;
+	font-weight: 700;
+	color: white;
+	@media (max-width: 1024px) {
+		font-size: 30px;
+	}
+	@media (max-width: 640px) {
+		font-size: 24px;
+	}
+}
+.semi-section-title {
+	font-size: 28px;
+	font-weight: 700;
+	color: white;
+	@media (max-width: 1024px) {
+		font-size: 22px;
+	}
+	@media (max-width: 640px) {
+		font-size: 18px;
+	}
+}
+.react-multi-select {
+	* {
+		outline: none !important;
+		border: none !important;
+		background-color: #33393f !important;
+		color: #ececec !important;
+		text-align: end !important;
+		box-shadow: none !important;
+		&:active {
+			outline: none !important;
+			border: none !important;
+			box-shadow: none !important;
+		}
+	}
+}

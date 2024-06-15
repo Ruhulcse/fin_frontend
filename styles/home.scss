@@ -1,0 +1,86 @@
+.home {
+	@apply grid grid-cols-[1fr_1fr] gap-8;
+}
+.home-card {
+	@apply bg-[#33393F] rounded-lg px-4 py-8;
+	@media (max-width: 768px) {
+		@apply px-2 py-6;
+	}
+}
+.home-card-title {
+	font-size: 32px;
+	font-weight: 700;
+	@media (max-width: 1024px) {
+		font-size: 24px;
+	}
+	@media (max-width: 768px) {
+		font-size: 16px;
+	}
+}
+
+.measurement-area {
+	@apply flex flex-col justify-between lg:justify-normal;
+	.measurements {
+		@apply grid place-content-center grid-cols-[max-content_max-content_max-content] gap-4 lg:mt-4;
+		* {
+			text-align: center;
+		}
+		.measurement {
+			@apply grid gap-1;
+			h4 {
+				@apply font-bold text-lg;
+			}
+			.size {
+				@apply flex items-center justify-center gap-1;
+			}
+			@media (max-width: 1024px) {
+				@apply gap-2.5;
+				h4 {
+					font-size: 16px;
+					line-height: 16px;
+				}
+				span {
+					font-size: 14px;
+					line-height: 14px;
+				}
+			}
+			@media (max-width: 768px) {
+				h4 {
+					font-size: 12px;
+					line-height: 12px;
+				}
+				span {
+					font-size: 10px;
+					line-height: 10px;
+				}
+			}
+		}
+	}
+}
+
+.section-area {
+	.step-info {
+		@apply grid place-content-center grid-cols-[max-content_max-content] gap-2;
+		.target {
+			strong {
+				color: #868686;
+			}
+		}
+		@media (max-width: 1024px) {
+			strong {
+				font-size: 16px;
+			}
+			span {
+				font-size: 14px;
+			}
+		}
+		@media (max-width: 768px) {
+			strong {
+				font-size: 12px;
+			}
+			span {
+				font-size: 10px;
+			}
+		}
+	}
+}

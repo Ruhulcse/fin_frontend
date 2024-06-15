@@ -1,0 +1,51 @@
+.workout-programs {
+	@apply grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3;
+	.workout-program {
+		@apply relative rounded-md overflow-hidden;
+		.workout-info {
+			@apply w-full p-4 h-full grid gap-[180px] bg-[#33393f80] relative z-10 overflow-hidden;
+			.workout-program-title {
+				@apply text-right font-bold text-white text-[20px];
+			}
+			.actions {
+				@apply grid grid-cols-2 gap-2 mt-2;
+			}
+		}
+		img {
+			@apply absolute w-full h-full object-cover;
+		}
+	}
+}
+.workout-program-info {
+	@apply grid gap-2 xl:gap-4;
+	.workout-hero-img {
+		@apply relative;
+	}
+	.workout-description {
+		@apply text-right text-[#F1D7B5] text-[12px] sm:text-[16px] xl:text-[20px] my-2;
+	}
+}
+
+.work-start-input {
+	.work-input-header {
+		@apply py-2 xl:py-4;
+	}
+	.start-input-area {
+		@apply bg-[#33393F] rounded-[5px] xl:rounded-[20px] px-5 xl:px-10 py-3 pb-5 xl:py-6 xl:pb-8;
+		.input {
+			@apply xl:border-b border-[#888888] py-3 xl:py-5 items-end;
+			input {
+				@apply bg-[#00000000] text-center border-b-2 xl:border-b-4 w-[60px] xl:w-[100px] outline-0;
+			}
+			.start-info {
+				@apply flex flex-col justify-end items-end gap-1 xl:gap-2;
+				strong {
+					@apply text-[18px] xl:text-[30px] leading-none;
+				}
+				small {
+					@apply text-[16px] xl:text-[25px] text-[#F1D7B5] leading-none;
+				}
+			}
+		}
+	}
+}
