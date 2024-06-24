@@ -1,3 +1,21 @@
+import { signOut } from 'next-auth/react';
+import { clearCookie } from './server-func';
+
+export const cookieOptions = () => {
+	return { secure: true };
+};
+
+export const logoutHandler = async () => {
+	await clearCookie();
+	await signOut({
+		callbackUrl: `${window.location.origin}/login`,
+	});
+};
+
+export const getError = (error: any, defaultMessage = 'Error Found') => {
+	return error?.data?.message ?? defaultMessage;
+};
+
 export const toQueryString = (obj: any) => {
 	const filteredObj = Object.fromEntries(
 		Object.entries(obj).filter(([_, value]) => value !== '')

@@ -32,7 +32,7 @@ const AdminDashboard = async () => {
 				<BasicCard>
 					<span>Add Nutrition Guide</span>
 				</BasicCard>
-				<BasicCard>
+				<BasicCard link="/admin/approve-email">
 					<span>Approve email address</span>
 				</BasicCard>
 			</div>

@@ -1,24 +1,10 @@
-import { serverAuthFetch } from '@/lib/helper/fetch';
+import { generateDataFromServer, nextProperties, serverAuthFetch } from '@/lib/helper/fetch';
 import Link from 'next/link';
 import BasicButton from '../common/BasicButton';
 import Course from './Course';
 
-export const getInfo = async () => {
-	try {
-		const res = await serverAuthFetch(``, {
-			next: { revalidate: 0 },
-		});
-		if (!res.ok) {
-			throw new Error('Failed to fetch data');
-		}
-		return res.json();
-	} catch (error) {
-		return [{}, {}, {}, {}, {}, {}];
-	}
-};
-
 const Courses = async () => {
-	const courses = await getInfo();
+	const courses = await generateDataFromServer('courses', nextProperties(0));
 	return (
 		<section className="course-area">
 			<h3 className="section-title text-right">Courses</h3>
@@ -33,7 +19,7 @@ const Courses = async () => {
 				<Link href="">Join Course Now</Link>
 			</BasicButton>
 			<div className="courses">
-				{courses.map((course: any, index: number) => (
+				{[{}, {}, {}, {}, {}, {}].map((course: any, index: number) => (
 					<Course
 						course={course}
 						key={index}

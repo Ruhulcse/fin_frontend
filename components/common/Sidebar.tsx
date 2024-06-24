@@ -1,8 +1,7 @@
 'use client';
 import useOutsideClick from '@/hooks/useOutsideClick';
+import { logoutHandler } from '@/lib/helper/common';
 import { menus } from '@/lib/menu';
-import { removeUser } from '@/store/features/user/slice';
-import { useAppDispatch } from '@/store/hooks';
 import { useRef } from 'react';
 import { IoIosLogOut, IoMdCloseCircleOutline } from 'react-icons/io';
 import { RiMenu5Fill } from 'react-icons/ri';
@@ -10,7 +9,6 @@ import NavLink from './NavLink';
 
 const Sidebar = () => {
 	const sidebar: any = useRef();
-	const dispatch=useAppDispatch();
 
 	const sidebarOpen = () => {
 		if (sidebar?.current) {
@@ -53,7 +51,10 @@ const Sidebar = () => {
 						</li>
 					))}
 				</ul>
-				<button onClick={()=>dispatch(removeUser())} className="logout rounded bg-[#F1D7B51A] text-[#F1D7B5] p-[6px_18px] flex items-center justify-center gap-2">
+				<button
+					onClick={logoutHandler}
+					className="logout rounded bg-[#F1D7B51A] text-[#F1D7B5] p-[6px_18px] flex items-center justify-center gap-2"
+				>
 					<span>Log Out</span> <IoIosLogOut size={20} />
 				</button>
 			</div>

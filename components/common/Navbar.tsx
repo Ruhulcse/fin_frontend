@@ -1,16 +1,15 @@
 'use client';
 import logo from '@/assets/images/logo.png';
 import { menus } from '@/lib/menu';
-import { removeUser } from '@/store/features/user/slice';
-import { useAppDispatch } from '@/store/hooks';
+import { signOut } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoIosLogOut } from 'react-icons/io';
 import MobileCenterMenu from './MobileCenterMenu';
 import NavLink from './NavLink';
 import Sidebar from './Sidebar';
+import { logoutHandler } from '@/lib/helper/common';
 const Navbar = () => {
-	const dispatch = useAppDispatch();
 	return (
 		<nav className="container text-white py-[10px] xl:py-[20px] flex items-center justify-between gap-8 text-[15px] font-[400]">
 			<Link href="/">
@@ -28,7 +27,7 @@ const Navbar = () => {
 			</ul>
 			<MobileCenterMenu />
 			<button
-				onClick={() => dispatch(removeUser())}
+				onClick={logoutHandler}
 				className="hidden xl:flex logout rounded-[64px] bg-[#F1D7B51A] text-[#F1D7B5] p-[6px_18px] items-center justify-center gap-2"
 			>
 				<span>Log Out</span> <IoIosLogOut size={20} />

@@ -1,8 +1,13 @@
 'use client';
+import { axiosInstance } from '@/lib/helper/fetch';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { FaSpinner } from 'react-icons/fa6';
+import { toast } from 'sonner';
 import * as yup from 'yup';
 import BasicButton from '../common/BasicButton';
 import Input from '../common/input/Input';
@@ -10,8 +15,9 @@ import Input from '../common/input/Input';
 type Inputs = {
 	email: string;
 	password: string;
-	firstName: string;
-	lastName: string;
+	first_name: string;
+	last_name: string;
+	gender: string;
 };
 
 const schema = yup.object({
@@ -20,18 +26,20 @@ const schema = yup.object({
 		.string()
 		.required('Please enter your password')
 		.min(6, 'Password must be at least 6 characters.'),
-	firstName: yup
+	first_name: yup
 		.string()
 		.required('Please enter your first name')
 		.min(3, 'First name must be at least 3 characters.'),
-	lastName: yup
+	last_name: yup
 		.string()
 		.required('Please enter your last name')
 		.min(3, 'Last name must be at least 3 characters.'),
+	gender: yup.string().required('Please select your gender'),
 });
 
 const RegisterForm = () => {
 	const router = useRouter();
+	const [loading, setLoading] = useState(false);
 	const {
 		register,
 		handleSubmit,
@@ -40,8 +48,24 @@ const RegisterForm = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit: SubmitHandler<Inputs> = (data) => {
-		router.push('/login');
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
+		try {
+			setLoading(true);
+			const payload = {
+				...data,
+				role: 'user',
+				name: `${data.first_name} ${data.last_name}`,
+			};
+			const response: any = await axiosInstance.post('/signup', payload);
+			toast.success(response.data.message ?? 'Sign Up Successful');
+			await signIn('signup', { ...response.data.data, redirect: false });
+			router.push(`/get-intro?gender=${payload.gender}`);
+		} catch (error: any) {
+			const message = error?.response?.data?.message ?? 'Error Found';
+			toast.error(String(message));
+		} finally {
+			setLoading(false);
+		}
 	};
 	return (
 		<form
@@ -49,13 +73,13 @@ const RegisterForm = () => {
 			className="grid gap-2 xl:gap-4"
 		>
 			<Input
-				name="firstName"
+				name="first_name"
 				label="First Name"
 				register={register}
 				errors={errors}
 			/>
 			<Input
-				name="lastName"
+				name="last_name"
 				label="Last Name"
 				register={register}
 				errors={errors}
@@ -64,6 +88,24 @@ const RegisterForm = () => {
 				type="email"
 				name="email"
 				label="Email"
+				register={register}
+				errors={errors}
+			/>
+			<Input
+				type="select"
+				name="gender"
+				label="Gender"
+				options={[
+					{ value: 'male', label: 'Male' },
+					{
+						value: 'female',
+						label: 'Female',
+					},
+					{
+						value: 'other',
+						label: 'Other',
+					},
+				]}
 				register={register}
 				errors={errors}
 			/>
@@ -84,15 +126,22 @@ const RegisterForm = () => {
 			/>
 			<div className="action flex flex-col xl:flex-row justify-center xl:justify-start items-center gap-2 xl:gap-4 mt-4 xl:mt-0">
 				<BasicButton
+					disabled={loading}
 					type="submit"
-					extraClasses="!m-0 !w-full xl:!w-max"
+					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full xl:!w-max"
 				>
+					{loading ? (
+						<FaSpinner
+							className="animate-spin"
+							size={16}
+						/>
+					) : null}
 					Create Account
 				</BasicButton>
 				<span className="text-[12px] text-white flex items-center gap-1">
 					Already have an account?
 					<Link
-						className="text-[#F1D7B5]"
+						className="text-[#F1D7B5] cursor-pointer"
 						href="/login"
 					>
 						Sign In

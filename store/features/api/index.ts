@@ -1,9 +1,16 @@
-import { clearCookie } from '@/lib/helper/server-func';
+import { logoutHandler } from '@/lib/helper/common';
+import { getCookieValue } from '@/lib/helper/server-func';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-	baseUrl: process.env.NEXT_PUBLIC_API_URL,
-	credentials: 'include',
+	baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/`,
+	// credentials: 'include',
+	credentials: 'same-origin',
+	prepareHeaders: async (headers) => {
+		const authToken = await getCookieValue('token');
+		headers.set('Authorization', authToken);
+		return headers;
+	},
 });
 
 const apiSlice = createApi({
@@ -11,7 +18,7 @@ const apiSlice = createApi({
 	baseQuery: async (args, api, extraOptions) => {
 		let result = await baseQuery(args, api, extraOptions);
 		if (result?.error?.status === 401) {
-			await clearCookie();
+			await logoutHandler();
 		}
 		return result;
 	},

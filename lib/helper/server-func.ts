@@ -16,7 +16,7 @@ export const getCookie = async () => {
 export const getCookieValue = async (name: string) => {
 	const cookieStore = cookies();
 	const cookie: any = cookieStore.get(name);
-	return cookie.value ?? '';
+	return cookie?.value ?? '';
 };
 
 export const notesRevalidate = () => {

@@ -1,4 +1,4 @@
-import HealthDeclaration from '@/components/admin/health-declaration/HealthDeclaration';
+import HealthDeclaration from '@/components/health-declaration/HealthDeclaration';
 
 const page = ({ params }: { params: { id: string } }) => {
 	return <HealthDeclaration id={params?.id} />;

@@ -1,4 +1,4 @@
-import AppLayout from '@/components/layout/AppLayout';
+import AppLayout from '@/components/core/layout/AppLayout';
 import '@/styles/global.scss';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';

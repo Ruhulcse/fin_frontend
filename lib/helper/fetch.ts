@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { getCookie, getCookieValue } from './server-func';
 
+export const nextProperties = (revalidate: number) => {
+	return { next: { revalidate } };
+};
+
 export const axiosInstance = axios.create({
 	baseURL: process.env.NEXT_PUBLIC_API_URL,
-	withCredentials: true,
+	// withCredentials: true,
 });
 
 axiosInstance.interceptors.request.use(
@@ -38,4 +42,22 @@ export const baseFetch = (url: string, next_options = {}) => {
 	return fetch(path, {
 		...next_options,
 	});
+};
+
+export const generateDataFromServer = async (
+	url: string,
+	options?: {
+		next: { revalidate: number };
+	}
+) => {
+	try {
+		const res = await serverAuthFetch(url, options);
+		const data = await res.json();
+		if (data?.error) {
+			throw new Error('Failed to fetch data');
+		}
+		return data;
+	} catch (error: any) {
+		return error?.message ?? 'Error Found';
+	}
 };
