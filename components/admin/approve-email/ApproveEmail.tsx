@@ -2,7 +2,7 @@
 import BasicButton from '@/components/common/BasicButton';
 import Input from '@/components/common/input/Input';
 import { getError } from '@/lib/helper/common';
-import { useAddApprovedEmailMutation } from '@/store/features/admin/approved_emails/api';
+import { useAddApprovedEmailMutation } from '@/store/features/admin/approved-emails/api';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';

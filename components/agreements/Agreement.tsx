@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Agreement = ({ agreement }: { agreement: any }) => {
 	return (
 		<Link
-			href="/agreements/254"
+			href={`/agreements/${agreement?.user_id}`}
 			className="agreement"
 		>
 			<h4>{agreement.title ?? 'Terms and Conditions'}</h4>
@@ -14,7 +14,7 @@ const Agreement = ({ agreement }: { agreement: any }) => {
 					src={agreement?.img ?? pdfImage}
 					alt="pdf"
 				/>
-				<strong>{agreement.description ?? 'Click to View'}</strong>
+				<strong>{agreement?.name ?? 'N/A'}</strong>
 				<span>Last Update on 08/06/2024</span>
 			</div>
 		</Link>

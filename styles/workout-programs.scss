@@ -22,7 +22,7 @@
 		@apply relative;
 	}
 	.workout-description {
-		@apply text-right text-[#F1D7B5] text-[12px] sm:text-[16px] xl:text-[20px] my-2;
+		@apply text-right text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px] my-2;
 	}
 }
 
@@ -31,11 +31,11 @@
 		@apply py-2 xl:py-4;
 	}
 	.start-input-area {
-		@apply bg-[#33393F] rounded-[5px] xl:rounded-[20px] px-5 xl:px-10 py-3 pb-5 xl:py-6 xl:pb-8;
+		@apply bg-card text-textPrimary rounded-[5px] xl:rounded-[20px] px-5 xl:px-10 py-3 pb-5 xl:py-6 xl:pb-8;
 		.input {
-			@apply xl:border-b border-[#888888] py-3 xl:py-5 items-end;
+			@apply xl:border-b border-textPrimary py-3 xl:py-5 items-end;
 			input {
-				@apply bg-[#00000000] text-center border-b-2 xl:border-b-4 w-[60px] xl:w-[100px] outline-0;
+				@apply bg-[#00000000] text-center border-b-2 xl:border-b-4 border-textSecondary w-[60px] xl:w-[100px] outline-0;
 			}
 			.start-info {
 				@apply flex flex-col justify-end items-end gap-1 xl:gap-2;
@@ -43,7 +43,7 @@
 					@apply text-[18px] xl:text-[30px] leading-none;
 				}
 				small {
-					@apply text-[16px] xl:text-[25px] text-[#F1D7B5] leading-none;
+					@apply text-[16px] xl:text-[25px] text-textSecondary leading-none;
 				}
 			}
 		}

@@ -7,7 +7,7 @@ const SearchInput = ({
 	changeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
 }) => {
 	return (
-		<div className="search-item relative w-full bg-[#33393F] p-2 xl:p-4 rounded">
+		<div className="search-item relative w-full bg-card text-textPrimary p-2 xl:p-4 rounded">
 			<input
 				className="w-full bg-[#00000000] outline-none"
 				type="text"

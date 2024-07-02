@@ -1,5 +1,6 @@
 'use client';
-import { axiosInstance } from '@/lib/helper/fetch';
+import { axiosInstance } from '@/lib/helper/axios-api';
+import { genderOptions } from '@/lib/helper/options';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
@@ -58,8 +59,11 @@ const RegisterForm = () => {
 			};
 			const response: any = await axiosInstance.post('/signup', payload);
 			toast.success(response.data.message ?? 'Sign Up Successful');
-			await signIn('signup', { ...response.data.data, redirect: false });
-			router.push(`/get-intro?gender=${payload.gender}`);
+			await signIn('signup', {
+				...response.data.data,
+				redirect: true,
+				callbackUrl: `/get-intro?gender=${payload.gender}`,
+			});
 		} catch (error: any) {
 			const message = error?.response?.data?.message ?? 'Error Found';
 			toast.error(String(message));
@@ -77,11 +81,13 @@ const RegisterForm = () => {
 				label="First Name"
 				register={register}
 				errors={errors}
+				left
 			/>
 			<Input
 				name="last_name"
 				label="Last Name"
 				register={register}
+				left
 				errors={errors}
 			/>
 			<Input
@@ -89,23 +95,15 @@ const RegisterForm = () => {
 				name="email"
 				label="Email"
 				register={register}
+				left
 				errors={errors}
 			/>
 			<Input
 				type="select"
 				name="gender"
+				left
 				label="Gender"
-				options={[
-					{ value: 'male', label: 'Male' },
-					{
-						value: 'female',
-						label: 'Female',
-					},
-					{
-						value: 'other',
-						label: 'Other',
-					},
-				]}
+				options={genderOptions}
 				register={register}
 				errors={errors}
 			/>
@@ -113,11 +111,12 @@ const RegisterForm = () => {
 				type="password"
 				name="password"
 				register={register}
+				left
 				label="Password"
 				errors={errors}
 				footer={
 					<Link
-						className="text-right text-[#F1D7B5]"
+						className="text-right text-textPrimary"
 						href="/forgot-password"
 					>
 						Forgot Password
@@ -128,7 +127,7 @@ const RegisterForm = () => {
 				<BasicButton
 					disabled={loading}
 					type="submit"
-					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full xl:!w-max"
+					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full xl:!w-max bg-secondary text-primary"
 				>
 					{loading ? (
 						<FaSpinner
@@ -138,10 +137,10 @@ const RegisterForm = () => {
 					) : null}
 					Create Account
 				</BasicButton>
-				<span className="text-[12px] text-white flex items-center gap-1">
+				<span className="text-[12px] text-textPrimary flex items-center gap-1">
 					Already have an account?
 					<Link
-						className="text-[#F1D7B5] cursor-pointer"
+						className="text-secondary cursor-pointer font-bold"
 						href="/login"
 					>
 						Sign In

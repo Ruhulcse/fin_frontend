@@ -14,7 +14,7 @@ const Multiselect = ({ options, control, name }: any) => {
 			control={control}
 			render={({ field }: any) => (
 				<Select
-					className="w-full bg-[#33393F] text-[#ececec] rounded py-1 outline-none text-end react-multi-select"
+					className="w-full bg-card text-textPrimary rounded py-1 outline-none text-end react-multi-select"
 					{...field}
 					isMulti
 					options={options}

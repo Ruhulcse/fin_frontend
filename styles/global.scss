@@ -12,7 +12,7 @@
 
 // add global styles here
 body {
-	background: #22272c;
+	@apply bg-primary text-textPrimary;
 	scroll-behavior: smooth;
 }
 input:-webkit-autofill,
@@ -20,7 +20,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
 	transition: background-color 5000s ease-in-out 0s;
-	-webkit-text-fill-color: #ececec !important;
+	-webkit-text-fill-color: #222222 !important;
 }
 .basic-input .input-area {
 	input[type='date']::-webkit-calendar-picker-indicator {
@@ -39,16 +39,19 @@ input:-webkit-autofill:active {
 		appearance: none;
 	}
 }
+.simple-basic-input {
+	@apply bg-[#00000000] text-center border-b-2 xl:border-b-4 border-textPrimary w-[60px] xl:w-[100px] outline-0;
+}
 .auth-header {
 	@apply relative mb-4;
 	span {
-		@apply text-[15px] block relative w-max m-auto px-[20px] xl:px-[30px] z-10 bg-primary xl:bg-[#292E33];
+		@apply text-[15px] leading-[15px] bg-card block relative w-max m-auto px-[6px] xl:px-[12px] z-10;
 	}
 	.line {
-		height: 1px;
-		border-bottom: 1px solid #33393f;
+		height: 0.5px;
+		border-bottom: 1px solid;
 		width: 100%;
-		@apply absolute z-[5px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+		@apply border-textPrimary  absolute z-[5] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 	}
 }
 .abs-center {
@@ -64,9 +67,9 @@ input:-webkit-autofill:active {
 	@apply min-h-dvh;
 }
 .section-title {
+	@apply text-textPrimary;
 	font-size: 36px;
 	font-weight: 700;
-	color: white;
 	@media (max-width: 1024px) {
 		font-size: 30px;
 	}
@@ -75,9 +78,9 @@ input:-webkit-autofill:active {
 	}
 }
 .semi-section-title {
+	@apply text-textPrimary;
 	font-size: 28px;
 	font-weight: 700;
-	color: white;
 	@media (max-width: 1024px) {
 		font-size: 22px;
 	}
@@ -89,8 +92,8 @@ input:-webkit-autofill:active {
 	* {
 		outline: none !important;
 		border: none !important;
-		background-color: #33393f !important;
-		color: #ececec !important;
+		background-color: #FAEAEB !important;
+		color: #222222 !important;
 		text-align: end !important;
 		box-shadow: none !important;
 		&:active {

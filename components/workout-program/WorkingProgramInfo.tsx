@@ -6,7 +6,7 @@ const WorkingProgramInfo = ({ workProgramDetails }: any) => {
 			<h3 className="section-title text-center">Bicep Curl</h3>
 			<WorkingProgramInfoHeader img={workProgramDetails?.img} />
 			<div className="workout-description">
-				{workProgramDetails?.description ??
+				{workProgramDetails?.workout_description ??
 					`Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam cumque
 				porro minima quam, qui reprehenderit veniam voluptas officiis animi sunt
 				corrupti vitae iure nisi tempora placeat exercitationem quae at cum

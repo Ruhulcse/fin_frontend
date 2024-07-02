@@ -1,8 +1,8 @@
 .home {
-	@apply grid grid-cols-[1fr_1fr] gap-8;
+	@apply grid sm:grid-cols-[1fr_1fr] gap-8;
 }
 .home-card {
-	@apply bg-[#33393F] rounded-lg px-4 py-8;
+	@apply bg-card text-textPrimary rounded-lg px-4 py-8;
 	@media (max-width: 768px) {
 		@apply px-2 py-6;
 	}
@@ -28,20 +28,19 @@
 		.measurement {
 			@apply grid gap-1;
 			h4 {
-				@apply font-bold text-lg;
+				@apply font-bold;
 			}
 			.size {
 				@apply flex items-center justify-center gap-1;
 			}
 			@media (max-width: 1024px) {
-				@apply gap-2.5;
 				h4 {
-					font-size: 16px;
-					line-height: 16px;
-				}
-				span {
 					font-size: 14px;
 					line-height: 14px;
+				}
+				span {
+					font-size: 10px;
+					line-height: 10px;
 				}
 			}
 			@media (max-width: 768px) {
@@ -63,7 +62,7 @@
 		@apply grid place-content-center grid-cols-[max-content_max-content] gap-2;
 		.target {
 			strong {
-				color: #868686;
+				@apply text-textSecondary;
 			}
 		}
 		@media (max-width: 1024px) {

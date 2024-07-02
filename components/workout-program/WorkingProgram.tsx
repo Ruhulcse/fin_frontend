@@ -11,16 +11,16 @@ const WorkingProgram = ({ workoutProgram }: any) => {
 			/>
 			<div className="workout-info">
 				<h4 className="workout-program-title">
-					{workoutProgram.title ?? 'The Total Attack'}
+					{workoutProgram.workout_name ?? 'The Total Attack'}
 				</h4>
 				<div className="actions">
-					<Link href="/workout-program/view/232">
-						<BasicButton extraClasses="!w-full border-[#F1D7B5] bg-[#00000000]">
+					<Link href={`/workout-program/view/${workoutProgram.workout_id}`}>
+						<BasicButton extraClasses="!w-full border-[#FAEAEB] text-[#FAEAEB] bg-[#ffffff00]">
 							View Workout
 						</BasicButton>
 					</Link>
-					<Link href="/workout-program/start/232">
-						<BasicButton extraClasses="!w-full backdrop-blur-sm bg-white/20">
+					<Link href={`/workout-program/start/${workoutProgram.workout_id}`}>
+						<BasicButton extraClasses="!w-full backdrop-blur-sm text-[#FAEAEB] bg-white/20">
 							Start Workout
 						</BasicButton>
 					</Link>

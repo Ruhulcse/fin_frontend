@@ -5,13 +5,6 @@ import { ReactNode } from 'react';
 import { TbSquareArrowLeft } from 'react-icons/tb';
 
 const CardDiv = styled.button`
-	background: #f1d7b50d;
-	border: 1px solid;
-	border-image-source: linear-gradient(
-		94.01deg,
-		rgba(139, 124, 104, 0) -19.21%,
-		rgba(241, 215, 181, 0.5) 359.35%
-	);
 	border-radius: 5px;
 	padding: 16px 20px;
 	width: 100%;
@@ -31,19 +24,24 @@ const CardDiv = styled.button`
 const BasicCard = ({
 	children,
 	icon,
-	link = '#',
+	link = '',
 }: {
 	children: React.ReactNode;
 	link?: string;
 	icon?: ReactNode;
 }) => {
-	return (
+	return link ? (
 		<Link href={link}>
-			<CardDiv>
+			<CardDiv className="bg-card border border-card text-textPrimary">
 				{icon ?? <TbSquareArrowLeft size={24} />}
 				<div className="info">{children}</div>
 			</CardDiv>
 		</Link>
+	) : (
+		<CardDiv className="bg-card border border-card text-textPrimary">
+			{icon ?? <TbSquareArrowLeft size={24} />}
+			<div className="info">{children}</div>
+		</CardDiv>
 	);
 };
 

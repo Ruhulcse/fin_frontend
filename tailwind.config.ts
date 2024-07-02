@@ -8,9 +8,13 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-      colors: {
-        primary: '#22272c',
-      },
+			colors: {
+				primary: '#ffffff',
+				secondary: '#D12B28',
+				card: '#FAEAEB',
+				textPrimary: '#222222',
+				textSecondary: '#777777',
+			},
 			container: {
 				center: true,
 				padding: '1rem',

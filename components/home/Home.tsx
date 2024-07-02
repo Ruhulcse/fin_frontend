@@ -1,11 +1,14 @@
+import { authOptions } from '@/lib/auth-options';
+import { getServerSession } from 'next-auth';
 import Measurements from './Measurements';
 import Steps from './Steps';
 import Todos from './Todos';
 
-const Home = () => {
+const Home = async () => {
+	const { user }: any = await getServerSession(authOptions());
 	return (
 		<section className="home">
-			<Measurements />
+			<Measurements userId={user?.id} />
 			<Steps />
 			<Todos />
 		</section>

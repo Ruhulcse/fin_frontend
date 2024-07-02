@@ -40,7 +40,11 @@ const LoginForm = () => {
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		try {
 			setLoading(true);
-			const res = await signIn('login', { ...data, redirect: false });
+			const res = await signIn('login', {
+				...data,
+				redirect: true,
+				callbackUrl: '/',
+			});
 			if (res?.error) throw new Error();
 			if (res?.status === 200) {
 				router.push('/');
@@ -64,6 +68,7 @@ const LoginForm = () => {
 				label="Email"
 				register={register}
 				errors={errors}
+				left
 			/>
 			<Input
 				type="password"
@@ -71,9 +76,10 @@ const LoginForm = () => {
 				label="Password"
 				register={register}
 				errors={errors}
+				left
 				footer={
 					<Link
-						className="text-right text-[#F1D7B5]"
+						className="text-right text-textPrimary"
 						href="/forgot-password"
 					>
 						Forgot Password
@@ -84,7 +90,7 @@ const LoginForm = () => {
 				<BasicButton
 					type="submit"
 					disabled={loading}
-					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full xl:!w-max"
+					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full xl:!w-max bg-secondary text-primary"
 				>
 					{loading ? (
 						<FaSpinner
@@ -94,10 +100,10 @@ const LoginForm = () => {
 					) : null}
 					Login
 				</BasicButton>
-				<span className="text-[12px] text-white flex items-center gap-1">
+				<span className="text-[12px] text-textPrimary flex items-center gap-1">
 					Don&apos;t have an account?
 					<Link
-						className="text-[#F1D7B5] cursor-pointer"
+						className="text-secondary cursor-pointer font-bold"
 						href="/registration"
 					>
 						Sign Up

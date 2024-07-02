@@ -1,9 +1,16 @@
 'use client';
+import { cn } from '@/lib/utils';
 import ReactPlayer from 'react-player';
 
-const Player = ({ src = '' }: { src: string }) => {
+const Player = ({
+	src = '',
+	extraClasses = '',
+}: {
+	src: string;
+	extraClasses?: string;
+}) => {
 	return (
-		<div className="rounded-lg overflow-hidden">
+		<div className={cn('rounded-lg overflow-hidden', extraClasses)}>
 			<ReactPlayer
 				url={src}
 				width={'100%'}

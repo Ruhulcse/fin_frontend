@@ -1,13 +1,15 @@
 'use client';
 import useOutsideClick from '@/hooks/useOutsideClick';
 import { logoutHandler } from '@/lib/helper/common';
-import { menus } from '@/lib/menu';
+import { menus, menusForNew } from '@/lib/menu';
+import { useSession } from 'next-auth/react';
 import { useRef } from 'react';
 import { IoIosLogOut, IoMdCloseCircleOutline } from 'react-icons/io';
 import { RiMenu5Fill } from 'react-icons/ri';
 import NavLink from './NavLink';
 
 const Sidebar = () => {
+	const session: any = useSession();
 	const sidebar: any = useRef();
 
 	const sidebarOpen = () => {
@@ -31,7 +33,7 @@ const Sidebar = () => {
 			<div
 				ref={sidebar}
 				id="sidebar"
-				className="p-4 border border-primary border-r bg-[#292E33] fixed right-[-240px] top-0 bottom-0 w-[240px] grid grid-rows-[auto_1fr_auto] gap-2 transition-all duration-300"
+				className="p-4 border-l text-white border-primary border-r bg-secondary fixed right-[-240px] top-0 bottom-0 w-[240px] grid grid-rows-[auto_1fr_auto] gap-2 transition-all duration-300"
 			>
 				<button
 					onClick={sidebarClose}
@@ -40,20 +42,23 @@ const Sidebar = () => {
 					<IoMdCloseCircleOutline size={32} />
 				</button>
 				<ul className="sidebar-links flex flex-col gap-2">
-					{menus.map((menu) => (
-						<li key={menu.path}>
-							<NavLink
-								extraClasses="font-semibold"
-								href={menu.path}
-							>
-								{menu.name}
-							</NavLink>
+					{(session?.data?.user.new_user ? menusForNew : menus).map((menu) => (
+						<li
+							key={menu.path}
+							className="border-b border-card py-0.5"
+						>
+							<NavLink href={menu.path}>{menu.name}</NavLink>
 						</li>
 					))}
+					{session?.data?.user?.role === 'admin' && (
+						<li className="border-b border-card py-0.5">
+							<NavLink href="/admin">Admin Dashboard</NavLink>
+						</li>
+					)}
 				</ul>
 				<button
 					onClick={logoutHandler}
-					className="logout rounded bg-[#F1D7B51A] text-[#F1D7B5] p-[6px_18px] flex items-center justify-center gap-2"
+					className="logout rounded bg-card text-secondary p-[6px_18px] flex items-center justify-center gap-2"
 				>
 					<span>Log Out</span> <IoIosLogOut size={20} />
 				</button>

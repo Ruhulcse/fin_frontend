@@ -6,7 +6,7 @@ const RootError = ({
 	reset: () => void;
 }) => {
 	return (
-		<div className="grid place-content-center h-screen text-white">
+		<main className="grid place-content-center h-screen bg-primary text-textPrimary">
 			<div className="text-center">
 				<h2>{error?.message ?? 'Error Found'}</h2>
 				<button
@@ -16,7 +16,7 @@ const RootError = ({
 					Try again
 				</button>
 			</div>
-		</div>
+		</main>
 	);
 };
 

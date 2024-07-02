@@ -1,22 +1,13 @@
-import { serverAuthFetch } from '@/lib/helper/fetch';
+'use client';
+import { useGetExerciseQuery } from '@/store/features/exercise/api';
 import ExerciseForm from './ExerciseForm';
 
-export const getDetailsInfo = async (id: string) => {
-	try {
-		const res = await serverAuthFetch(`/${id}`, {
-			next: { revalidate: 0 },
-		});
-		if (!res.ok) {
-			throw new Error('Failed to fetch data');
-		}
-		return res.json();
-	} catch (error) {
-		console.log('error', error);
-	}
-};
-const ExerciseEdit = async ({ id }: { id: string }) => {
-	const exercise = await getDetailsInfo(id);
-
+const ExerciseEdit = ({ id }: { id: string }) => {
+	const { data = {} } = useGetExerciseQuery(id, {
+		skip: !id,
+		refetchOnMountOrArgChange: true,
+	});
+	const { data: exercise = {} } = data || {};
 	return (
 		<section className="edit-exercise grid gap-4 xl:gap-8">
 			<h3 className="section-title text-right">Edit Exercise</h3>

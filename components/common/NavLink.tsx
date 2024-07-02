@@ -21,7 +21,7 @@ const NavLink = ({
 			href={href}
 			className={
 				(exact ? href === pathName : href.includes(pathName))
-					? `${cn('font-semibold text-[#F1D7B5]', extraClasses)}`
+					? `${cn('font-bold', extraClasses)}`
 					: `${cn(extraClasses)}`
 			}
 		>

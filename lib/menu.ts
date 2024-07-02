@@ -31,8 +31,23 @@ export const menus = [
 		name: 'Nutrition Guides',
 		path: '/nutrition-guides',
 	},
+];
+
+export const menusForNew = [
 	{
-		name: 'Admin Dashboard',
-		path: '/admin',
+		name: 'Home',
+		path: '/',
+	},
+	{
+		name: 'Recipes',
+		path: '/recipes',
+	},
+	{
+		name: 'Courses',
+		path: '/courses',
+	},
+	{
+		name: 'Agreements',
+		path: '/agreements',
 	},
 ];

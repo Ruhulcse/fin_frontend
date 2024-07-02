@@ -16,6 +16,10 @@ const Input = ({
 	control,
 	errors = {},
 	options = [],
+	left = false,
+	accept = '',
+	resetField,
+	onClick,
 }: {
 	type?: string;
 	extraClasses?: string;
@@ -27,36 +31,57 @@ const Input = ({
 	control?: any;
 	errors?: any;
 	options?: { value: string; label: string }[];
+	left?: boolean;
+	accept?: string;
+	resetField?: any;
+	onClick?: any;
 }) => {
 	const [passwordHidden, setPasswordHidden] = useState(true);
 	return (
-		<div className={cn('basic-input grid gap-2 text-white', extraClasses)}>
+		<div
+			className={cn(
+				'basic-input text-white',
+				extraClasses,
+				type === 'checkbox'
+					? 'flex flex-row-reverse items-center gap-2'
+					: 'grid gap-2'
+			)}
+		>
 			{label ? (
 				<label
-					className="text-right"
+					className={cn('text-textPrimary', left ? '' : 'text-right')}
 					htmlFor={name}
 				>
 					{label}
 				</label>
 			) : null}
-			<div className="input-area relative text-[#33393F]">
+			<div className="input-area relative text-textPrimary">
 				{type === 'password' ? (
 					passwordHidden ? (
 						<FaEyeSlash
 							onClick={() => setPasswordHidden(false)}
-							className="fa-solid cursor-pointer absolute left-3 top-1/2 -translate-y-1/2"
+							className={cn(
+								'fa-solid cursor-pointer absolute top-1/2 -translate-y-1/2',
+								left ? 'right-3' : 'left-3'
+							)}
 						/>
 					) : (
 						<FaEye
 							onClick={() => setPasswordHidden(true)}
-							className="fa-solid cursor-pointer absolute left-3 top-1/2 -translate-y-1/2"
+							className={cn(
+								'fa-solid cursor-pointer absolute top-1/2 -translate-y-1/2',
+								left ? 'right-3' : 'left-3'
+							)}
 						/>
 					)
 				) : null}
-				{prefix ?? null}
+				{!left ? <>{prefix ?? null}</> : null}
 				{type === 'select' ? (
 					<select
-						className="w-full bg-[#33393F] text-[#ececec] rounded px-3 py-2 outline-none text-end"
+						className={cn(
+							'w-full text-textPrimary rounded px-3 py-2 outline-none',
+							left ? 'bg-primary text-left' : 'bg-card text-end'
+						)}
 						id={name}
 						name={name}
 						{...register(name)}
@@ -73,7 +98,8 @@ const Input = ({
 				) : type === 'textarea' ? (
 					<textarea
 						className={cn(
-							`w-full bg-[#33393F] text-[#ececec] rounded px-3 py-2 outline-none text-end`
+							`w-full text-textPrimary rounded px-3 py-2 outline-none text-end`,
+							left ? 'bg-primary text-left' : 'bg-card text-end'
 						)}
 						id={name}
 						name={name}
@@ -83,6 +109,10 @@ const Input = ({
 					<FileInput
 						register={register}
 						name={name}
+						accept={accept}
+						resetField={resetField}
+						control={control}
+						onClick={onClick}
 					/>
 				) : type === 'multi-select' ? (
 					<Multiselect
@@ -93,7 +123,8 @@ const Input = ({
 				) : (
 					<input
 						className={cn(
-							`w-full bg-[#33393F] text-[#ececec] rounded px-3 py-2 outline-none text-end`
+							`w-full  test-textPrimary rounded px-3 py-2 outline-none text-end`,
+							left ? 'bg-primary text-left' : 'bg-card text-end'
 						)}
 						id={name}
 						name={name}
@@ -101,9 +132,12 @@ const Input = ({
 						type={!passwordHidden && type === 'password' ? 'text' : type}
 					/>
 				)}
+				{left ? <>{prefix ?? null}</> : null}
 			</div>
 			{errors[name] ? (
-				<p className="text-right text-red-500">{errors[name]?.message}</p>
+				<p className={cn(' text-red-500', left ? 'text-left' : 'text-right')}>
+					{errors[name]?.message}
+				</p>
 			) : null}
 			{footer ?? null}
 		</div>

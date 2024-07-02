@@ -3,13 +3,13 @@
 	.agreement {
 		@apply grid gap-4;
 		h4 {
-			@apply text-lg font-bold text-right;
+			@apply text-lg font-bold text-right text-textPrimary;
 			@media (max-width: 640px) {
 				@apply text-sm;
 			}
 		}
 		.agreement-pdf {
-			@apply bg-[#33393F] grid items-center justify-center rounded-lg gap-2 px-4 py-6;
+			@apply bg-card grid items-center justify-center rounded-lg gap-2 px-4 py-6;
 			@media (max-width: 640px) {
 				@apply gap-1 px-2 py-4;
 			}
@@ -17,13 +17,13 @@
 				@apply text-center mx-auto;
 			}
 			strong {
-				@apply text-white;
+				@apply text-textPrimary;
 				@media (max-width: 640px) {
 					@apply text-xs;
 				}
 			}
 			span {
-				@apply text-[#F1D7B5];
+				@apply text-textSecondary;
 				@media (max-width: 640px) {
 					@apply text-xs;
 				}

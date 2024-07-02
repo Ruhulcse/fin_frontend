@@ -12,7 +12,7 @@ const SelectInput = ({
 }) => {
 	return (
 		<select
-			className="bg-[#33393F] rounded-full px-3 py-1 outline-none"
+			className="bg-card text-textPrimary rounded-full px-3 py-1 outline-none"
 			name="type"
 			onChange={changeHandler}
 		>

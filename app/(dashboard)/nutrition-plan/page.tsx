@@ -1,7 +1,7 @@
-import NutritionPlan from '@/components/nutrition-plan/NutritionPlan';
+import NutritionPlans from '@/components/nutrition-plan/NutritionPlans';
 
 const Page = () => {
-	return <NutritionPlan />;
+	return <NutritionPlans />;
 };
 
 export default Page;

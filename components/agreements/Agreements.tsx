@@ -1,18 +1,17 @@
 import {
 	generateDataFromServer,
 	nextProperties,
-	serverAuthFetch,
-} from '@/lib/helper/fetch';
+} from '@/lib/helper/server-fetch';
 import Agreement from './Agreement';
 
 const Agreements = async () => {
-	const agreements = await generateDataFromServer(
-		'agreements',
+	const { data: agreements = [] } = await generateDataFromServer(
+		'users/agreements',
 		nextProperties(0)
 	);
 	return (
 		<section className="agreements">
-			{[{}, {}, {}, {}, {}, {}].map((agreement: any, index: number) => (
+			{agreements?.map((agreement: any, index: number) => (
 				<Agreement
 					agreement={agreement}
 					key={index}

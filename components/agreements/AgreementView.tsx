@@ -1,23 +1,26 @@
-import { serverAuthFetch } from '@/lib/helper/fetch';
-import PdfView from '../common/PdfView';
-
-export const getDetailsInfo = async (id: string) => {
-	try {
-		const res = await serverAuthFetch(`/${id}`, {
-			next: { revalidate: 0 },
-		});
-		if (!res.ok) {
-			throw new Error('Failed to fetch data');
-		}
-		return res.json();
-	} catch (error) {
-		console.log('error', error);
-	}
-};
+import {
+	generateDataFromServer,
+	nextProperties,
+} from '@/lib/helper/server-fetch';
+import AgreementUserInfo from './AgreementUserInfo';
 
 const AgreementView = async ({ id }: { id: string }) => {
-	const agreementDetails = await getDetailsInfo(id);
-	return <PdfView pdf={agreementDetails?.pdf} />;
+	const { data: agreement = [] } = await generateDataFromServer(
+		`users/agreements?user_id=${id}`,
+		nextProperties(0)
+	);
+	const agreementDetails = agreement[0] || {};
+	return (
+		<section className="nutrition-plan grid gap-2 xl:gap-4 grid-cols_[auto_auto_1fr] min-h-full">
+			<h3 className="section-title text-right">User Agreement Info</h3>
+			<h4 className="semi-section-title text-right">
+				{agreementDetails?.name ?? ''}
+			</h4>
+			{agreementDetails ? (
+				<AgreementUserInfo userDetails={agreementDetails} />
+			) : null}
+		</section>
+	);
 };
 
 export default AgreementView;

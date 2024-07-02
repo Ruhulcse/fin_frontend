@@ -1,23 +1,31 @@
-import { serverAuthFetch } from '@/lib/helper/fetch';
+'use client';
+import { useGetNutritionPlanQuery } from '@/store/features/nutrition-plans/api';
 import PdfView from '../common/PdfView';
 
-export const getDetailsInfo = async (id: string) => {
-	try {
-		const res = await serverAuthFetch(`/${id}`, {
-			next: { revalidate: 0 },
-		});
-		if (!res.ok) {
-			throw new Error('Failed to fetch data');
-		}
-		return res.json();
-	} catch (error) {
-		console.log('error', error);
-	}
-};
-
-const NutritionPlanView = async ({ id }: { id: string }) => {
-	const nutritionPlan = await getDetailsInfo(id);
-	return <PdfView pdf={nutritionPlan?.pdf} />;
+const NutritionPlanView = ({ id }: { id: string }) => {
+	const { data = {} } = useGetNutritionPlanQuery(id, {
+		skip: !id,
+		refetchOnMountOrArgChange: true,
+	});
+	const { data: nutritionPlan = {} } = data || {};
+	console.log('nutritionPlan', nutritionPlan);
+	return (
+		<>
+			<section className="nutrition-plan grid gap-2 xl:gap-4 grid-rows-[auto_auto_1fr] min-h-full">
+				<h3 className="section-title text-right">
+					{nutritionPlan?.name ?? ''}
+				</h3>
+				<p className="nutrition-plan-info text-right text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px]">
+					{nutritionPlan?.description ?? ''}
+				</p>
+				{nutritionPlan?.pdf_link ? (
+					<div className="img-area bg-card rounded-lg grid place-items-center mt-4 xl:mt-8 px-4 py-8 xl:p-6 xl:py-24 h-full">
+						<PdfView pdf={nutritionPlan?.pdf_link} />
+					</div>
+				) : null}
+			</section>
+		</>
+	);
 };
 
 export default NutritionPlanView;

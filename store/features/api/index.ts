@@ -1,6 +1,7 @@
 import { logoutHandler } from '@/lib/helper/common';
 import { getCookieValue } from '@/lib/helper/server-func';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { toast } from 'sonner';
 
 const baseQuery = fetchBaseQuery({
 	baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/api/`,
@@ -18,6 +19,7 @@ const apiSlice = createApi({
 	baseQuery: async (args, api, extraOptions) => {
 		let result = await baseQuery(args, api, extraOptions);
 		if (result?.error?.status === 401) {
+			toast.error('Unauthorized');
 			await logoutHandler();
 		}
 		return result;

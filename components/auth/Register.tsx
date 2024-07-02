@@ -4,10 +4,7 @@ import RegisterForm from './RegisterForm';
 const Register = () => {
 	return (
 		<>
-			<AuthHeader
-				title="Getting Started"
-				subTitle="Create an account to continue!"
-			/>
+			<AuthHeader title="Easy to Start!" />
 			<RegisterForm />
 		</>
 	);

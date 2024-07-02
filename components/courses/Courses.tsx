@@ -1,4 +1,7 @@
-import { generateDataFromServer, nextProperties, serverAuthFetch } from '@/lib/helper/fetch';
+import {
+	generateDataFromServer,
+	nextProperties,
+} from '@/lib/helper/server-fetch';
 import Link from 'next/link';
 import BasicButton from '../common/BasicButton';
 import Course from './Course';

@@ -8,11 +8,13 @@ const Modal = ({
 	open,
 	closeExtraClasses = '',
 	children,
+	extraIconClasses = '',
 	closeModal,
 }: {
 	open: boolean;
 	closeExtraClasses?: string;
 	children: ReactNode;
+	extraIconClasses?: string;
 	closeModal?: () => void;
 }) => {
 	const [mounted, setMounted] = useState(false);
@@ -28,10 +30,16 @@ const Modal = ({
 					></div>
 					<div className="modal-content">
 						<button
-							className={cn('modal-close text-primary', closeExtraClasses)}
+							className={cn(
+								'modal-close text-primary z-[1000]',
+								closeExtraClasses
+							)}
 							onClick={closeModal}
 						>
-							<IoCloseCircleSharp size={32} />
+							<IoCloseCircleSharp
+								className={cn(extraIconClasses)}
+								size={32}
+							/>
 						</button>
 						{children}
 					</div>

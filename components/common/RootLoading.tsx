@@ -1,6 +1,8 @@
 const RootLoading = () => {
 	return (
-		<div className="grid place-items-center h-screen text-white">loading</div>
+		<main className="grid place-items-center h-screen bg-primary text-textPrimary">
+			loading
+		</main>
 	);
 };
 

@@ -1,96 +1,199 @@
 'use client';
 import BasicButton from '@/components/common/BasicButton';
 import Input from '@/components/common/input/Input';
+import { getError } from '@/lib/helper/common';
+import {
+	useAddWorkoutMutation,
+	useEditWorkoutMutation,
+} from '@/store/features/workout/api';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { FaEdit } from 'react-icons/fa';
+import { FaSpinner } from 'react-icons/fa6';
+import { toast } from 'sonner';
 import * as yup from 'yup';
+import AddExerciseForWorkout from './AddExerciseForWorkout';
 type Inputs = {
-	name: string;
-	description: string;
-	exercises: any[];
+	workout_name: string;
+	workout_description: string;
 };
 
 const schema = yup.object({
-	name: yup
+	workout_name: yup
 		.string()
 		.required('Please enter name')
 		.min(3, 'Name must be at least 3 characters.'),
-	description: yup
+	workout_description: yup
 		.string()
 		.required('Please enter description')
 		.min(3, 'Description must be at least 3 characters.'),
-	exercises: yup
-		.array()
-		.min(1, 'Please enter exercises')
-		.required('Please enter exercises'),
 });
-const WorkoutForm = ({ workout }: { workout?: any }) => {
+const WorkoutForm = ({
+	workout,
+	traineeId,
+}: {
+	workout?: any;
+	traineeId: string;
+}) => {
 	const router = useRouter();
+	const [exercises, setExercises] = useState([]);
+	const [editExercise, setEditExercise] = useState({});
+	const [addExercise, setAddExercise] = useState(false);
 	const {
 		register,
 		handleSubmit,
 		setValue,
-		control,
 		formState: { errors },
 	} = useForm<Inputs>({
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit: SubmitHandler<Inputs> = (data) => {
-		router.push('/workout-program');
+	const [
+		addWorkout,
+		{
+			isLoading: addWorkoutLoading,
+			error: addWorkoutError,
+			isError: addWorkoutIsError,
+			isSuccess: addWorkoutIsSuccess,
+		},
+	] = useAddWorkoutMutation();
+	const [
+		updateWorkout,
+		{
+			isLoading: updateWorkoutLoading,
+			error: updateWorkoutError,
+			isError: updateWorkoutIsError,
+			isSuccess: updateWorkoutIsSuccess,
+		},
+	] = useEditWorkoutMutation();
+
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
+		if (exercises.length > 0) {
+			const payload = {
+				...data,
+				user_id: Number(traineeId),
+				training: exercises.map((exercise: any) => {
+					const { exercise_name, ...rest } = exercise;
+					return rest;
+				}),
+			};
+			if (workout?.workout_id) {
+				await updateWorkout({
+					data: payload,
+					id: workout.workout_id,
+				});
+			} else {
+				await addWorkout(payload);
+			}
+		} else {
+			toast.error('Please add atleast one exercise');
+		}
 	};
 
 	useEffect(() => {
-		if (workout?.id) {
-			setValue('name', workout.name);
-			setValue('description', workout.description);
+		if (workout?.workout_id) {
+			setValue('workout_name', workout.workout_name);
+			setValue('workout_description', workout.workout_description);
 		}
 	}, [workout, setValue]);
+
+	useEffect(() => {
+		if (updateWorkoutIsError || addWorkoutIsError) {
+			toast.error(getError(updateWorkoutError || addWorkoutError));
+		} else if (updateWorkoutIsSuccess || addWorkoutIsSuccess) {
+			toast.success(
+				`Workout ${workout?.workout_id ? 'updated' : 'added'} successfully`
+			);
+			router.refresh();
+			router.back();
+		}
+	}, [
+		addWorkoutError,
+		addWorkoutIsError,
+		addWorkoutIsSuccess,
+		router,
+		updateWorkoutError,
+		updateWorkoutIsError,
+		updateWorkoutIsSuccess,
+		workout?.workout_id,
+	]);
 	return (
-		<form
-			className="grid gap-2 xl:gap-4"
-			onSubmit={handleSubmit(onSubmit)}
-		>
-			<Input
-				type="text"
-				name="name"
-				label="Name"
-				register={register}
-				errors={errors}
-			/>
-			<Input
-				type="textarea"
-				name="description"
-				label="Description"
-				register={register}
-				errors={errors}
-			/>
-			<Input
-				type="multi-select"
-				name="exercises"
-				label="Exercises"
-				control={control}
-				options={[
-					{
-						label: 'E1',
-						value: 'e1',
-					},
-					{
-						label: 'E2',
-						value: 'e2',
-					},
-				]}
-				errors={errors}
-			/>
-			<BasicButton
-				type="submit"
-				extraClasses="!m-0 !w-full !mt-6"
+		<>
+			<form
+				className="grid gap-2 xl:gap-4"
+				onSubmit={handleSubmit(onSubmit)}
 			>
-				{workout?.id ? 'Update' : 'Save'} Workout
-			</BasicButton>
-		</form>
+				<Input
+					type="text"
+					name="workout_name"
+					label="Name"
+					register={register}
+					errors={errors}
+				/>
+				<Input
+					type="textarea"
+					name="workout_description"
+					label="Description"
+					register={register}
+					errors={errors}
+				/>
+				{exercises.length > 0 ? (
+					<>
+						<h4 className="semi-section-title text-right">Exercise List</h4>
+						{exercises.map((exercise: any, index: number) => (
+							<section
+								key={index}
+								className="exercise-info bg-card flex items-center justify-between gap-2 p-4 rounded text-textPrimary"
+							>
+								<button
+									onClick={() => {
+										setAddExercise(true);
+										setEditExercise(exercise);
+									}}
+								>
+									<FaEdit />
+								</button>
+								<h3>{exercise?.exercise_name ?? 'How to do push up'}</h3>
+							</section>
+						))}
+					</>
+				) : null}
+
+				<div className="flex items-center gap-2">
+					<BasicButton
+						disabled={updateWorkoutLoading || addWorkoutLoading}
+						onClick={() => setAddExercise(true)}
+						hard
+						extraClasses="!m-0 !w-full !mt-6"
+					>
+						Add Exercise
+					</BasicButton>
+					<BasicButton
+						disabled={updateWorkoutLoading || addWorkoutLoading}
+						type="submit"
+						extraClasses="flex items-center justify-center gap-2 !m-0 !w-full !mt-6"
+					>
+						{updateWorkoutLoading || addWorkoutLoading ? (
+							<FaSpinner
+								className="animate-spin"
+								size={16}
+							/>
+						) : null}
+						{workout?.id ? 'Update' : 'Save'} Workout
+					</BasicButton>
+				</div>
+			</form>
+			<AddExerciseForWorkout
+				setExercises={setExercises}
+				addExercise={addExercise}
+				setAddExercise={setAddExercise}
+				exercises={exercises}
+				editExercise={editExercise}
+				setEditExercise={setEditExercise}
+			/>
+		</>
 	);
 };
 

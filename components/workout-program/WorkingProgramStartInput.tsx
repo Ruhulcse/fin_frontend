@@ -1,56 +1,65 @@
 'use client';
 
-import { ChangeEvent, useState } from 'react';
+import { cn } from '@/lib/utils';
+import { ChangeEvent } from 'react';
 
-const WorkingProgramStartInput = ({ workProgramDetails }: any) => {
-	const [inputs, setInputs] = useState({});
-
+const WorkingProgramStartInput = ({
+	workProgramDetails,
+	extraClass,
+	setUpdatedData,
+}: any) => {
 	const stateChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
-		setInputs((prev) => ({ ...prev, [name]: value }));
+		setUpdatedData((prev: any) => ({
+			...prev,
+			exercises: { ...prev.exercises, [name]: Number(value) ?? 0 },
+		}));
 	};
 
 	return (
-		<section className="work-start-input">
+		<section className={cn('work-start-input', extraClass)}>
 			<div className="flex-center-between work-input-header">
-				<h3 className="section-title">Target</h3>
 				<h3 className="section-title">Done</h3>
+				<h3 className="section-title">Target</h3>
 			</div>
 			<div className="start-input-area">
 				<div className="flex-center-between input">
 					<input
-						type="text"
-						name="sets"
+						type="number"
+						name="sets_done"
+						min={0}
 						onChange={stateChangeHandler}
-						defaultValue={5}
+						defaultValue={workProgramDetails?.sets_done ?? 0}
 					/>
 					<div className="start-info">
-						<strong>Steps</strong>
-						<small>{workProgramDetails?.sets ?? 5}</small>
+						<strong>Sets</strong>
+						<small>{workProgramDetails?.sets_to_do ?? 0}</small>
 					</div>
 				</div>
 				<div className="flex-center-between input">
 					<input
-						type="text"
-						name="reps"
+						type="number"
+						name="reps_done"
+						min={0}
 						onChange={stateChangeHandler}
-						defaultValue={8}
+						defaultValue={workProgramDetails?.reps_done ?? 0}
 					/>
 					<div className="start-info">
 						<strong>Reps</strong>
-						<small>{workProgramDetails?.reps ?? 8}</small>
+						<small>{workProgramDetails?.reps_to_do ?? 0}</small>
 					</div>
 				</div>
 				<div className="flex-center-between input">
 					<input
-						type="text"
-						name="weight"
-						defaultValue={80}
+						type="number"
+						name="last_set_weight"
+						min={0}
+						defaultValue={workProgramDetails?.last_set_weight ?? 50}
 						onChange={stateChangeHandler}
 					/>
 					<div className="start-info">
 						<strong>Weight (lbs)</strong>
-						<small>{workProgramDetails?.weight ?? 80}</small>
+						<small>{workProgramDetails?.goal_weight ?? 0}</small>
 					</div>
 				</div>
 			</div>

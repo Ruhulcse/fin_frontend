@@ -1,44 +1,29 @@
 import pdfImage from '@/assets/images/pdf.png';
-import { serverAuthFetch } from '@/lib/helper/fetch';
 import Image from 'next/image';
 import Link from 'next/link';
-export const getInfo = async () => {
-	try {
-		const res = await serverAuthFetch(``, {
-			next: { revalidate: 0 },
-		});
-		if (!res.ok) {
-			throw new Error('Failed to fetch data');
-		}
-		return res.json();
-	} catch (error) {
-		return {};
-	}
-};
-const NutritionPlan = async () => {
-	const plan = await getInfo();
+import BasicButton from '../common/BasicButton';
+const NutritionPlan = ({ plan }: any) => {
 	return (
-		<section className="nutrition-plan grid gap-2 xl:gap-4">
-			<h3 className="section-title text-right">
-				{plan?.name ?? 'The Recipe Book Guide'}
-			</h3>
-			<p className="nutrition-plan-info text-right text-[#F1D7B5] text-[12px] sm:text-[16px] xl:text-[20px]">
-				{plan?.description ??
-					`Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry&apos;s standard dummy text
-        ever since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book.`}
-			</p>
-			<div className="img-area bg-[#33393F] rounded-lg grid place-items-center mt-4 xl:mt-8 px-4 py-8 xl:p-6 xl:py-24">
-				<Link href="/nutrition-plan/555">
-					<div className="nutrition-plan-pdf grid gap-2 xl:gap-4 place-items-center">
-						<Image
-							src={plan?.img ?? pdfImage}
-							alt="pdf"
-						/>
-						<strong>{plan.description ?? 'Click to View'}</strong>
-						<span className="text-[#F1D7B5]">Last Update on 08/06/2024</span>
-					</div>
+		<section className="nutrition-plan grid grid-cols-3 xl:grid-cols-2 gap-4 bg-card rounded-lg p-4 xl:p-6">
+			<Image
+				className="col-span-1"
+				src={pdfImage}
+				alt="pdf"
+			/>
+			<div className="grid grid-rows-[auto_auto_1fr] col-span-2 xl:col-span-1 gap-1 xl:gap-2">
+				<h3 className="semi-section-title text-right">
+					{plan?.name ?? 'Eating for Energy'}
+				</h3>
+				<p className="nutrition-guide-info text-right text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px]">
+					{plan?.description ?? `A guide to eating healthy when you are busy`}
+				</p>
+				<Link
+					href={`/nutrition-plan/${plan?.id}`}
+					className="ml-auto block mt-auto"
+				>
+					<BasicButton extraClasses="border-[#D12B2820] bg-[#D12B2820]">
+						Click to View
+					</BasicButton>
 				</Link>
 			</div>
 		</section>

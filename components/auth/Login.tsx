@@ -4,10 +4,7 @@ import LoginForm from './LoginForm';
 const Login = () => {
 	return (
 		<>
-			<AuthHeader
-				title="Let's Sign In"
-				subTitle="Login to your account to continue!"
-			/>
+			<AuthHeader title="Welcome Back" />
 			<LoginForm />
 		</>
 	);
