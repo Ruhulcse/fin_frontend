@@ -6,7 +6,8 @@ import BasicCard from '../common/BasicCard';
 const Todos = async () => {
 	const session = await getServerSession(authOptions());
 	const { data: todos = [] } = await generateDataFromServer(
-		`tasks/${session?.user?.id}`
+		`tasks/${session?.user?.id}`,
+		{ task_status: "Pending" }
 	);
 
 	return (
