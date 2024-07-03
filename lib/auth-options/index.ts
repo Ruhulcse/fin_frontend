@@ -61,22 +61,30 @@ export const authOptions = (req?: any, res?: any) => {
 		callbacks: {
 			async signIn({ user, account }: any) {
 				if (['google'].includes(account.provider)) {
-					const { id, ...rest } = user;
-					const {
-						data: { data },
-					} = await axiosInstance.post(`/signup-google`, rest);
-					const { name, gender = '', role, token, new_user } = data;
-					if (data) {
-						user.name = name;
-						user.gender = gender;
-						user.id = data.id;
-						user.role = role;
-						user.new_user = new_user;
-						user.token = token;
-						cookies().set('token', token, cookieOptions());
-						return true;
+					try {
+						const { id, ...rest } = user;
+						const {
+							data: { data },
+						} = await axiosInstance.post(`/signup-google`, rest);
+						const { name, gender = '', role, token, new_user } = data;
+						if (data) {
+							user.name = name;
+							user.gender = gender;
+							user.id = data.id;
+							user.role = role;
+							user.new_user = new_user;
+							user.token = token;
+							cookies().set('token', token, cookieOptions());
+							return true;
+						}
+						return false;
+					} catch (error: any) {
+						const message = error.response.data.message ?? 'Error Found';
+						if (message.includes('Please Contact With Admin')) {
+							return '/login?error=unverified-email';
+						}
+						return false;
 					}
-					return false;
 				} else {
 					return true;
 				}

@@ -4,7 +4,7 @@ import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import MeasurementInput from './MeasurementInput';
 
-const UpdateMeasurement = async () => {
+const UpdateMeasurement = async ({ taskId }: { taskId?: string }) => {
 	const { user = {} }: any = await getServerSession(authOptions());
 	const { data: measurement } = await generateDataFromServer(
 		`tracking/latest-measurement/${user?.id}`
@@ -21,6 +21,7 @@ const UpdateMeasurement = async () => {
 			</Link>
 			{user ? (
 				<MeasurementInput
+					taskId={taskId}
 					user={user}
 					measurement={measurement}
 				/>

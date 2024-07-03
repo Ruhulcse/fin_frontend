@@ -28,9 +28,11 @@ const schema = yup.object({
 const MeasurementInput = ({
 	measurement,
 	user,
+	taskId,
 }: {
 	measurement: any;
 	user: any;
+	taskId?: string;
 }) => {
 	const [files, setFiles] = useState([{}]);
 	const router = useRouter();
@@ -44,7 +46,7 @@ const MeasurementInput = ({
 	} = useForm<any>({
 		resolver: yupResolver(schema),
 	});
-	const [addExercise, { isLoading, error, isError, isSuccess }] =
+	const [tracking, { isLoading, error, isError, isSuccess }] =
 		useUserMeasurementMutation();
 
 	const onSubmit: any = async (data: any) => {
@@ -60,13 +62,16 @@ const MeasurementInput = ({
 		}
 		const formData = new FormData();
 		formData.append('user_id', user?.id);
+		if (taskId) {
+			formData.append('task_id', taskId);
+		}
 		for (const key in staticData) {
 			formData.append(key, staticData[key]);
 		}
 		for (const key in fileData) {
 			formData.append('file', fileData[key]);
 		}
-		await addExercise(formData);
+		await tracking(formData);
 	};
 
 	useEffect(() => {

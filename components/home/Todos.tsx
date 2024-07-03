@@ -6,8 +6,7 @@ import BasicCard from '../common/BasicCard';
 const Todos = async () => {
 	const session = await getServerSession(authOptions());
 	const { data: todos = [] } = await generateDataFromServer(
-		`tasks/${session?.user?.id}`,
-		{ task_status: "Pending" }
+		`tasks/${session?.user?.id}?task_status=Pending`
 	);
 
 	return (
@@ -19,9 +18,9 @@ const Todos = async () => {
 						<BasicCard
 							link={
 								task?.task_type === 'measure'
-									? '/measurement'
+									? `/measurement?task_id=${task?.task_id}`
 									: task?.task_type === 'workout'
-									? '/workout-program'
+									? `/workout-program?task_id=${task?.task_id}`
 									: `/food-entry/add?task_id=${task?.task_id}`
 							}
 						>

@@ -7,20 +7,22 @@ import Middleware from './Middleware';
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<AuthProvider>
-			<ThemeProvider
-				attribute="class"
-				defaultTheme="system"
-				enableSystem
-				disableTransitionOnChange
-			>
-				<StoreProvider>
-					<Middleware />
-					{children}
-					<Toaster richColors />
-				</StoreProvider>
-			</ThemeProvider>
-		</AuthProvider>
+		<>
+			<Toaster richColors />
+			<AuthProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<StoreProvider>
+						<Middleware />
+						{children}
+					</StoreProvider>
+				</ThemeProvider>
+			</AuthProvider>
+		</>
 	);
 };
 

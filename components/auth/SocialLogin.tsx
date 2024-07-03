@@ -1,14 +1,29 @@
 'use client';
 import { signIn } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'sonner';
 
 const SocialLogin = () => {
+	const router = useRouter();
+	const searchParams = useSearchParams();
+	const unverifiedEmail = searchParams.get('error') === 'unverified-email';
+
 	const googleLogin = async () => {
 		await signIn('google', {
 			redirect: true,
 			callbackUrl: '/',
 		});
 	};
+
+	useEffect(() => {
+		if (unverifiedEmail) {
+			toast.error('Please Contact With Admin. Your Email Not Entry To System!');
+			router.replace('/login');
+		}
+	}, [router, unverifiedEmail]);
+
 	return (
 		<section>
 			<h4 className="auth-header">
