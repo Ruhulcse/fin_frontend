@@ -8,7 +8,6 @@ const NutritionPlanView = ({ id }: { id: string }) => {
 		refetchOnMountOrArgChange: true,
 	});
 	const { data: nutritionPlan = {} } = data || {};
-	console.log('nutritionPlan', nutritionPlan);
 	return (
 		<>
 			<section className="nutrition-plan grid gap-2 xl:gap-4 grid-rows-[auto_auto_1fr] min-h-full">

@@ -1,11 +1,12 @@
 import AuthHeader from './AuthHeader';
-import LoginForm from './LoginForm';
+import AuthRedirect from './AuthRedirect';
 
 const Login = () => {
 	return (
 		<>
 			<AuthHeader title="Welcome Back" />
-			<LoginForm />
+			{/* <LoginForm /> */}
+			<AuthRedirect type="login" />
 		</>
 	);
 };

@@ -1,5 +1,4 @@
 const TraineeDetailsInfo = ({ trainee }: { trainee: any }) => {
-	console.log('trainee', trainee);
 	return (
 		<div>
 			<h3 className="section-title text-right">Trainee Details</h3>

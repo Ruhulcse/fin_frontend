@@ -18,7 +18,7 @@ import * as yup from 'yup';
 
 const schema = yup.object({});
 
-const HealthDeclarationForm = ({ userId }: { userId: any }) => {
+const HealthDeclarationForm = ({ user }: { user: any }) => {
 	const router = useRouter();
 	const [imageURL, setImageURL] = useState<string>();
 	const [open, setOpen] = useState(false);
@@ -51,14 +51,17 @@ const HealthDeclarationForm = ({ userId }: { userId: any }) => {
 		}
 		const updatedData: any = {
 			file: data?.file[0],
-			user_details: JSON.stringify({ ...user_details, user_id: userId }),
+			user_details: JSON.stringify({
+				...user_details,
+				user_id: user?.id,
+			}),
 			health_declaration: JSON.stringify(health_declaration),
 		};
 		const formData = new FormData();
 		for (const key in updatedData) {
 			formData.append(key, updatedData[key]);
 		}
-		await updateUser({ data: formData, id: userId });
+		await updateUser({ data: formData, id: user?.id });
 	};
 
 	useEffect(() => {
@@ -69,7 +72,12 @@ const HealthDeclarationForm = ({ userId }: { userId: any }) => {
 		} else {
 			resetField('file');
 		}
-	}, [imageURL, resetField, setValue]);
+		setValue('health_declaration__email', user?.email);
+		setValue(
+			'health_declaration__date',
+			new Date().toISOString().split('T')[0]
+		);
+	}, [imageURL, resetField, setValue, user?.email]);
 
 	useEffect(() => {
 		if (isError) {

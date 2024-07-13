@@ -4,7 +4,7 @@ const WorkingProgramInfo = ({ workProgramDetails }: any) => {
 	return (
 		<section className="workout-program-info">
 			<h3 className="section-title text-center">Bicep Curl</h3>
-			<WorkingProgramInfoHeader img={workProgramDetails?.img} />
+			{/* <WorkingProgramInfoHeader img={workProgramDetails?.img} /> */}
 			<div className="workout-description">
 				{workProgramDetails?.workout_description ??
 					`Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam cumque

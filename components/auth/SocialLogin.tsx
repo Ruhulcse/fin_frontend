@@ -1,6 +1,6 @@
 'use client';
 import { signIn } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'sonner';
@@ -8,28 +8,30 @@ import { toast } from 'sonner';
 const SocialLogin = () => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
-	const unverifiedEmail = searchParams.get('error') === 'unverified-email';
+	const errorMessage = searchParams.get('error');
+	const pathName = usePathname();
 
 	const googleLogin = async () => {
 		await signIn('google', {
 			redirect: true,
-			callbackUrl: '/',
 		});
 	};
 
 	useEffect(() => {
-		if (unverifiedEmail) {
-			toast.error('Please Contact With Admin. Your Email Not Entry To System!');
+		if (errorMessage) {
+			toast.error(errorMessage);
 			router.replace('/login');
 		}
-	}, [router, unverifiedEmail]);
+	}, [router, errorMessage]);
 
 	return (
 		<section>
-			<h4 className="auth-header">
-				<span>or continue with</span>
-				<div className="line"></div>
-			</h4>
+			{/* {['/login'].includes(pathName) ? (
+				<h4 className="auth-header">
+					<span>or continue with</span>
+					<div className="line"></div>
+				</h4>
+			) : null} */}
 			<div className="login-options grid gap-3 xl:gap-4">
 				<button
 					onClick={googleLogin}

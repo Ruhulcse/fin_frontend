@@ -3,16 +3,21 @@ import { GoSearch } from 'react-icons/go';
 
 const SearchInput = ({
 	changeHandler,
+	name = 'search',
+	defaultValue = '',
 }: {
 	changeHandler: (e: ChangeEvent<HTMLInputElement>) => void;
+	name?: string;
+	defaultValue?: string;
 }) => {
 	return (
 		<div className="search-item relative w-full bg-card text-textPrimary p-2 xl:p-4 rounded">
 			<input
 				className="w-full bg-[#00000000] outline-none"
 				type="text"
-				name="trainee"
+				name={name}
 				onChange={changeHandler}
+				defaultValue={defaultValue}
 			/>
 			<GoSearch
 				size={18}

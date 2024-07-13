@@ -2,6 +2,7 @@
 import { cn } from '@/lib/utils';
 import { ReactNode, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import PDFLinkDownload from '../PDFLinkDownload';
 import FileInput from './FileInput';
 import Multiselect from './Multiselect';
 
@@ -20,6 +21,8 @@ const Input = ({
 	accept = '',
 	resetField,
 	onClick,
+	hidden = false,
+	linkURL,
 }: {
 	type?: string;
 	extraClasses?: string;
@@ -35,6 +38,8 @@ const Input = ({
 	accept?: string;
 	resetField?: any;
 	onClick?: any;
+	hidden?: boolean;
+	linkURL?: string;
 }) => {
 	const [passwordHidden, setPasswordHidden] = useState(true);
 	return (
@@ -48,14 +53,32 @@ const Input = ({
 			)}
 		>
 			{label ? (
-				<label
-					className={cn('text-textPrimary', left ? '' : 'text-right')}
-					htmlFor={name}
-				>
-					{label}
-				</label>
+				linkURL ? (
+					<div className="flex justify-end">
+						<PDFLinkDownload
+							url={linkURL}
+							label={label}
+						/>
+					</div>
+				) : (
+					<label
+						className={cn(
+							'text-textPrimary',
+							hidden && 'hidden',
+							left ? '' : 'text-right'
+						)}
+						htmlFor={name}
+					>
+						{label}
+					</label>
+				)
 			) : null}
-			<div className="input-area relative text-textPrimary">
+			<div
+				className={cn(
+					'input-area relative text-textPrimary',
+					hidden && 'hidden'
+				)}
+			>
 				{type === 'password' ? (
 					passwordHidden ? (
 						<FaEyeSlash
@@ -86,6 +109,10 @@ const Input = ({
 						name={name}
 						{...register(name)}
 					>
+						<option
+							className="hidden"
+							value=""
+						></option>
 						{options.map((option) => (
 							<option
 								key={option.value}

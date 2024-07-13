@@ -1,39 +1,46 @@
-'use client';
-
+import BackLinkWrapper from '@/components/common/BackLinkWrapper';
 import BasicCard from '@/components/common/BasicCard';
 import NotDataFound from '@/components/common/message/NotDataFound';
-import SkeletonGroup from '@/components/common/skeleton/SkeletonGroup';
-import { useGetUsersQuery } from '@/store/features/user/api';
+import {
+	generateDataFromServer,
+	nextProperties,
+} from '@/lib/helper/server-fetch';
+import TraineeUserStatus from './TraineeUserInactive';
 
-const TraineeUsers = () => {
-	const { data = {}, isLoading } = useGetUsersQuery(
-		{},
-		{
-			refetchOnMountOrArgChange: true,
-		}
+const TraineeUsers = async () => {
+	const { data: users = [] } = await generateDataFromServer(
+		'users',
+		nextProperties()
 	);
-	const { data: users = [] } = data || {};
 	return (
-		<section className="exercise-list-area">
-			<h3 className="section-title text-right mb-4 xl:mb-8">Manage Users</h3>
-			<br />
-			<div className="grid grid-cols-1 gap-4">
-				{isLoading ? (
-					<SkeletonGroup count={5} />
-				) : users?.length > 0 ? (
-					users?.map((user: any, index: number) => (
-						<BasicCard
-							key={index}
-							link={`/admin/trainee-details/${user.user_id}`}
-						>
-							{user.name}
-						</BasicCard>
-					))
-				) : (
-					<NotDataFound />
-				)}
-			</div>
-		</section>
+		<BackLinkWrapper
+			href="/admin"
+			title="Back To Dashboard"
+		>
+			<section className="exercise-list-area">
+				<h3 className="section-title text-right mb-4 xl:mb-8">Manage Users</h3>
+				<br />
+				<div className="grid grid-cols-1 gap-4">
+					{users?.length > 0 ? (
+						users?.map((user: any, index: number) => (
+							<BasicCard
+								key={index}
+								link={`/admin/trainee-details/${user.user_id}`}
+								icon={
+									user?.role === 'admin' ? null : (
+										<TraineeUserStatus user={user} />
+									)
+								}
+							>
+								{user.name}
+							</BasicCard>
+						))
+					) : (
+						<NotDataFound />
+					)}
+				</div>
+			</section>
+		</BackLinkWrapper>
 	);
 };
 

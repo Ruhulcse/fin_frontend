@@ -1,7 +1,12 @@
 'use client';
 import logo from '@/assets/images/logo.png';
 import { logoutHandler } from '@/lib/helper/common';
-import { menus, menusForNew } from '@/lib/menu';
+import {
+	menus,
+	menusForAdmin,
+	menusForNewUser,
+	menusForOldUser,
+} from '@/lib/menu';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,6 +16,16 @@ import NavLink from './NavLink';
 import Sidebar from './Sidebar';
 const Navbar = () => {
 	const session: any = useSession();
+	const userRole = session?.data?.user?.role;
+	const newUser = session?.data?.user?.new_user;
+	const menuFilter = (filterBY: string[]) =>
+		menus.filter((item) => filterBY?.includes(item.path));
+	const userWiseMenu =
+		userRole === 'admin'
+			? menuFilter(menusForAdmin)
+			: newUser
+			? menuFilter(menusForNewUser)
+			: menuFilter(menusForOldUser);
 	return (
 		<nav className="container py-[10px] xl:py-[20px] flex items-center justify-between gap-8 text-[15px] font-[400]">
 			<Link href="/">
@@ -20,16 +35,11 @@ const Navbar = () => {
 				/>
 			</Link>
 			<ul className="links ml-auto gap-4 hidden xl:flex items-center">
-				{(session?.data?.user?.new_user ? menusForNew : menus).map((menu) => (
+				{userWiseMenu.map((menu) => (
 					<li key={menu.path}>
 						<NavLink href={menu.path}>{menu.name}</NavLink>
 					</li>
 				))}
-				{session?.data?.user?.role === 'admin' && (
-					<li>
-						<NavLink href="/admin">Admin Dashboard</NavLink>
-					</li>
-				)}
 			</ul>
 			<MobileCenterMenu />
 			<button
@@ -38,7 +48,7 @@ const Navbar = () => {
 			>
 				<span>Log Out</span> <IoIosLogOut size={20} />
 			</button>
-			<Sidebar />
+			<Sidebar userWiseMenu={userWiseMenu} />
 		</nav>
 	);
 };

@@ -49,7 +49,7 @@ const UserNutritionPlanForm = ({
 
 	useEffect(() => {
 		if (existingPlans.length > 0) {
-			const planIds = existingPlans.map((plan: any) => ({
+			const planIds = existingPlans?.map((plan: any) => ({
 				value: plan.nutrition_plan_id,
 				label: plan.NutritionPlan.name,
 			}));
@@ -76,7 +76,7 @@ const UserNutritionPlanForm = ({
 				name="plan_ids"
 				label="Plans"
 				control={control}
-				options={plans.map((plan: any) => ({
+				options={plans?.map((plan: any) => ({
 					value: plan.id,
 					label: plan.name,
 				}))}

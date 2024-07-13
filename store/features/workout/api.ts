@@ -26,6 +26,13 @@ export const workoutApi = apiSlice.injectEndpoints({
 				body: payload?.data,
 			}),
 		}),
+		editWorkoutExercises: builder.mutation({
+			query: (payload) => ({
+				url: `admin/training`,
+				method: 'PUT',
+				body: payload,
+			}),
+		}),
 		editUserWorkout: builder.mutation({
 			query: (payload) => ({
 				url: `workouts/update`,
@@ -42,4 +49,5 @@ export const {
 	useGetWorkoutQuery,
 	useAddWorkoutMutation,
 	useEditUserWorkoutMutation,
+	useEditWorkoutExercisesMutation,
 } = workoutApi;

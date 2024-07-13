@@ -21,6 +21,20 @@ export const userApi = apiSlice.injectEndpoints({
 				body: payload?.data,
 			}),
 		}),
+		updateUserInfo: builder.mutation({
+			query: (payload) => ({
+				url: `users/${payload.id}`,
+				method: 'PUT',
+				body: payload?.data,
+			}),
+		}),
+		updateUserStatusInfo: builder.mutation({
+			query: (payload) => ({
+				url: `users/update-status/${payload.id}`,
+				method: 'PUT',
+				body: payload?.data,
+			}),
+		}),
 		getUser: builder.query({
 			query: (id) => ({
 				url: `users/${id}`,
@@ -66,4 +80,6 @@ export const {
 	useGetUserAssetsMutation,
 	useSetUserTaskMutation,
 	useUpdateUserTaskMutation,
+	useUpdateUserInfoMutation,
+	useUpdateUserStatusInfoMutation
 } = userApi;

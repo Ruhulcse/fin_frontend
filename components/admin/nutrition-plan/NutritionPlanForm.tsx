@@ -34,7 +34,13 @@ const schema = (edit: boolean) =>
 					return value && value.length > 0;
 			  }),
 	});
-const NutritionPlanForm = ({ plan }: { plan?: any }) => {
+const NutritionPlanForm = ({
+	plan,
+	userId,
+}: {
+	plan?: any;
+	userId?: string;
+}) => {
 	const router = useRouter();
 	const {
 		register,
@@ -71,6 +77,9 @@ const NutritionPlanForm = ({ plan }: { plan?: any }) => {
 		for (const key in updatedData) {
 			formData.append(key, updatedData[key]);
 		}
+		if (userId) {
+			formData.append('user_id', userId);
+		}
 		if (plan?.id) {
 			await updatePlan({ data: formData, id: plan?.id });
 		} else {
@@ -91,7 +100,11 @@ const NutritionPlanForm = ({ plan }: { plan?: any }) => {
 		} else if (updatePlanIsSuccess || addPlanIsSuccess) {
 			toast.success(`Plan ${plan?.id ? 'updated' : 'added'} successfully`);
 			router.refresh();
-			router.push('/admin/nutrition-plan/manage');
+			router.push(
+				userId
+					? `/admin/trainee-details/${userId}`
+					: '/admin/nutrition-plan/manage'
+			);
 		}
 	}, [
 		addPlanError,
@@ -102,6 +115,7 @@ const NutritionPlanForm = ({ plan }: { plan?: any }) => {
 		updatePlanError,
 		updatePlanIsError,
 		updatePlanIsSuccess,
+		userId,
 	]);
 
 	return (
@@ -145,7 +159,7 @@ const NutritionPlanForm = ({ plan }: { plan?: any }) => {
 						size={16}
 					/>
 				) : null}
-				{plan?.id ? 'Update' : 'Save'} Plan
+				{userId ? 'Create And Assign' : plan?.id ? 'Update' : 'Save'} Plan
 			</BasicButton>
 		</form>
 	);

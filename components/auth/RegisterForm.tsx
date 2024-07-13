@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 import * as yup from 'yup';
 import BasicButton from '../common/BasicButton';
 import Input from '../common/input/Input';
+import AuthRedirect from './AuthRedirect';
 
 type Inputs = {
 	email: string;
@@ -137,15 +138,7 @@ const RegisterForm = () => {
 					) : null}
 					Create Account
 				</BasicButton>
-				<span className="text-[12px] text-textPrimary flex items-center gap-1">
-					Already have an account?
-					<Link
-						className="text-secondary cursor-pointer font-bold"
-						href="/login"
-					>
-						Sign In
-					</Link>
-				</span>
+				<AuthRedirect type="registration" />
 			</div>
 		</form>
 	);

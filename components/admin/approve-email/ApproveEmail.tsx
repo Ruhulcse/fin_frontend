@@ -45,7 +45,7 @@ const ApproveEmail = () => {
 
 	return (
 		<form
-			className="grid gap-2 xl:gap-4"
+			className="flex flex-col gap-2 xl:gap-4"
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<Input

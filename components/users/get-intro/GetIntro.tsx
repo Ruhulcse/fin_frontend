@@ -27,7 +27,7 @@ const GetIntro = ({ gender }: { gender: string }) => {
 					type="submit"
 					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full"
 				>
-					Go to Health Declaration
+					User Details
 				</BasicButton>
 			</Link>
 		</section>

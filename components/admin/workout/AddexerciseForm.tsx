@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
+import WorkoutExercisePredefined from './WorkoutExercisePredefined';
 
 type Inputs = {
 	trainer_exp: string;
@@ -17,15 +18,15 @@ type Inputs = {
 };
 
 const schema = yup.object({
+	manipulation: yup.string().required('Enter'),
+	sets_to_do: yup.string().required('Enter'),
+	reps_to_do: yup.string().required('Enter'),
+	goal_weight: yup.string().required('Enter'),
 	trainer_exp: yup
 		.string()
 		.required('Please enter description')
 		.min(3, 'Description must be at least 3 characters.'),
-	exercise_id: yup.string().required('Please select your gender'),
-	manipulation: yup.string().required('Please enter your manipulation'),
-	sets_to_do: yup.string().required('Please enter your sets'),
-	reps_to_do: yup.string().required('Please enter your reps'),
-	goal_weight: yup.string().required('Please enter your weight'),
+	exercise_id: yup.string().required('Please select your exercises'),
 });
 
 const AddExerciseForm = ({
@@ -49,6 +50,7 @@ const AddExerciseForm = ({
 		register,
 		handleSubmit,
 		setValue,
+		getValues,
 		formState: { errors },
 	} = useForm<Inputs>({
 		resolver: yupResolver(schema),
@@ -64,12 +66,12 @@ const AddExerciseForm = ({
 			exercise_name: data.exercise_id.split('__')[1],
 		};
 		const findItem = exercises.find(
-			(item: any) => item.exercise_id === payload.exercise_id
+			(item: any) => Number(item.exercise_id) === Number(payload.exercise_id)
 		);
 		setExercises((prev: any) =>
 			findItem
 				? prev.map((item: any) => {
-						if (item.exercise_id === payload.exercise_id) {
+						if (String(item.exercise_id) === String(payload.exercise_id)) {
 							return payload;
 						} else {
 							return item;
@@ -87,7 +89,7 @@ const AddExerciseForm = ({
 	};
 
 	useEffect(() => {
-		if (editExercise) {
+		if (editExercise?.exercise_id) {
 			setValue(
 				'exercise_id',
 				`${editExercise?.exercise_id}__${editExercise?.exercise_name}`
@@ -104,7 +106,10 @@ const AddExerciseForm = ({
 		<>
 			<Modal
 				open={open}
-				closeModal={() => setAddExercise(false)}
+				closeModal={() => {
+					setAddExercise(false);
+					setEditExercise({});
+				}}
 			>
 				<div className="bg-primary min-w-[300px] w-[50vw] rounded p-3">
 					<h3 className="semi-section-title">Add Exercise</h3>
@@ -112,6 +117,12 @@ const AddExerciseForm = ({
 						className="grid gap-4"
 						onSubmit={handleSubmit(onSubmit)}
 					>
+						<WorkoutExercisePredefined
+							setValue={setValue}
+							exerciseOptions={exerciseOptions}
+							getValues={getValues}
+							disabled={!!editExercise?.exercise_id}
+						/>
 						<Input
 							type="select"
 							name="exercise_id"
@@ -119,6 +130,7 @@ const AddExerciseForm = ({
 							options={exerciseOptions}
 							register={register}
 							errors={errors}
+							hidden
 						/>
 						<div className="grid grid-cols-4 gap-2">
 							{workoutExerciseInputs.map((input: any, index) => (
@@ -128,13 +140,16 @@ const AddExerciseForm = ({
 								>
 									<label htmlFor="">{input.label}</label>
 									<input
-										type="number"
+										type={input.name === 'manipulation' ? 'text' : 'number'}
 										min={1}
 										className="w-full simple-basic-input"
 										{...register(input.name)}
 									/>
+
 									{getFieldError(input.name) ? (
-										<p className=" text-red-500 text-left">Enter Value</p>
+										<p className="text-red-500 text-right">
+											{getFieldError(input.name)?.message}
+										</p>
 									) : null}
 								</div>
 							))}
@@ -151,7 +166,7 @@ const AddExerciseForm = ({
 							hard
 							extraClasses="!m-0 !w-full !mt-2"
 						>
-							Add Exercise
+							{editExercise?.training_id ? 'Update' : 'Add'} Exercise
 						</BasicButton>
 					</form>
 				</div>

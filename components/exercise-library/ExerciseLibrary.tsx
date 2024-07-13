@@ -4,7 +4,7 @@ import ExerciseList from './ExerciseList';
 const ExerciseLibrary = ({ searchParams }: { searchParams: any }) => {
 	return (
 		<section>
-			<ExerciseFilter />
+			<ExerciseFilter searchParams={searchParams} />
 			<ExerciseList searchParams={searchParams} />
 		</section>
 	);

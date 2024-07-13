@@ -53,3 +53,16 @@ export const fileToBase64 = (file: File) =>
 		reader.onload = () => resolve(reader.result);
 		reader.onerror = reject;
 	});
+
+export const xlsxDownload = async (path: string, name = 'file.xlsx') => {
+	try {
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${path}`);
+		const blob = await response.blob();
+		const url = window.URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = name;
+		a.click();
+		window.URL.revokeObjectURL(url);
+	} catch (error) {}
+};

@@ -11,6 +11,7 @@ import { toast } from 'sonner';
 import * as yup from 'yup';
 import BasicButton from '../common/BasicButton';
 import Input from '../common/input/Input';
+import AuthRedirect from './AuthRedirect';
 
 type Inputs = {
 	email: string;
@@ -40,16 +41,10 @@ const LoginForm = () => {
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		try {
 			setLoading(true);
-			const res = await signIn('login', {
+			await signIn('login', {
 				...data,
 				redirect: true,
-				callbackUrl: '/',
 			});
-			if (res?.error) throw new Error();
-			if (res?.status === 200) {
-				router.push('/');
-				toast.success('Login Successful');
-			}
 		} catch (error) {
 			toast.error(getError(error));
 		} finally {
@@ -100,15 +95,7 @@ const LoginForm = () => {
 					) : null}
 					Login
 				</BasicButton>
-				<span className="text-[12px] text-textPrimary flex items-center gap-1">
-					Don&apos;t have an account?
-					<Link
-						className="text-secondary cursor-pointer font-bold"
-						href="/registration"
-					>
-						Sign Up
-					</Link>
-				</span>
+				<AuthRedirect type="login" />
 			</div>
 		</form>
 	);

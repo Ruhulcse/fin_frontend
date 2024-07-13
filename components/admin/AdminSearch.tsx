@@ -1,11 +1,25 @@
 'use client';
-import { ChangeEvent } from 'react';
-import SearchInput from '../common/input/SearchInput';
+import { useRouter } from 'next/navigation';
+import { AutoComplete } from '../common/AutoComplete';
 
-const AdminSearch = () => {
-	const stateChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {};
+const AdminSearch = ({ users }: { users: any }) => {
+	const router = useRouter();
+	const stateChangeHandler = ({ selectValue }: any) => {
+		router.push(`/admin/trainee-details/${selectValue}`);
+	};
 
-	return <SearchInput changeHandler={stateChangeHandler} />;
+	const userOptions = users.map((user: any) => ({
+		value: user.user_id,
+		label: user.name,
+	}));
+
+	return (
+		<AutoComplete
+			options={userOptions}
+			placeholder="Search User"
+			onValueChange={stateChangeHandler}
+		/>
+	);
 };
 
 export default AdminSearch;

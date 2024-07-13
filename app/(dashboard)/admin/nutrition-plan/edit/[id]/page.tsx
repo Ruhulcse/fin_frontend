@@ -1,7 +1,15 @@
 import NutritionPlanEdit from '@/components/admin/nutrition-plan/NutritionPlanEdit';
+import BackLinkWrapper from '@/components/common/BackLinkWrapper';
 
 const page = ({ params }: { params: { id: string } }) => {
-	return <NutritionPlanEdit id={params?.id} />;
+	return (
+		<BackLinkWrapper
+			href="/admin/nutrition-plan/manage"
+			title="Back To Dashboard"
+		>
+			<NutritionPlanEdit id={params?.id} />
+		</BackLinkWrapper>
+	);
 };
 
 export default page;

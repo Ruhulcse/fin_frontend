@@ -1,6 +1,7 @@
 'use client';
 import { useEditUserWorkoutMutation } from '@/store/features/workout/api';
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { FaSpinner } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import BasicButton from '../common/BasicButton';
@@ -8,7 +9,18 @@ import WorkingProgramStartInput from './WorkingProgramStartInput';
 
 const WorkoutExercises = ({ workoutExercises, id }: any) => {
 	const [tab, setTab] = useState(0);
-	const [updatedData, setUpdatedData] = useState<any>({});
+	const router = useRouter();
+	const [workoutExercisesData, setWorkoutExercisesData] = useState<any>({
+		workout_id: id,
+		exercises: workoutExercises?.map((exercise: any) => {
+			return {
+				sets_done: exercise?.sets_done ?? 0,
+				reps_done: exercise?.reps_done ?? 0,
+				last_set_weight: exercise?.last_set_weight ?? 50,
+				training_id: exercise?.training_id,
+			};
+		}),
+	});
 
 	const [update, { isLoading }] = useEditUserWorkoutMutation();
 
@@ -17,32 +29,13 @@ const WorkoutExercises = ({ workoutExercises, id }: any) => {
 	};
 
 	const submitHandler = async () => {
-		const payload: any = {
-			...updatedData,
-			exercises: [updatedData?.exercises || {}],
-		};
-		update(payload).then((res) => {
+		update(workoutExercisesData).then((res) => {
 			if (res?.data) {
 				toast.success('Exercises Updated');
+				router.push('/workout-program');
 			}
 		});
 	};
-
-	useEffect(() => {
-		const currentData = workoutExercises[tab];
-		if (currentData?.workout_id && currentData?.training_id) {
-			const exerciseInfo = {
-				workout_id: currentData?.workout_id,
-				exercises: {
-					sets_done: currentData?.sets_done ?? 0,
-					reps_done: currentData?.reps_done ?? 0,
-					last_set_weight: currentData?.last_set_weight ?? 50,
-					training_id: currentData?.training_id,
-				},
-			};
-			setUpdatedData(exerciseInfo);
-		}
-	}, [id, tab, workoutExercises]);
 
 	return (
 		<>
@@ -51,7 +44,7 @@ const WorkoutExercises = ({ workoutExercises, id }: any) => {
 					key={index}
 					extraClass={`${tab !== index ? 'hidden' : ''}`}
 					workProgramDetails={exercise}
-					setUpdatedData={setUpdatedData}
+					setUpdatedData={setWorkoutExercisesData}
 				/>
 			))}
 
@@ -60,13 +53,23 @@ const WorkoutExercises = ({ workoutExercises, id }: any) => {
 					<BasicButton
 						onClick={() => tabChangeHandler(tab - 1)}
 						disabled={isLoading}
-						extraClasses="!w-full "
+						extraClasses="!w-full"
 						hard
 					>
 						Previous Exercise
 					</BasicButton>
 				) : null}
-				{workoutExercises?.length > 0 ? (
+				{workoutExercises?.length > 1 && tab !== workoutExercises.length - 1 ? (
+					<BasicButton
+						onClick={() => tabChangeHandler(tab + 1)}
+						disabled={isLoading}
+						hard
+						extraClasses="!w-full"
+					>
+						Next Exercise
+					</BasicButton>
+				) : null}
+				{workoutExercises?.length > 0 && tab === workoutExercises.length - 1 ? (
 					<BasicButton
 						onClick={submitHandler}
 						disabled={isLoading}
@@ -78,17 +81,7 @@ const WorkoutExercises = ({ workoutExercises, id }: any) => {
 								className="animate-spin"
 							/>
 						) : null}
-						Save
-					</BasicButton>
-				) : null}
-				{workoutExercises?.length > 1 && tab !== workoutExercises.length - 1 ? (
-					<BasicButton
-						onClick={() => tabChangeHandler(tab + 1)}
-						disabled={isLoading}
-						hard
-						extraClasses="!w-full"
-					>
-						Next Exercise
+						Finish
 					</BasicButton>
 				) : null}
 			</div>

@@ -1,11 +1,13 @@
+import Link from 'next/link';
 import AuthHeader from './AuthHeader';
-import RegisterForm from './RegisterForm';
+import AuthRedirect from './AuthRedirect';
 
 const Register = () => {
 	return (
 		<>
 			<AuthHeader title="Easy to Start!" />
-			<RegisterForm />
+			{/* <RegisterForm /> */}
+			<AuthRedirect type="registration" />
 		</>
 	);
 };

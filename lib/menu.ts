@@ -4,6 +4,10 @@ export const menus = [
 		path: '/',
 	},
 	{
+		name: 'Home',
+		path: '/admin',
+	},
+	{
 		name: 'Recipes',
 		path: '/recipes',
 	},
@@ -33,21 +37,24 @@ export const menus = [
 	},
 ];
 
-export const menusForNew = [
-	{
-		name: 'Home',
-		path: '/',
-	},
-	{
-		name: 'Recipes',
-		path: '/recipes',
-	},
-	{
-		name: 'Courses',
-		path: '/courses',
-	},
-	{
-		name: 'Agreements',
-		path: '/agreements',
-	},
+export const menusForOldUser = [
+	'/',
+	'/recipes',
+	'/courses',
+	'/agreements',
+	'/workout-program',
+	'/exercise-library',
+	'/nutrition-plan',
+	'/nutrition-guides',
+];
+
+export const menusForNewUser = ['/', '/recipes', '/courses', '/agreements'];
+
+export const menusForAdmin = [
+	'/admin',
+	'/recipes',
+	'/courses',
+	'/workout-program',
+	'/exercise-library',
+	'/nutrition-guides',
 ];

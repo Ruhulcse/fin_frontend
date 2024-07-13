@@ -81,7 +81,7 @@ export const authOptions = (req?: any, res?: any) => {
 					} catch (error: any) {
 						const message = error.response.data.message ?? 'Error Found';
 						if (message.includes('Please Contact With Admin')) {
-							return '/login?error=unverified-email';
+							return `/login?error=${message}`;
 						}
 						return false;
 					}

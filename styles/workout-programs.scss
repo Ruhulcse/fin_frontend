@@ -3,12 +3,12 @@
 	.workout-program {
 		@apply relative rounded-md overflow-hidden;
 		.workout-info {
-			@apply w-full p-4 h-full grid gap-[180px] bg-[#33393f80] relative z-10 overflow-hidden;
+			@apply w-full p-4 h-full grid gap-[180px] bg-[#024059] relative z-10 overflow-hidden;
 			.workout-program-title {
 				@apply text-right font-bold text-white text-[20px];
 			}
 			.actions {
-				@apply grid grid-cols-2 gap-2 mt-2;
+				@apply flex gap-2 mt-2;
 			}
 		}
 		img {

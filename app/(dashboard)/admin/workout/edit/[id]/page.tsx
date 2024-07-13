@@ -1,4 +1,5 @@
 import WorkoutEdit from '@/components/admin/workout/WorkoutEdit';
+import BackLinkWrapper from '@/components/common/BackLinkWrapper';
 
 const page = ({
 	params,
@@ -8,10 +9,15 @@ const page = ({
 	searchParams: any;
 }) => {
 	return (
-		<WorkoutEdit
-			id={params?.id}
-			traineeId={searchParams?.trainee_id}
-		/>
+		<BackLinkWrapper
+			href={`/admin/workout/manage?trainee_id=${searchParams?.trainee_id}`}
+			title="Back To Workout Manage"
+		>
+			<WorkoutEdit
+				id={params?.id}
+				traineeId={searchParams?.trainee_id}
+			/>
+		</BackLinkWrapper>
 	);
 };
 

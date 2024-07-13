@@ -4,6 +4,7 @@ import Input from '@/components/common/input/Input';
 import { getError } from '@/lib/helper/common';
 import {
 	useAddWorkoutMutation,
+	useEditWorkoutExercisesMutation,
 	useEditWorkoutMutation,
 } from '@/store/features/workout/api';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,10 +12,11 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FaEdit } from 'react-icons/fa';
-import { FaSpinner } from 'react-icons/fa6';
+import { FaSpinner, FaTrash } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import * as yup from 'yup';
 import AddExerciseForWorkout from './AddExerciseForWorkout';
+import WorkoutPredefined from './WorkoutPredefined';
 type Inputs = {
 	workout_name: string;
 	workout_description: string;
@@ -33,9 +35,11 @@ const schema = yup.object({
 const WorkoutForm = ({
 	workout,
 	traineeId,
+	userWorkouts,
 }: {
 	workout?: any;
 	traineeId: string;
+	userWorkouts?: any;
 }) => {
 	const router = useRouter();
 	const [exercises, setExercises] = useState([]);
@@ -69,6 +73,8 @@ const WorkoutForm = ({
 		},
 	] = useEditWorkoutMutation();
 
+	const [updateWorkoutExercises] = useEditWorkoutExercisesMutation();
+
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		if (exercises.length > 0) {
 			const payload = {
@@ -80,8 +86,10 @@ const WorkoutForm = ({
 				}),
 			};
 			if (workout?.workout_id) {
+				const { training, ...rest } = payload;
+				await updateWorkoutExercises(exercises);
 				await updateWorkout({
-					data: payload,
+					data: rest,
 					id: workout.workout_id,
 				});
 			} else {
@@ -96,6 +104,7 @@ const WorkoutForm = ({
 		if (workout?.workout_id) {
 			setValue('workout_name', workout.workout_name);
 			setValue('workout_description', workout.workout_description);
+			setExercises(workout.exercises);
 		}
 	}, [workout, setValue]);
 
@@ -125,13 +134,21 @@ const WorkoutForm = ({
 				className="grid gap-2 xl:gap-4"
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<Input
-					type="text"
-					name="workout_name"
-					label="Name"
-					register={register}
-					errors={errors}
-				/>
+				{workout?.workout_id ? (
+					<Input
+						type="text"
+						name="workout_name"
+						label="Name"
+						register={register}
+						errors={errors}
+					/>
+				) : (
+					<WorkoutPredefined
+						setExercises={setExercises}
+						setValue={setValue}
+						userWorkouts={userWorkouts}
+					/>
+				)}
 				<Input
 					type="textarea"
 					name="workout_description"
@@ -148,14 +165,28 @@ const WorkoutForm = ({
 								className="exercise-info bg-card flex items-center justify-between gap-2 p-4 rounded text-textPrimary"
 							>
 								<button
+									type="button"
+									onClick={() => {
+										setExercises((prev) =>
+											prev.filter(
+												(ex: any) => ex.exercise_id !== exercise.exercise_id
+											)
+										);
+									}}
+								>
+									<FaTrash />
+								</button>
+								<button
+									type="button"
 									onClick={() => {
 										setAddExercise(true);
 										setEditExercise(exercise);
 									}}
+									className="mr-auto"
 								>
 									<FaEdit />
 								</button>
-								<h3>{exercise?.exercise_name ?? 'How to do push up'}</h3>
+								<h3>{exercise?.exercise_name ?? ''}</h3>
 							</section>
 						))}
 					</>
@@ -181,7 +212,7 @@ const WorkoutForm = ({
 								size={16}
 							/>
 						) : null}
-						{workout?.id ? 'Update' : 'Save'} Workout
+						{workout?.workout_id ? 'Update' : 'Save'} Workout
 					</BasicButton>
 				</div>
 			</form>

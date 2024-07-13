@@ -1,28 +1,40 @@
+import { authOptions } from '@/lib/auth-options';
 import {
 	generateDataFromServer,
 	nextProperties,
 } from '@/lib/helper/server-fetch';
+import { getServerSession } from 'next-auth';
 import NotDataFound from '../common/message/NotDataFound';
 import WorkingProgram from './WorkingProgram';
+import WorkoutSearch from './WorkoutSearch';
 
-const WorkingPrograms = async () => {
+const WorkingPrograms = async ({ searchParams }: { searchParams: any }) => {
+	const queryParams = new URLSearchParams(searchParams);
 	const { data: workoutPrograms = [] } = await generateDataFromServer(
-		'workouts',
+		`workouts?${queryParams}`,
 		nextProperties(0)
 	);
-	return workoutPrograms?.length > 0 ? (
-		<section className="workout-programs">
-			{workoutPrograms?.map((program: any, index: number) => {
-				return (
-					<WorkingProgram
-						key={index}
-						workoutProgram={program}
-					/>
-				);
-			})}
-		</section>
-	) : (
-		<NotDataFound />
+	const session = await getServerSession(authOptions());
+	const userRole = session?.user?.role;
+	return (
+		<>
+			<WorkoutSearch searchParams={searchParams} />
+			{workoutPrograms?.length > 0 ? (
+				<section className="workout-programs">
+					{workoutPrograms?.map((program: any, index: number) => {
+						return (
+							<WorkingProgram
+								key={index}
+								workoutProgram={program}
+								userRole={userRole}
+							/>
+						);
+					})}
+				</section>
+			) : (
+				<NotDataFound />
+			)}
+		</>
 	);
 };
 

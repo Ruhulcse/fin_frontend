@@ -12,7 +12,16 @@ const WorkingProgramStartInput = ({
 		const { name, value } = e.target;
 		setUpdatedData((prev: any) => ({
 			...prev,
-			exercises: { ...prev.exercises, [name]: Number(value) ?? 0 },
+			exercises: prev.exercises.map((item: any) => {
+				if (item.training_id === workProgramDetails?.training_id) {
+					return {
+						...item,
+						[name]: value,
+					};
+				} else {
+					return item;
+				}
+			}),
 		}));
 	};
 

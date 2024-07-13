@@ -52,7 +52,16 @@ export const registrationInputs = [
 		name: 'training_frequency',
 		label:
 			'How many times per week would you prefer to train? 1, 2, 3, 4, 5, 6, 7',
-		type: 'number',
+		type: 'select',
+		options: [
+			{ value: '1', label: '1' },
+			{ value: '2', label: '2' },
+			{ value: '3', label: '3' },
+			{ value: '4', label: '4' },
+			{ value: '5', label: '5' },
+			{ value: '6', label: '6' },
+			{ value: '7', label: '7' },
+		],
 	},
 	{
 		name: 'preferred_training_location',
@@ -74,7 +83,7 @@ export const registrationInputs = [
 	{
 		name: 'strength_training_description',
 		label: `Describe your current strength training (what exercises you do, repetitions, frequencies, etc.): If not doing, write "not doing."`,
-		type: 'text',
+		type: 'textarea',
 	},
 	{
 		name: 'favorite_cardio',
@@ -135,7 +144,7 @@ export const registrationInputs = [
 		name: 'favorite_recipes',
 		label:
 			'Do you have recipes you like to make frequently, say once a week? If yes, list all the ingredients and quantities and how many units result from each preparation (you can list several recipes).',
-		type: 'text',
+		type: 'textarea',
 	},
 	{
 		name: 'alcohol_consumption',
@@ -194,11 +203,17 @@ export const registrationInputs = [
 		label: 'Anything else you would like to add?',
 		type: 'text',
 	},
-	// {
-	// 	name: 'mailing_accepted',
-	// 	label: 'Mailing Accepted',
-	// 	type: 'checkbox',
-	// },
+	{
+		name: 'mailing_accepted',
+		label: 'Mailing Accepted',
+		type: 'checkbox',
+	},
+	{
+		name: 'terms_accepted',
+		label: 'Terms & Conditions Accepted',
+		type: 'checkbox',
+		linkURL: 'Assets/Terms_and_conditions.pdf',
+	},
 ];
 
 export const healthDeclarationInputs = [
@@ -210,7 +225,7 @@ export const healthDeclarationInputs = [
 	{
 		name: 'id_number',
 		label: 'ID Number',
-		type: 'text',
+		type: 'number',
 	},
 	{
 		name: 'full_name',
@@ -344,17 +359,12 @@ export const healthDeclarationInputs = [
 		name: 'additional_comments',
 		label:
 			'Additional comments or details you would like to mention (Please specify below)',
-		type: 'text',
+		type: 'textarea',
 	},
 	{
 		name: 'fat_burners',
 		label:
 			'Have you used or are you using steroids, fat burners, etc.? (Please specify below) (Confidential)',
 		type: 'text',
-	},
-	{
-		name: 'terms_accepted',
-		label: 'Terms Accepted',
-		type: 'checkbox',
 	},
 ];

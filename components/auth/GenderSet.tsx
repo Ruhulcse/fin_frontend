@@ -74,7 +74,7 @@ const GenderSet = ({ userId }: { userId: string }) => {
 				<BasicButton
 					disabled={loading}
 					type="submit"
-					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full xl:!w-max bg-secondary text-primary"
+					extraClasses="flex items-center justify-center gap-1 !m-0 !w-full bg-secondary text-primary"
 				>
 					{loading ? (
 						<FaSpinner

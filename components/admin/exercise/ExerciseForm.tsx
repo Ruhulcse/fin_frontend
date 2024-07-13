@@ -2,6 +2,7 @@
 import BasicButton from '@/components/common/BasicButton';
 import Input from '@/components/common/input/Input';
 import { getError } from '@/lib/helper/common';
+import { equipmentOptions } from '@/lib/helper/options';
 import {
 	useAddExerciseMutation,
 	useEditExerciseMutation,
@@ -140,11 +141,12 @@ const ExerciseForm = ({ exercise }: { exercise?: any }) => {
 				errors={errors}
 			/>
 			<Input
-				type="text"
+				type="select"
 				name="equipment"
 				label="Equipment"
 				register={register}
 				errors={errors}
+				options={equipmentOptions}
 			/>
 			<Input
 				type="textarea"

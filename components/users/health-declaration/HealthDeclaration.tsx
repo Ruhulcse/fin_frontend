@@ -10,7 +10,7 @@ const HealthDeclaration = async () => {
 				We are committed to providing a safe and healthy workplace for all
 				employees. Please complete the health declaration form below.
 			</p>
-			<HealthDeclarationForm userId={session?.user?.id} />
+			<HealthDeclarationForm user={session?.user} />
 		</section>
 	);
 };

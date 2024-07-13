@@ -1,5 +1,6 @@
 import BasicCard from '@/components/common/BasicCard';
-import { LiaFileDownloadSolid } from 'react-icons/lia';
+import MeasurementReport from './MeasurementReport';
+import TrainingReport from './TrainingReport';
 
 const TraineeActions = ({ trainee }: { trainee: any }) => {
 	return (
@@ -17,24 +18,14 @@ const TraineeActions = ({ trainee }: { trainee: any }) => {
 					<strong>Nutrition Plan</strong>
 				</BasicCard>
 			</div>
+			<MeasurementReport trainee={trainee} />
 			<div className="grid gap-2 xl:gap-4">
-				<h4 className="semi-section-title text-right">Reports</h4>
-				<BasicCard
-					link={`/admin/trainee-details/progress?trainee_id=${trainee?.user_id}`}
-				>
-					<strong>Measurements & Exercise</strong>
-					<small className="text-textSecondary">Progress</small>
+				<h4 className="semi-section-title text-right">Agreement</h4>
+				<BasicCard link={`/agreements/${trainee?.user_id}`}>
+					<strong>User Agreement</strong>
 				</BasicCard>
 			</div>
-			<div className="grid gap-2 xl:gap-4">
-				<h4 className="semi-section-title text-right">File Download</h4>
-				<BasicCard
-					link={`/admin/trainee-details/files?trainee_id=${trainee?.user_id}`}
-					icon={<LiaFileDownloadSolid size={24} />}
-				>
-					<strong>Training Programs</strong>
-				</BasicCard>
-			</div>
+			<TrainingReport trainee={trainee} />
 		</>
 	);
 };
