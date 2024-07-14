@@ -21,7 +21,7 @@ const SelectInput = ({
 			className="bg-card text-textPrimary rounded-full px-3 py-1 outline-none"
 			name={name}
 			onChange={changeHandler}
-			defaultValue={defaultValue}
+			defaultValue={defaultValue ?? ''}
 		>
 			<option
 				value=""

@@ -223,6 +223,7 @@ const WorkoutForm = ({
 				exercises={exercises}
 				editExercise={editExercise}
 				setEditExercise={setEditExercise}
+				workoutId={workout?.workout_id ?? null}
 			/>
 		</>
 	);

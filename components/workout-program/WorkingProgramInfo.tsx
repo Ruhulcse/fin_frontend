@@ -1,19 +1,15 @@
-import WorkingProgramInfoHeader from './WorkingProgramInfoHeader';
+import Player from '../common/Player';
 
-const WorkingProgramInfo = ({ workProgramDetails }: any) => {
+const WorkingProgramInfo = ({ workProgramDetails, currentExercise }: any) => {
 	return (
 		<section className="workout-program-info">
 			<h3 className="section-title text-center">Bicep Curl</h3>
-			{/* <WorkingProgramInfoHeader img={workProgramDetails?.img} /> */}
+			<Player
+				autoplay={false}
+				src={currentExercise?.Exercise?.video_url ?? null}
+			/>
 			<div className="workout-description">
-				{workProgramDetails?.workout_description ??
-					`Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam cumque
-				porro minima quam, qui reprehenderit veniam voluptas officiis animi sunt
-				corrupti vitae iure nisi tempora placeat exercitationem quae at cum
-				recusandae voluptates tempore, quasi nihil eveniet! Vero blanditiis
-				nobis laborum repellat sit minima consequatur ipsam consequuntur magni
-				quaerat eos, repudiandae hic autem sapiente incidunt accusantium? At
-				temporibus amet ad quaerat?`}
+				{workProgramDetails?.workout_description ?? ''}
 			</div>
 			<h3 className="section-title text-right">Instruction</h3>
 			<div>

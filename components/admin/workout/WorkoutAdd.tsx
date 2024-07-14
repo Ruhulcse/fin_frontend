@@ -1,9 +1,12 @@
-import { generateDataFromServer, nextProperties } from '@/lib/helper/server-fetch';
+import {
+	generateDataFromServer,
+	nextProperties,
+} from '@/lib/helper/server-fetch';
 import WorkoutForm from './WorkoutForm';
 
 const WorkoutAdd = async ({ traineeId }: { traineeId: string }) => {
 	const { data: userWorkouts = [] } = await generateDataFromServer(
-		`workouts?user_id=${traineeId}`,
+		`workouts`,
 		nextProperties()
 	);
 	return (

@@ -2,14 +2,24 @@ import {
 	generateDataFromServer,
 	nextProperties,
 } from '@/lib/helper/server-fetch';
-import WorkingProgramInfo from './WorkingProgramInfo';
+import WorkoutProgramWrapperView from './WorkoutProgramWrapperView';
 
 const WorkingProgramView = async ({ id }: { id: string }) => {
 	const { data: workout = {} } = await generateDataFromServer(
 		`workouts/${id}`,
 		nextProperties(0)
 	);
-	return <WorkingProgramInfo workProgramDetails={workout} />;
+	const { data: workoutExercises = [] } = await generateDataFromServer(
+		`admin/training/${id}`,
+		nextProperties(0)
+	);
+
+	return (
+		<WorkoutProgramWrapperView
+			workoutExercises={workoutExercises}
+			workout={workout}
+		/>
+	);
 };
 
 export default WorkingProgramView;

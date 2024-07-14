@@ -1,4 +1,5 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaTiktok } from 'react-icons/fa6';
 
 const Footer = () => {
 	return (
@@ -36,20 +37,11 @@ const Footer = () => {
 						</li>
 						<li>
 							<a
-								href="https://twitter.com/"
+								href="www.tiktok.com/"
 								target="_blank"
 								rel="noreferrer"
 							>
-								<FaTwitter />
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://www.linkedin.com/company/"
-								target="_blank"
-								rel="noreferrer"
-							>
-								<FaLinkedin />
+								<FaTiktok />
 							</a>
 						</li>
 					</ul>

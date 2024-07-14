@@ -37,6 +37,7 @@ const AddExerciseForm = ({
 	exercises,
 	setEditExercise,
 	editExercise,
+	workoutId,
 }: {
 	open: boolean;
 	setAddExercise: any;
@@ -45,6 +46,7 @@ const AddExerciseForm = ({
 	exercises: any;
 	setEditExercise: any;
 	editExercise: any;
+	workoutId: string | null;
 }) => {
 	const {
 		register,
@@ -59,12 +61,19 @@ const AddExerciseForm = ({
 		label: exercise?.name,
 		value: `${exercise?.exercise_id}__${exercise?.name}`,
 	}));
-	const onSubmit: SubmitHandler<Inputs> = (data) => {
+	const onSubmit: SubmitHandler<any> = (data) => {
 		const payload = {
 			...data,
 			exercise_id: data.exercise_id.split('__')[0],
 			exercise_name: data.exercise_id.split('__')[1],
 		};
+		if (workoutId) {
+			if (editExercise?.training_id) {
+				payload.training_id = editExercise.training_id;
+			} else {
+				payload.workout_id = workoutId;
+			}
+		}
 		const findItem = exercises.find(
 			(item: any) => Number(item.exercise_id) === Number(payload.exercise_id)
 		);

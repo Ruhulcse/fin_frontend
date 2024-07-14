@@ -3,7 +3,6 @@ import { getError } from '@/lib/helper/common';
 import { useUpdateUserStatusInfoMutation } from '@/store/features/user/api';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { FaUserAlt, FaUserAltSlash } from 'react-icons/fa';
 import { toast } from 'sonner';
 const TraineeUserStatus = ({ user }: any) => {
 	const { role, status } = user;
@@ -46,9 +45,9 @@ const TraineeUserStatus = ({ user }: any) => {
 				className="text-bold text-xs border text-textPrimary border-textPrimary rounded p-[2px_6px]"
 			>
 				{status === 'active'
-					? 'Activated'
+					? 'Make User Inactivate'
 					: status === 'inactive'
-					? 'Inactivated'
+					? 'Make User Activate'
 					: null}
 			</button>
 			<button

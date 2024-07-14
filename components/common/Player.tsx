@@ -5,9 +5,11 @@ import ReactPlayer from 'react-player';
 const Player = ({
 	src = '',
 	extraClasses = '',
+	autoplay = true,
 }: {
 	src: string;
 	extraClasses?: string;
+	autoplay?: boolean;
 }) => {
 	return (
 		<div className={cn('rounded-lg overflow-hidden', extraClasses)}>
@@ -16,7 +18,7 @@ const Player = ({
 				width={'100%'}
 				height={'100%'}
 				controls
-				playing
+				playing={autoplay}
 			/>
 		</div>
 	);

@@ -6,7 +6,7 @@ const WorkingProgramSinglePrevData = ({
 	value: string;
 }) => {
 	return (
-		<div className="flex items-center gap-2">
+		<div className="flex items-start gap-[0_4px] flex-wrap text-xs sm:text-base">
 			<strong>{label} :</strong>
 			<span>{value}</span>
 		</div>

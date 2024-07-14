@@ -1,4 +1,3 @@
-import PDFLinkDownload from '@/components/common/PDFLinkDownload';
 import { authOptions } from '@/lib/auth-options';
 import { generateDataFromServer } from '@/lib/helper/server-fetch';
 import { getServerSession } from 'next-auth';
@@ -14,14 +13,9 @@ const UpdateMeasurement = async ({ taskId }: { taskId?: string }) => {
 		<section>
 			<h3 className="section-title text-right">User Measurement</h3>
 			{user.gender === 'male' ? (
-				<div className="flex justify-end">
-					<PDFLinkDownload
-						url="Assets/Male_photo_tracking.pdf"
-						label="Measurement PDF"
-					/>
-				</div>
+				<MeasurementWomenVideo src="https://youtu.be/iKJWC6dDjKQ?feature=shared" />
 			) : (
-				<MeasurementWomenVideo />
+				<MeasurementWomenVideo src="https://www.youtube.com/watch?v=uUo9Bw5ytrI" />
 			)}
 			{user ? (
 				<MeasurementInput

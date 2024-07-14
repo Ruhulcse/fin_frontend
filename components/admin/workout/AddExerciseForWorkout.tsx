@@ -8,6 +8,7 @@ const AddExerciseForWorkout = ({
 	exercises,
 	setEditExercise,
 	editExercise,
+	workoutId,
 }: {
 	setExercises: any;
 	setAddExercise: any;
@@ -15,6 +16,7 @@ const AddExerciseForWorkout = ({
 	exercises: any;
 	setEditExercise: any;
 	editExercise: any;
+	workoutId: string | null;
 }) => {
 	const { data = {} } = useGetExercisesQuery(
 		{},
@@ -27,6 +29,7 @@ const AddExerciseForWorkout = ({
 		<>
 			{addExercise ? (
 				<AddExerciseForm
+					workoutId={workoutId}
 					exerciseData={exerciseData}
 					setAddExercise={setAddExercise}
 					setExercises={setExercises}

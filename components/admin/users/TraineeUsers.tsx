@@ -5,6 +5,7 @@ import {
 	generateDataFromServer,
 	nextProperties,
 } from '@/lib/helper/server-fetch';
+import AdminSearch from '../AdminSearch';
 import TraineeUserStatus from './TraineeUserInactive';
 
 const TraineeUsers = async () => {
@@ -19,6 +20,8 @@ const TraineeUsers = async () => {
 		>
 			<section className="exercise-list-area">
 				<h3 className="section-title text-right mb-4 xl:mb-8">Manage Users</h3>
+
+				<AdminSearch users={users} />
 				<br />
 				<div className="grid grid-cols-1 gap-4">
 					{users?.length > 0 ? (

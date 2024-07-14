@@ -21,7 +21,7 @@ const SignaturePadWrapper = ({ setImageURL }: { setImageURL: any }) => {
 	return (
 		<>
 			<label className="text-textPrimary text-right">Signature</label>
-			<div className="bg-primary rounded-lg grid place-content-end gap-4 relative">
+			<div className="bg-primary rounded-lg ml-auto relative overflow-hidden max-w-[300px] max-h-[300px]">
 				<SignaturePad
 					ref={sigCanvas}
 					canvasProps={{
