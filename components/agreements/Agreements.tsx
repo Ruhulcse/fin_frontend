@@ -27,14 +27,14 @@ const Agreements = async () => {
 		<section className="agreements">
 			<PDFLinkDownload url="Assets/Terms_and_conditions.pdf">
 				<Agreement
-					agreement={agreementDetails}
+					agreement={{ ...agreementDetails, date: healthDeclaration?.date }}
 					title="Terms & Conditions"
 				/>
 			</PDFLinkDownload>
 			{remaining ? (
 				<UserDetailsPDFDownload userDetails={remaining}>
 					<Agreement
-						agreement={agreementDetails}
+						agreement={{ ...agreementDetails, date: healthDeclaration?.date }}
 						title="User Details"
 					/>
 				</UserDetailsPDFDownload>
@@ -45,7 +45,7 @@ const Agreements = async () => {
 					signature={signature}
 				>
 					<Agreement
-						agreement={agreementDetails}
+						agreement={{ ...agreementDetails, date: healthDeclaration?.date }}
 						title="Health Declaration"
 					/>
 				</HealthDeclarationPDFDownload>

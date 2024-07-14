@@ -63,7 +63,7 @@ const WorkingProgramStartInput = ({
 						type="number"
 						name="last_set_weight"
 						min={0}
-						defaultValue={workProgramDetails?.last_set_weight ?? 50}
+						defaultValue={workProgramDetails?.last_set_weight ?? 0}
 						onChange={stateChangeHandler}
 					/>
 					<div className="start-info">

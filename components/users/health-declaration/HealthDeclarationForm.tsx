@@ -1,6 +1,5 @@
 'use client';
 import BasicButton from '@/components/common/BasicButton';
-import Modal from '@/components/common/Modal';
 import SignaturePadWrapper from '@/components/common/SignaturePad';
 import Input from '@/components/common/input/Input';
 import { base64StringToFile, getError } from '@/lib/helper/common';
@@ -13,6 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaSpinner } from 'react-icons/fa6';
 import { toast } from 'sonner';
 import * as yup from 'yup';
 
@@ -21,9 +21,7 @@ const schema = yup.object({});
 const HealthDeclarationForm = ({ user }: { user: any }) => {
 	const router = useRouter();
 	const [imageURL, setImageURL] = useState<string>();
-	const [open, setOpen] = useState(false);
 	const [tab, setTab] = useState(1);
-	const closeModal = () => setOpen(false);
 	const {
 		register,
 		handleSubmit,
@@ -68,7 +66,6 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 		if (imageURL) {
 			const file = base64StringToFile(imageURL, 'signature.png');
 			setValue('file', [file]);
-			closeModal();
 		} else {
 			resetField('file');
 		}
@@ -113,14 +110,9 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 						accept="image/png, image/gif, image/jpeg"
 						control={control}
 						resetField={resetField}
-						onClick={() => setOpen(true)}
+						hidden
 					/>
-					<Modal
-						open={open}
-						closeModal={closeModal}
-					>
-						<SignaturePadWrapper setImageURL={setImageURL} />
-					</Modal>
+					<SignaturePadWrapper setImageURL={setImageURL} />
 				</>
 			) : (
 				<>
@@ -148,9 +140,10 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 					</BasicButton>
 					<BasicButton
 						type="submit"
-						extraClasses="!m-0 !w-full !mt-6"
+						extraClasses="!m-0 !w-full !mt-6 flex gap-1 justify-center items-center"
 						disabled={isLoading}
 					>
+						{isLoading ? <FaSpinner className="animate-spin" /> : null}
 						Submit
 					</BasicButton>
 				</div>

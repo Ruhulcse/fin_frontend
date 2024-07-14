@@ -8,7 +8,6 @@ const Todos = async () => {
 	const { data: todos = [] } = await generateDataFromServer(
 		`tasks/${session?.user?.id}?task_status=Pending`
 	);
-
 	return (
 		<section className="col-span-2">
 			<h3 className="section-title text-right mb-4">Todo</h3>
@@ -20,7 +19,7 @@ const Todos = async () => {
 								task?.task_type === 'measure'
 									? `/measurement?task_id=${task?.task_id}`
 									: task?.task_type === 'workout'
-									? `/workout-program?task_id=${task?.task_id}`
+									? `/workout-program/start/${task?.workout_id}?task_id=${task?.task_id}`
 									: `/food-entry/add?task_id=${task?.task_id}`
 							}
 						>

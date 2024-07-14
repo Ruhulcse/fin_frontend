@@ -18,7 +18,7 @@ const Agreement = ({
 				/>
 
 				<strong>{agreement?.name ?? 'N/A'}</strong>
-				<span>Last Update on 08/06/2024</span>
+				<span>Last Update on {agreement?.date ?? 'N/A'}</span>
 			</div>
 		</div>
 	);

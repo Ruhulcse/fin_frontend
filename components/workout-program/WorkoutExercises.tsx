@@ -16,7 +16,7 @@ const WorkoutExercises = ({ workoutExercises, id }: any) => {
 			return {
 				sets_done: exercise?.sets_done ?? 0,
 				reps_done: exercise?.reps_done ?? 0,
-				last_set_weight: exercise?.last_set_weight ?? 50,
+				last_set_weight: exercise?.last_set_weight ?? 0,
 				training_id: exercise?.training_id,
 			};
 		}),

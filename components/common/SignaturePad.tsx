@@ -1,44 +1,45 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { FaTimesCircle } from 'react-icons/fa';
 import SignaturePad from 'react-signature-canvas';
 import BasicButton from './BasicButton';
 const SignaturePadWrapper = ({ setImageURL }: { setImageURL: any }) => {
 	const sigCanvas = useRef<any>();
+	const [isEmpty, setIsEmpty] = useState(true);
+
 	const clear = () => {
 		if (sigCanvas?.current) {
 			sigCanvas.current.clear();
+			setIsEmpty(true);
 		}
 	};
 	const save = () => {
 		if (sigCanvas?.current) {
 			setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL('image/png'));
+			setIsEmpty(false);
 		}
 	};
 	return (
-		<div className="bg-primary min-w-[300px] w-[50vw] rounded p-3 grid place-content-center gap-4">
-			<h3 className="semi-section-title text-center">Add Signature</h3>
-			<SignaturePad
-				ref={sigCanvas}
-				canvasProps={{
-					className: 'signatureCanvas',
-				}}
-				backgroundColor="#FAEAEB"
-			/>
-			<div className="flex items-center justify-center gap-4">
-				<BasicButton
-					extraClasses="!w-full"
-					onClick={clear}
-					hard
-				>
-					Clear
-				</BasicButton>
-				<BasicButton
-					extraClasses="!w-full"
-					onClick={save}
-				>
-					Save
-				</BasicButton>
+		<>
+			<label className="text-textPrimary text-right">Signature</label>
+			<div className="bg-primary rounded-lg grid place-content-end gap-4 relative">
+				<SignaturePad
+					ref={sigCanvas}
+					canvasProps={{
+						className: 'signatureCanvas',
+					}}
+					backgroundColor="#FAEAEB"
+					onEnd={() => save()}
+				/>
+				{isEmpty ? null : (
+					<BasicButton
+						extraClasses="!w-max !p-0 absolute top-1 right-1"
+						onClick={clear}
+					>
+						<FaTimesCircle />
+					</BasicButton>
+				)}
 			</div>
-		</div>
+		</>
 	);
 };
 
