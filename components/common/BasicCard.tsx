@@ -25,10 +25,12 @@ const BasicCard = ({
 	children,
 	icon,
 	link = '',
+	onClick,
 }: {
 	children: React.ReactNode;
 	link?: string;
 	icon?: ReactNode;
+	onClick?: any;
 }) => {
 	return link ? (
 		<Link href={link}>
@@ -37,6 +39,14 @@ const BasicCard = ({
 				<div className="info">{children}</div>
 			</CardDiv>
 		</Link>
+	) : onClick ? (
+		<CardDiv
+			onClick={onClick}
+			className="bg-card border border-card text-textPrimary"
+		>
+			{icon ?? <TbSquareArrowLeft size={24} />}
+			<div className="info">{children}</div>
+		</CardDiv>
 	) : (
 		<CardDiv className="bg-card border border-card text-textPrimary">
 			{icon ?? <TbSquareArrowLeft size={24} />}

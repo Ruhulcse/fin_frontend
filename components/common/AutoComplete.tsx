@@ -119,7 +119,7 @@ export const AutoComplete = ({
 			<div className="relative mt-1">
 				<div
 					className={cn(
-						'animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full rounded-xl bg-white outline-none',
+						'animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full rounded bg-secondary outline-none',
 						isOpen ? 'block' : 'hidden'
 					)}
 				>
@@ -138,7 +138,7 @@ export const AutoComplete = ({
 											}}
 											onSelect={() => handleSelectOption(option)}
 											className={cn(
-												'flex w-full items-center gap-2 justify-end',
+												'flex w-full items-center gap-2 justify-end text-white hover:!bg-card aria-selected:!bg-card',
 												!isSelected ? 'pl-8' : null
 											)}
 										>

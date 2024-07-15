@@ -14,12 +14,9 @@ const MeasurementReport = ({ trainee }: { trainee: any }) => {
 	};
 
 	return (
-		<div
-			onClick={getReport}
-			className="grid gap-2 xl:gap-4"
-		>
+		<div className="grid gap-2 xl:gap-4">
 			<h4 className="semi-section-title text-right">Reports</h4>
-			<BasicCard>
+			<BasicCard onClick={getReport}>
 				<strong>Measurements & Exercise</strong>
 				<small className="text-textSecondary">Progress</small>
 			</BasicCard>

@@ -5,7 +5,7 @@ import { AutoComplete } from '../common/AutoComplete';
 const AdminSearch = ({ users }: { users: any }) => {
 	const router = useRouter();
 	const stateChangeHandler = ({ selectValue }: any) => {
-		router.push(`/admin/trainee-details/${selectValue}`);
+		selectValue && router.push(`/admin/trainee-details/${selectValue}`);
 	};
 
 	const userOptions = users.map((user: any) => ({

@@ -15,8 +15,6 @@ import { toast } from 'sonner';
 import * as yup from 'yup';
 
 const schema = yup.object({
-	steps_to_do: yup.string().required('Please enter steps to do'),
-	avg_steps: yup.string().required('Please enter average steps'),
 	eating_day_free_txt: yup.string().required('Please enter eating day'),
 	result_dt: yup.string().required('Please enter result date'),
 });
@@ -69,8 +67,6 @@ const FoodEntryForm = ({
 
 	useEffect(() => {
 		if (fooEntry?.id) {
-			setValue('steps_to_do', fooEntry?.steps_to_do);
-			setValue('avg_steps', fooEntry?.avg_steps);
 			setValue('eating_day_free_txt', fooEntry?.eating_day_free_txt);
 			setValue(
 				'result_dt',
@@ -107,20 +103,6 @@ const FoodEntryForm = ({
 			className="grid gap-2 xl:gap-4"
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<Input
-				type="number"
-				name="steps_to_do"
-				label="Steps to do"
-				register={register}
-				errors={errors}
-			/>
-			<Input
-				type="number"
-				name="avg_steps"
-				label="Average steps"
-				register={register}
-				errors={errors}
-			/>
 			<Input
 				type="textarea"
 				name="eating_day_free_txt"

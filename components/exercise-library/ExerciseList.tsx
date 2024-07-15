@@ -14,18 +14,18 @@ const ExerciseList = async ({ searchParams }: { searchParams: any }) => {
 	return (
 		<section className="exercise-list-area">
 			<h3 className="section-title text-right mb-4 xl:mb-8">Exercise List</h3>
-			<div className="grid grid-cols-1 gap-4">
-				{exercises?.length > 0 ? (
-					exercises?.map((exercise: any, index: number) => (
+			{exercises?.length > 0 ? (
+				<div className="grid grid-cols-1 gap-4">
+					{exercises?.map((exercise: any, index: number) => (
 						<Exercise
 							exerciseId={exercise.exercise_id}
 							key={index}
 						/>
-					))
-				) : (
-					<NotDataFound />
-				)}
-			</div>
+					))}
+				</div>
+			) : (
+				<NotDataFound />
+			)}
 		</section>
 	);
 };
