@@ -1,13 +1,20 @@
 import Link from 'next/link';
 
-const AuthRedirect = ({ type }: { type: string }) => {
+const AuthRedirect = ({
+	data,
+	type,
+}: {
+	type: string;
+	data: {
+		title: string;
+		message: string;
+		redirect: string;
+		btnLabel: string;
+	};
+}) => {
 	return (
 		<span className="text-[12px] text-textPrimary flex items-center gap-1">
-			{type === 'login'
-				? `Don't have an account?`
-				: type === 'registration'
-				? `Already have an account?`
-				: ''}
+			{data?.message}
 			<Link
 				className="text-secondary cursor-pointer font-bold"
 				href={
@@ -18,7 +25,7 @@ const AuthRedirect = ({ type }: { type: string }) => {
 						: ''
 				}
 			>
-				Sign Up
+				{data?.redirect}
 			</Link>
 		</span>
 	);

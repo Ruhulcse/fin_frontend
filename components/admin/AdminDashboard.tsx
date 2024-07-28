@@ -23,7 +23,7 @@ const AdminDashboard = async () => {
 				<BasicCard link="/admin/exercise/manage">
 					<span>Manage Exercise</span>
 				</BasicCard>
-				<BasicCard link="/admin/nutrition-plan/manage">
+				<BasicCard link="/admin/nutrition-guides/manage">
 					<span>Manage Nutrition Guides</span>
 				</BasicCard>
 				<BasicCard link="/admin/approve-email">

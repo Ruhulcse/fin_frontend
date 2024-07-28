@@ -1,6 +1,6 @@
 'use client';
 import { useGetNutritionPlanQuery } from '@/store/features/nutrition-plans/api';
-import PdfView from '../common/PdfView';
+import PdfView from '../common/pdf/PdfView';
 
 const NutritionPlanView = ({ id }: { id: string }) => {
 	const { data = {} } = useGetNutritionPlanQuery(id, {

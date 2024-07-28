@@ -1,12 +1,18 @@
+import { useTranslations } from 'next-intl';
 import AuthHeader from './AuthHeader';
 import AuthRedirect from './AuthRedirect';
 
 const Login = () => {
+	const t = useTranslations('auth');
+	const loginData = t.raw('login');
 	return (
 		<>
-			<AuthHeader title="Welcome Back" />
+			<AuthHeader title={loginData?.title} />
 			{/* <LoginForm /> */}
-			<AuthRedirect type="login" />
+			<AuthRedirect
+				data={loginData}
+				type="login"
+			/>
 		</>
 	);
 };

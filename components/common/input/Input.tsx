@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 import { ReactNode, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import PDFLinkDownload from '../PDFLinkDownload';
+import PDFLinkDownload from '../pdf/PDFLinkDownload';
 import FileInput from './FileInput';
 import Multiselect from './Multiselect';
 

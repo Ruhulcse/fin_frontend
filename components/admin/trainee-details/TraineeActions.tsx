@@ -1,4 +1,5 @@
 import BasicCard from '@/components/common/BasicCard';
+import FoodReport from './FoodReport';
 import MeasurementReport from './MeasurementReport';
 import TrainingReport from './TrainingReport';
 
@@ -19,6 +20,7 @@ const TraineeActions = ({ trainee }: { trainee: any }) => {
 				</BasicCard>
 			</div>
 			<MeasurementReport trainee={trainee} />
+			<FoodReport trainee={trainee} />
 			<div className="grid gap-2 xl:gap-4">
 				<h4 className="semi-section-title text-right">Agreement</h4>
 				<BasicCard link={`/agreements/${trainee?.user_id}`}>

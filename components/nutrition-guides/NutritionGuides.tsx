@@ -7,7 +7,7 @@ import NutritionGuide from './NutritionGuide';
 
 const NutritionGuides = async () => {
 	const { data: nutritionGuides = [] } = await generateDataFromServer(
-		'nutrition-plans/guides',
+		'nutrition-guides',
 		nextProperties()
 	);
 	return (

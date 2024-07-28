@@ -1,21 +1,22 @@
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
-import { FaTiktok } from 'react-icons/fa6';
+import { useTranslations } from 'next-intl';
+import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa6';
 
 const Footer = () => {
+	const t = useTranslations('footer');
 	return (
 		<footer className="bg-secondary text-white">
 			<div className="container flex items-center justify-between flex-col xl:flex-row  py-[20px] gap-2 text-[12px] sm:text-[14px] xl:text-[16px]">
 				<ul className="quick-links flex items-center gap-2">
 					<li>
-						<a href="/">Privacy Policy</a>
+						<a href="/">{t('privacyPolicy')}</a>
 					</li>
 					<li className="border-r border-white h-[16px] xl:h-[20px]"></li>
 					<li>
-						<a href="/">Terms of Service</a>
+						<a href="/">{t('termsOfService')}</a>
 					</li>
 				</ul>
 				<div className="social-link items-center flex gap-2">
-					<strong>Follow Us</strong>
+					<strong>{t('followUs')}</strong>
 					<ul className="flex items-center gap-2">
 						<li>
 							<a
@@ -46,7 +47,7 @@ const Footer = () => {
 						</li>
 					</ul>
 				</div>
-				<p>© 2024 FITAL by Tal Mualem. All rights reserved.</p>
+				<p>© {t('copyRightMessage')}</p>
 			</div>
 		</footer>
 	);

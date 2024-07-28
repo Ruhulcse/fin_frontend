@@ -1,0 +1,31 @@
+{
+	"common": {
+		"noData": "No data found!"
+	},
+	"auth": {
+		"googleMessage": "Continue with Google",
+		"login": {
+			"title": "Welcome Back",
+			"message": "Don't have an account?",
+			"redirect": "Sign Up"
+		},
+		"registration": {
+			"title": "Easy to Start!",
+			"message": "Already have an account?",
+			"redirect": "Sign In"
+		}
+	},
+	"dashboard": {
+		"home": {
+			"measurementTitle": "Measurements",
+			"stepsTitle": "Steps",
+			"todoTitle": "Todo"
+		}
+	},
+	"footer": {
+		"privacyPolicy": "Privacy Policy",
+		"termsOfService": "Terms of Service",
+		"followUs": "Follow Us",
+		"copyRightMessage": "2024 FITAL by Tal Mualem. All rights reserved."
+	}
+}

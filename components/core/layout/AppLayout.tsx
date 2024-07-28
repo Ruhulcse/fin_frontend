@@ -5,7 +5,13 @@ import StoreProvider from '../provider/StoreProvider';
 import { ThemeProvider } from '../provider/ThemeProvider';
 import Middleware from './Middleware';
 
-const AppLayout = ({ children }: { children: React.ReactNode }) => {
+const AppLayout = ({
+	children,
+	locale,
+}: {
+	children: React.ReactNode;
+	locale?: string;
+}) => {
 	return (
 		<AuthProvider>
 			<ThemeProvider
@@ -16,7 +22,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 			>
 				<StoreProvider>
 					<Toaster richColors />
-					<Middleware />
+					<Middleware locale={locale} />
 					{children}
 				</StoreProvider>
 			</ThemeProvider>

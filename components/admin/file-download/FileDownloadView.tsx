@@ -1,4 +1,4 @@
-import PdfView from '@/components/common/PdfView';
+import PdfView from '@/components/common/pdf/PdfView';
 import {
 	generateDataFromServer,
 	nextProperties,

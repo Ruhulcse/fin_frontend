@@ -1,4 +1,4 @@
-import BackLinkWrapper from '@/components/common/BackLinkWrapper';
+import BackLinkWrapper from '@/components/common/backlink/BackLinkWrapper';
 import ExerciseForm from './ExerciseForm';
 
 const ExerciseAdd = () => {

@@ -7,7 +7,7 @@ const NutritionPlanSmallInfo = ({ plan }: { plan: any }) => {
 			<Link href={`/admin/nutrition-plan/edit/${plan?.id}`}>
 				<FaEdit />
 			</Link>
-			<h3>{plan?.name ?? 'How to do push up'}</h3>
+			<h3>{plan?.name ?? ''}</h3>
 		</section>
 	);
 };

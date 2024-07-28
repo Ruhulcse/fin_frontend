@@ -4,7 +4,7 @@ import {
 	nextProperties,
 } from '@/lib/helper/server-fetch';
 import { getServerSession } from 'next-auth';
-import PDFLinkDownload from '../common/PDFLinkDownload';
+import PDFLinkDownload from '../common/pdf/PDFLinkDownload';
 import HealthDeclarationPDFDownload from '../users/health-declaration/HealthDeclarationPDFDownload';
 import UserDetailsPDFDownload from '../users/health-declaration/UserDetailsPDFDownload';
 import Agreement from './Agreement';

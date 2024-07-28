@@ -4,16 +4,38 @@ export const nutritionGuideApi = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
 		getNutritionGuides: builder.query({
 			query: () => ({
-				url: `nutrition-plans/guides`,
+				url: `nutrition-guides`,
 			}),
 		}),
 		getNutritionGuide: builder.query({
 			query: (id) => ({
-				url: `nutrition-plans/guides?id=${id}`,
+				url: `nutrition-guides?id=${id}`,
+			}),
+			transformResponse: (response: any) => ({
+				...response,
+				data: response.data[0],
+			}),
+		}),
+		addNutritionGuide: builder.mutation({
+			query: (payload) => ({
+				url: `nutrition-guides`,
+				method: 'POST',
+				body: payload,
+			}),
+		}),
+		editNutritionGuide: builder.mutation({
+			query: (payload) => ({
+				url: `nutrition-guides/${payload?.id}`,
+				method: 'PUT',
+				body: payload?.data,
 			}),
 		}),
 	}),
 });
 
-export const { useGetNutritionGuideQuery, useGetNutritionGuidesQuery } =
-	nutritionGuideApi;
+export const {
+	useEditNutritionGuideMutation,
+	useGetNutritionGuideQuery,
+	useGetNutritionGuidesQuery,
+	useAddNutritionGuideMutation,
+} = nutritionGuideApi;

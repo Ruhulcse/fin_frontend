@@ -1,4 +1,4 @@
-import BackLinkWrapper from '@/components/common/BackLinkWrapper';
+import BackLinkWrapper from '@/components/common/backlink/BackLinkWrapper';
 import BasicCard from '@/components/common/BasicCard';
 import NotDataFound from '@/components/common/message/NotDataFound';
 import {

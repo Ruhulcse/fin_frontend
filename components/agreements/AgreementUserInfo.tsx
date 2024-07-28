@@ -1,6 +1,6 @@
 import { healthDeclarationInputs } from '@/lib/helper/inputs';
 import Image from 'next/image';
-import PDFLinkDownload from '../common/PDFLinkDownload';
+import PDFLinkDownload from '../common/pdf/PDFLinkDownload';
 import HealthDeclarationPDFDownload from '../users/health-declaration/HealthDeclarationPDFDownload';
 import UserDetailsPDFDownload from '../users/health-declaration/UserDetailsPDFDownload';
 

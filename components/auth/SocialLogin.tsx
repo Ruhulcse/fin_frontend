@@ -1,6 +1,7 @@
 'use client';
 import { signIn } from 'next-auth/react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'sonner';
@@ -9,7 +10,8 @@ const SocialLogin = () => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const errorMessage = searchParams.get('error');
-	const pathName = usePathname();
+	const t = useTranslations('auth');
+	const googleMessage = t.raw('googleMessage');
 
 	const googleLogin = async () => {
 		await signIn('google', {
@@ -38,7 +40,7 @@ const SocialLogin = () => {
 					className="bg-primary text-center flex items-center justify-center gap-2 p-2 rounded"
 				>
 					<FcGoogle size={20} />
-					<span>Continue with Google</span>
+					<span>{googleMessage}</span>
 				</button>
 			</div>
 		</section>

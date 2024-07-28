@@ -1,13 +1,18 @@
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import AuthHeader from './AuthHeader';
 import AuthRedirect from './AuthRedirect';
 
 const Register = () => {
+	const t = useTranslations('auth');
+	const regData = t.raw('registration');
 	return (
 		<>
-			<AuthHeader title="Easy to Start!" />
+			<AuthHeader title={regData?.title} />
 			{/* <RegisterForm /> */}
-			<AuthRedirect type="registration" />
+			<AuthRedirect
+				type="registration"
+				data={regData}
+			/>
 		</>
 	);
 };

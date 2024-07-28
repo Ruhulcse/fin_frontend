@@ -131,19 +131,20 @@ export const AutoComplete = ({
 									return (
 										<CommandItem
 											key={option.value}
-											value={option.label}
+											value={option.value}
 											onMouseDown={(event) => {
 												event.preventDefault();
 												event.stopPropagation();
 											}}
 											onSelect={() => handleSelectOption(option)}
 											className={cn(
-												'flex w-full items-center gap-2 justify-end text-white hover:!bg-card aria-selected:!bg-card',
+												'flex w-full items-center gap-2 justify-end text-white hover:!bg-card hover:!text-textPrimary aria-selected:!bg-card aria-selected:!text-textPrimary ',
 												!isSelected ? 'pl-8' : null
 											)}
 										>
 											{isSelected ? <Check className="w-4" /> : null}
 											{option.label}
+											<span className="hidden">{option.value}</span>
 										</CommandItem>
 									);
 								})}

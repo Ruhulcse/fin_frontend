@@ -1,7 +1,7 @@
 'use client';
 import { useGetUserAssetsMutation } from '@/store/features/user/api';
 import { useEffect } from 'react';
-import PdfView from '../common/PdfView';
+import PdfView from '../common/pdf/PdfView';
 import SkeletonGroup from '../common/skeleton/SkeletonGroup';
 
 const Recipes = () => {

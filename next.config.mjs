@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
+import createNextIntlPlugin from 'next-intl/plugin';
+const withNextIntl = createNextIntlPlugin();
+
 const nextConfig = {
 	images: {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: 'fin-backend-mm5k.onrender.com',
+				hostname: 'fin-backend-0dcb.onrender.com',
 			},
 			{
 				protocol: 'https',
@@ -14,4 +17,4 @@ const nextConfig = {
 	},
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

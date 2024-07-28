@@ -1,17 +1,21 @@
 import { authOptions } from '@/lib/auth-options';
-import { generateDataFromServer } from '@/lib/helper/server-fetch';
+import {
+	generateDataFromServer,
+	nextProperties,
+} from '@/lib/helper/server-fetch';
 import { getServerSession } from 'next-auth';
 import BasicCard from '../common/BasicCard';
 import NotDataFound from '../common/message/NotDataFound';
 
-const Todos = async () => {
+const Todos = async ({ homeI18n }: { homeI18n: { todoTitle: string } }) => {
 	const session = await getServerSession(authOptions());
 	const { data: todos = [] } = await generateDataFromServer(
-		`tasks/${session?.user?.id}?task_status=Pending`
+		`tasks/${session?.user?.id}?task_status=Pending`,
+		nextProperties()
 	);
 	return (
 		<section className="col-span-2">
-			<h3 className="section-title text-right mb-4">Todo</h3>
+			<h3 className="section-title text-right mb-4">{homeI18n.todoTitle}</h3>
 			{todos?.length > 0 ? (
 				<div className="todos grid gap-4">
 					{todos?.map((task: any, index: number) => (

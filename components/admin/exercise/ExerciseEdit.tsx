@@ -1,5 +1,5 @@
 'use client';
-import BackLinkWrapper from '@/components/common/BackLinkWrapper';
+import BackLinkWrapper from '@/components/common/backlink/BackLinkWrapper';
 import { useGetExerciseQuery } from '@/store/features/exercise/api';
 import ExerciseForm from './ExerciseForm';
 

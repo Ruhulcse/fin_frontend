@@ -1,16 +1,8 @@
-import { signOut } from 'next-auth/react';
-import { clearCookie } from './server-func';
+import { format } from 'date-fns';
+import { defaultLocale, locales } from './locales';
 
 export const cookieOptions = () => {
 	return { secure: true };
-};
-
-export const logoutHandler = async () => {
-	await clearCookie();
-	await signOut({
-		redirect: true,
-		callbackUrl: '/login',
-	});
 };
 
 export const getError = (error: any, defaultMessage = 'Error Found') => {
@@ -65,4 +57,19 @@ export const xlsxDownload = async (path: string, name = 'file.xlsx') => {
 		a.click();
 		window.URL.revokeObjectURL(url);
 	} catch (error) {}
+};
+
+export const dateFormat = (date: string, formatType = 'yyyy-MM-dd') => {
+	const formattedDate = format(new Date(date), formatType);
+	return formattedDate;
+};
+
+export const basePublicPath = ['/login', '/registration', '/forgot-password'];
+export const publicPaths = () => {
+	const paths = locales.map((locale) =>
+		basePublicPath.map((path) =>
+			defaultLocale === locale ? path : `/${locale}${path}`
+		)
+	);
+	return paths.flat();
 };

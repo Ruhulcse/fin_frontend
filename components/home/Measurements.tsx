@@ -47,14 +47,20 @@ const preData = [
 	// },
 ];
 
-const Measurements = async ({ userId }: { userId: string }) => {
+const Measurements = async ({
+	userId,
+	homeI18n,
+}: {
+	userId: string;
+	homeI18n: { measurementTitle: string };
+}) => {
 	const { data: measurement } = await generateDataFromServer(
 		`tracking/latest-measurement/${userId}`
 	);
 	return (
 		<section className="home-card col-span-2 sm:col-span-1 measurement-area">
 			<h3 className="home-card-title text-center flex items-center justify-center gap-2 mb-2">
-				Measurements
+				{homeI18n?.measurementTitle}
 				<Link href={`/measurement`}>
 					<FaEdit size={14} />
 				</Link>

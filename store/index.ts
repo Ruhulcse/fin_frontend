@@ -3,6 +3,7 @@ import userSlice from '@/store/features/user/slice';
 import storage from '@/store/storage';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
+import themeSlice from './theme/slice';
 
 const persistConfig = {
 	key: 'fitness-dashboard',
@@ -14,6 +15,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
 	[apiSlice.reducerPath]: apiSlice.reducer,
 	[userSlice.name]: userSlice.reducer,
+	[themeSlice.name]: themeSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

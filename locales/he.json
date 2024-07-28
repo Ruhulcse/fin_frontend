@@ -1,0 +1,31 @@
+{
+	"common": {
+		"noData": "לא נמצאו נתונים!"
+	},
+	"auth": {
+		"googleMessage": "המשך עם גוגל",
+		"login": {
+			"title": "ברוך שובך",
+			"message": "אין לך חשבון?",
+			"redirect": "הירשם"
+		},
+		"registration": {
+			"title": "קל להתחיל!",
+			"message": "כבר יש לך חשבון?",
+			"redirect": "להתחבר"
+		}
+	},
+	"dashboard": {
+		"home": {
+			"measurementTitle": "מידות",
+			"stepsTitle": "שלבים",
+			"todoTitle": "לעשות"
+		}
+	},
+	"footer": {
+		"privacyPolicy": "מדיניות הפרטיות",
+		"termsOfService": "תנאי השירות",
+		"followUs": "לעקוב אחרינו",
+		"copyRightMessage": "2024 FITAL מאת טל מועלם. כל הזכויות שמורות."
+	}
+}

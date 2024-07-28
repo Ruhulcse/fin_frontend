@@ -4,7 +4,6 @@ import { genderOptions } from '@/lib/helper/options';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FaSpinner } from 'react-icons/fa6';
@@ -13,6 +12,7 @@ import * as yup from 'yup';
 import BasicButton from '../common/BasicButton';
 import Input from '../common/input/Input';
 import AuthRedirect from './AuthRedirect';
+import { useTranslations } from 'next-intl';
 
 type Inputs = {
 	email: string;
@@ -40,7 +40,8 @@ const schema = yup.object({
 });
 
 const RegisterForm = () => {
-	const router = useRouter();
+	const t = useTranslations('auth');
+	const regData = t.raw('registration');
 	const [loading, setLoading] = useState(false);
 	const {
 		register,
@@ -138,7 +139,10 @@ const RegisterForm = () => {
 					) : null}
 					Create Account
 				</BasicButton>
-				<AuthRedirect type="registration" />
+				<AuthRedirect
+					data={regData}
+					type="registration"
+				/>
 			</div>
 		</form>
 	);

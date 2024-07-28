@@ -2,8 +2,8 @@
 import { getError } from '@/lib/helper/common';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { signIn } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FaSpinner } from 'react-icons/fa6';
@@ -27,8 +27,9 @@ const schema = yup.object({
 });
 
 const LoginForm = () => {
-	const router = useRouter();
 	const [loading, setLoading] = useState(false);
+	const t = useTranslations('auth');
+	const loginData = t.raw('login');
 
 	const {
 		register,
@@ -95,7 +96,10 @@ const LoginForm = () => {
 					) : null}
 					Login
 				</BasicButton>
-				<AuthRedirect type="login" />
+				<AuthRedirect
+					data={loginData}
+					type="login"
+				/>
 			</div>
 		</form>
 	);

@@ -12,10 +12,10 @@ const NutritionGuide = ({ guide }: any) => {
 			/>
 			<div className="grid grid-rows-[auto_auto_1fr] col-span-2 xl:col-span-1 gap-1 xl:gap-2">
 				<h3 className="semi-section-title text-right">
-					{guide?.name ?? 'Eating for Energy'}
+					{guide?.title ?? ''}
 				</h3>
 				<p className="nutrition-guide-info text-right text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px]">
-					{guide?.description ?? `A guide to eating healthy when you are busy`}
+					{guide?.description ?? ``}
 				</p>
 				<Link
 					href={`/nutrition-guides/${guide?.id}`}

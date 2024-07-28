@@ -1,4 +1,5 @@
 import authImg from '@/assets/images/auth.png';
+import LanguageSwitcher from '@/components/common/LanguageSwitcher';
 import { authOptions } from '@/lib/auth-options';
 import { getServerSession } from 'next-auth';
 import Image from 'next/image';
@@ -11,7 +12,10 @@ const AuthLayout = async ({ children }: { children: React.ReactNode }) => {
 		return redirect(userRole === 'admin' ? '/admin' : '/');
 	}
 	return (
-		<main className="bg-card xl:bg-white container auth grid place-items-center">
+		<main className="bg-card xl:bg-white container auth grid place-items-center relative">
+			<div className="absolute top-1 right-1">
+				<LanguageSwitcher />
+			</div>
 			<section className="grid gap-20 grid-cols-2 py-[40px] xl:py-[60px] w-full items-center">
 				<Image
 					src={authImg}
