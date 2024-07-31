@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 	},
 	block: {
 		marginTop: 10,
-		backgroundColor: '#cecece',
+		backgroundColor: '#FAEAEB',
 		padding: 10,
 	},
 	pageNumber: {
