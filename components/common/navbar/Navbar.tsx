@@ -14,6 +14,7 @@ import Sidebar from "./Sidebar";
 const Navbar = () => {
   const t = useTranslations("auth");
   const nt = useTranslations("navbar");
+  const nav = nt.raw("menus");
   const loginBtn = t.raw("logout");
   const session: any = useSession();
   const userRole = session?.data?.user?.role;
@@ -24,35 +25,35 @@ const Navbar = () => {
       path: "/",
     },
     {
-      name: nt("menus.home"),
+      name: nav.home,
       path: "/admin",
     },
     {
-      name: nt("menus.recipes"),
+      name: nav.recipes,
       path: "/recipes",
     },
     {
-      name: nt("menus.courses"),
+      name: nav.courses,
       path: "/courses",
     },
     {
-      name: nt("menus.agreements"),
+      name: nav.agreements,
       path: "/agreements",
     },
     {
-      name: nt("menus.workout"),
+      name: nav.workout,
       path: "/workout-program",
     },
     {
-      name: nt("menus.exercise"),
+      name: nav.exercise,
       path: "/exercise-library",
     },
     {
-      name: nt("menus.nutrition"),
+      name: nav.nutrition,
       path: "/nutrition-plan",
     },
     {
-      name: nt("menus.nutritionGuides"),
+      name: nav.nutritionGuide,
       path: "/nutrition-guides",
     },
   ];

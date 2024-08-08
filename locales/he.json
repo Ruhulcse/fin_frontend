@@ -137,6 +137,42 @@
       "uploadFileErr": "מעקב תמונות (עד 4 תמונות)"
     }
   },
+  "admin": {
+    "dashboard": {
+      "activeUsers": "מתאמנים פעילים",
+      "manageEx": "נהל תרגילי כושר",
+      "mngNuGuide": "נהל מדריכי תזונה",
+      "apvEmailAdd": "אשר כתובת מייל"
+    },
+    "mngUsers": {
+      "title": "נהל מתאמנים"
+    },
+    "traineeDetails": {
+      "title": "Trainee Details",
+      "add": "הוסף/ערוך",
+      "workoutMng": "הוסף/ערוך",
+      "nutritionPlan": "הוסף/ערוך",
+      "reports": "הוסף/ערוך",
+      "measurementsEx": "הוסף/ערוך",
+      "progress": "הוסף/ערוך",
+      "foodEnt": "Food Entries",
+      "userFdEnt": "User Food Entries",
+      "agreement": "מסמכים",
+      "userAgreement": "מסמכים להורדה",
+      "fileDwn": "קבצים להורדה",
+      "trainingPrgm": "תוכניות אימו",
+      "bTrBtn": "חזרה לרשימת המתאמנים",
+      "workoutManagement": {
+        "title": "נהל אימונים",
+        "addWork": "הוסף אימון חדש",
+        "workoutTitle": "הוסף אימון חדש",
+        "name": "שם האימון",
+        "description": "הוראות לאימון",
+        "addBtn": "הוסף תרגיל לאימון",
+        "saveBtn": "שמור אימון"
+      }
+    }
+  },
   "footer": {
     "privacyPolicy": "מדיניות הפרטיות",
     "termsOfService": "תנאי השירות",

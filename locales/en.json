@@ -137,6 +137,42 @@
       "uploadFileErr": "Upload File"
     }
   },
+  "admin": {
+    "dashboard": {
+      "activeUsers": "Active Users",
+      "manageEx": "Manage Exercise",
+      "mngNuGuide": "Manage Nutrition Guides",
+      "apvEmailAdd": "Approve email address"
+    },
+    "mngUsers": {
+      "title": "Manage Users"
+    },
+    "traineeDetails": {
+      "title": "Trainee Details",
+      "add": "Add New",
+      "workoutMng": "Workout Manage",
+      "nutritionPlan": "Nutrition Plan",
+      "reports": "Reports",
+      "measurementsEx": "Measurements & Exercise",
+      "progress": "Progress",
+      "foodEnt": "Food Entries",
+      "userFdEnt": "User Food Entries",
+      "agreement": "Agreements",
+      "userAgreement": "User Agreements",
+      "fileDwn": "File Download",
+      "trainingPrgm": "Training Programms",
+      "bTrBtn": "Back To Trainee",
+      "workoutManagement": {
+        "title": "Manage Workout",
+        "addWork": "Add Work",
+        "workoutTitle": "Add Workout",
+        "name": "Name",
+        "description": "Description",
+        "addBtn": "Add Exercise",
+        "saveBtn": "Save Workout"
+      }
+    }
+  },
   "footer": {
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
