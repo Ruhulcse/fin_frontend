@@ -1,31 +1,146 @@
 {
-	"common": {
-		"noData": "לא נמצאו נתונים!"
-	},
-	"auth": {
-		"googleMessage": "המשך עם גוגל",
-		"login": {
-			"title": "ברוך שובך",
-			"message": "אין לך חשבון?",
-			"redirect": "הירשם"
-		},
-		"registration": {
-			"title": "קל להתחיל!",
-			"message": "כבר יש לך חשבון?",
-			"redirect": "להתחבר"
-		}
-	},
-	"dashboard": {
-		"home": {
-			"measurementTitle": "מידות",
-			"stepsTitle": "שלבים",
-			"todoTitle": "לעשות"
-		}
-	},
-	"footer": {
-		"privacyPolicy": "מדיניות הפרטיות",
-		"termsOfService": "תנאי השירות",
-		"followUs": "לעקוב אחרינו",
-		"copyRightMessage": "2024 FITAL מאת טל מועלם. כל הזכויות שמורות."
-	}
+  "common": {
+    "noData": "לא נמצאו נתונים!"
+  },
+  "auth": {
+    "googleMessage": "המשך עם גוגל",
+    "login": {
+      "title": "ברוך שובך",
+      "message": "אין לך חשבון?",
+      "redirect": "הירשם"
+    },
+    "registration": {
+      "title": "קל להתחיל!",
+      "message": "כבר יש לך חשבון?",
+      "redirect": "להתחבר"
+    },
+    "logout": {
+      "btnTitle": "התנתק"
+    }
+  },
+  "dashboard": {
+    "home": {
+      "measurementTitle": "מידות",
+      "stepsTitle": "שלבים",
+      "todoTitle": "לעשות"
+    }
+  },
+  "measurmentPreData": {
+    "chest": {
+      "title": "חזה",
+      "label": "חזה",
+      "unit": "cm"
+    },
+    "armr": {
+      "title": "armr",
+      "label": "זרוע ימין",
+      "unit": "cm"
+    },
+    "thighr": {
+      "title": "thighr",
+      "label": "ירך ימין",
+      "unit": "cm"
+    },
+    "waist": {
+      "title": "waist",
+      "label": "מותן",
+      "unit": "cm"
+    },
+    "arml": {
+      "title": "arml",
+      "label": "זרוע שמאל",
+      "unit": "cm"
+    },
+    "thighl": {
+      "title": "thighl",
+      "label": "ירך שמאל",
+      "unit": "cm"
+    }
+  },
+  "steps": {
+    "done": "נעשו",
+    "target": "יעד"
+  },
+  "recipe": {
+    "title": "The Recipe Book Guide",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  "navbar": {
+    "menus": {
+      "home": "דף הבית",
+      "recipes": "לספר המתכונים",
+      "courses": "קורסים",
+      "agreements": "הסכמים",
+      "workout": "אימונים",
+      "exercise": "מאגר תרגילים",
+      "nutrition": "מדריכי תזונה",
+      "nutritionGuide": "תפריטי תזונה אישיים"
+    }
+  },
+  "courses": {
+    "coursesHeader": {
+      "label": "קורסים",
+      "heading": "תנאי המנוי",
+      "content": "תיאור לתנאי המנוי והסבר על הקורסי טעימה",
+      "joinBtn": "צפה בקורסים עכשיו"
+    },
+    "course": {
+      "title": "Gym For Beginners",
+      "description": "תיאור לתנאי המנוי והסבר על הקורסי טעימה"
+    }
+  },
+  "agreements": {
+    "terms": "הסכם הליווי",
+    "userDetails": "שאלון הפתיחה",
+    "health": "הצהרת בריאות",
+    "lastUpdate": "עודכן לאחרונה בתאריך"
+  },
+  "foodEntry": {
+    "foodForm": {
+      "formTitle": "יומן אכילה",
+      "eatingTitle": "כתוב את כל מה שאכלת היום",
+      "date": "תאריך יומן אכילה",
+      "saveBtn": "שמור יומן אכילה"
+    },
+    "errMsg": {
+      "eatingErr": "נא למלא יומן אכילה",
+      "dateErr": "נא למלא תאריך ליומן האכילה"
+    }
+  },
+  "userMeasurments": {
+    "measurmentForm": {
+      "title": "מעקב היקפים",
+      "date": "תאריך מדידה",
+      "weight": "חזה",
+      "bodyFat": "Body Fat Percentage",
+      "chest": "חזה",
+      "waist": "מותן",
+      "thighR": "ירך ימין",
+      "thighL": "ירך שמאל",
+      "armR": "זרוע ימין",
+      "armL": "זרוע שמאל",
+      "uploadFile": "מעקב תמונות (עד 4 תמונות)",
+      "clickFile": "לחץ כאן להעלאת תמונה",
+      "fileBtn": "הוסף תמונה נוספת",
+      "tracking": "שמור מעקב"
+    },
+    "measurmentErr": {
+      "dateErr": "תאריך חסר",
+      "weightErr": "Please enter weight",
+      "bodyFatErr": "Please enter body fat percentage",
+      "chestErr": "תאריך חסר",
+      "waistErr": "מותן חסר",
+      "thighRErr": "ירך חסר",
+      "thighLErr": "ירך חסר",
+      "armRErr": "זרוע חסר",
+      "armLErr": "זרוע חסר",
+      "uploadFileErr": "מעקב תמונות (עד 4 תמונות)"
+    }
+  },
+  "footer": {
+    "privacyPolicy": "מדיניות הפרטיות",
+    "termsOfService": "תנאי השירות",
+    "followUs": "לעקוב אחרינו",
+    "copyRightMessage": "2024 FITAL מאת טל מועלם. כל הזכויות שמורות."
+  }
 }

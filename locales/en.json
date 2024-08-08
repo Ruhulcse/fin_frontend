@@ -1,31 +1,146 @@
 {
-	"common": {
-		"noData": "No data found!"
-	},
-	"auth": {
-		"googleMessage": "Continue with Google",
-		"login": {
-			"title": "Welcome Back",
-			"message": "Don't have an account?",
-			"redirect": "Sign Up"
-		},
-		"registration": {
-			"title": "Easy to Start!",
-			"message": "Already have an account?",
-			"redirect": "Sign In"
-		}
-	},
-	"dashboard": {
-		"home": {
-			"measurementTitle": "Measurements",
-			"stepsTitle": "Steps",
-			"todoTitle": "Todo"
-		}
-	},
-	"footer": {
-		"privacyPolicy": "Privacy Policy",
-		"termsOfService": "Terms of Service",
-		"followUs": "Follow Us",
-		"copyRightMessage": "2024 FITAL by Tal Mualem. All rights reserved."
-	}
+  "common": {
+    "noData": "No data found!"
+  },
+  "auth": {
+    "googleMessage": "Continue with Google",
+    "login": {
+      "title": "Welcome Back",
+      "message": "Don't have an account?",
+      "redirect": "Sign Up"
+    },
+    "registration": {
+      "title": "Easy to Start!",
+      "message": "Already have an account?",
+      "redirect": "Sign In"
+    },
+    "logout": {
+      "btnTitle": "Log Out"
+    }
+  },
+  "navbar": {
+    "menus": {
+      "home": "Home",
+      "recipes": "Recipes",
+      "courses": "Courses",
+      "agreements": "Agreements",
+      "workout": "Workout Program",
+      "exercise": "Exercise Library",
+      "nutrition": "Nutrition Plan",
+      "nutritionGuide": "Nutrition Guides"
+    }
+  },
+  "dashboard": {
+    "home": {
+      "measurementTitle": "Measurements",
+      "stepsTitle": "Steps",
+      "todoTitle": "Todo"
+    }
+  },
+  "measurmentPreData": {
+    "chest": {
+      "title": "chest",
+      "label": "Chest",
+      "unit": "cm"
+    },
+    "armr": {
+      "title": "armr",
+      "label": "Arm Right",
+      "unit": "cm"
+    },
+    "thighr": {
+      "title": "thighr",
+      "label": "Thigh Right",
+      "unit": "cm"
+    },
+    "waist": {
+      "title": "waist",
+      "label": "Waist",
+      "unit": "cm"
+    },
+    "arml": {
+      "title": "arml",
+      "label": "Arm Left",
+      "unit": "cm"
+    },
+    "thighl": {
+      "title": "thighl",
+      "label": "Thigh Left",
+      "unit": "cm"
+    }
+  },
+  "steps": {
+    "done": "Done",
+    "target": "Target"
+  },
+  "recipe": {
+    "title": "The Recipe Book Guide",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  "courses": {
+    "coursesHeader": {
+      "label": "Courses",
+      "heading": "Gym For Beginners",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "joinBtn": "Join Course Now"
+    },
+    "course": {
+      "title": "Gym For Beginners",
+      "description": "Lorem Ipsumis simply dummy text of the printing and typesetting industry."
+    }
+  },
+  "agreements": {
+    "terms": "Terms & conditions",
+    "userDetails": "User Detailes",
+    "health": "Health Declaration",
+    "lastUpdate": "Last Update on"
+  },
+  "foodEntry": {
+    "foodForm": {
+      "formTitle": "Food Entry",
+      "eatingTitle": "Eating day free text",
+      "date": "Result date",
+      "saveBtn": "Food Entry"
+    },
+    "errMsg": {
+      "eatingErr": "Please enter eating day",
+      "dateErr": "Please enter result date"
+    }
+  },
+  "userMeasurments": {
+    "measurmentForm": {
+      "title": "User Measurments",
+      "date": "Date",
+      "weight": "Weight",
+      "bodyFat": "Body Fat Percentage",
+      "chest": "Chest",
+      "waist": "Waist",
+      "thighR": "Thigh Right",
+      "thighL": "Thigh Left",
+      "armR": "Arm Right",
+      "armL": "Arm Left",
+      "uploadFile": "Upload File",
+      "clickFile": "Click here to upload your file",
+      "fileBtn": "Add more File ",
+      "track": "Tracking"
+    },
+    "measurmentErr": {
+      "dateErr": "Please enter date",
+      "weightErr": "Please enter weight",
+      "bodyFatErr": "Please enter body fat percentage",
+      "chestErr": "Please enter chest",
+      "waistErr": "Please enter waist",
+      "thighRErr": "Please enter thigh",
+      "thighLErr": "Please enter thigh",
+      "armRErr": "Please enter arm",
+      "armLErr": "Please enter arm",
+      "uploadFileErr": "Upload File"
+    }
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "followUs": "Follow Us",
+    "copyRightMessage": "2024 FITAL by Tal Mualem. All rights reserved."
+  }
 }
