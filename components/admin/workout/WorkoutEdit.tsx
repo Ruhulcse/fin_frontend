@@ -7,9 +7,11 @@ import WorkoutForm from './WorkoutForm';
 const WorkoutEdit = async ({
 	id,
 	traineeId,
+	trainingId
 }: {
 	id: string;
 	traineeId: string;
+	trainingId: string;
 }) => {
 	const { data: workout = {} } = await generateDataFromServer(`workouts/${id}`);
 	const { data: workoutExercises = [] } = await generateDataFromServer(
@@ -34,6 +36,7 @@ const WorkoutEdit = async ({
 					})),
 				}}
 				traineeId={traineeId}
+				trainingId={trainingId}
 			/>
 		</section>
 	);

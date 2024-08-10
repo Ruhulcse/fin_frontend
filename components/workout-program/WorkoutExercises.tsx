@@ -14,6 +14,10 @@ const WorkoutExercises = ({
 }: any) => {
 	const [tab, setTab] = useState(0);
 	const router = useRouter();
+	const [supersetWorkoutExercises, setSupersetWorkoutExercises] = useState<any>(
+		{}
+	);
+	const [setWorkoutExercises, setSetWorkoutExercises] = useState<any>([]);
 	const [workoutExercisesData, setWorkoutExercisesData] = useState<any>({
 		workout_id: id,
 		exercises: workoutExercises?.map((exercise: any) => {
@@ -45,22 +49,47 @@ const WorkoutExercises = ({
 	useEffect(() => {
 		if (workoutExercises?.length > 0) {
 			setCurrentExercise(workoutExercises[0]);
+			setSetWorkoutExercises(
+				workoutExercises.filter(
+					(elm: any) => elm.manipulation.toLowerCase() === 'set'
+				)
+			);
+			workoutExercises.forEach((element: any, index: number) => {
+				if (element.manipulation.toLowerCase() === 'superset') {
+					const nextElm = workoutExercises[index + 1];
+					nextElm?.training_record_id &&
+						setSupersetWorkoutExercises((prev: any) => ({
+							...prev,
+							[nextElm?.training_record_id]: element,
+						}));
+				}
+			});
 		}
 	}, [setCurrentExercise, workoutExercises]);
 
 	return (
 		<>
-			{workoutExercises?.map((exercise: any, index: number) => (
-				<WorkingProgramStartInput
-					key={index}
-					extraClass={`${tab !== index ? 'hidden' : ''}`}
-					workProgramDetails={exercise}
-					setUpdatedData={setWorkoutExercisesData}
-				/>
+			{setWorkoutExercises?.map((exercise: any, index: number) => (
+				<>
+					{supersetWorkoutExercises[exercise?.training_record_id] ? (
+						<WorkingProgramStartInput
+							extraClass={`${tab !== index ? 'hidden' : ''}`}
+							workProgramDetails={
+								supersetWorkoutExercises[exercise?.training_record_id]
+							}
+							setUpdatedData={setWorkoutExercisesData}
+						/>
+					) : null}
+					<WorkingProgramStartInput
+						extraClass={`${tab !== index ? 'hidden' : ''}`}
+						workProgramDetails={exercise}
+						setUpdatedData={setWorkoutExercisesData}
+					/>
+				</>
 			))}
 
 			<div className="actions flex justify-center xl:justify-end gap-2 xl:gap-4 mt-2">
-				{workoutExercises?.length > 1 && tab !== 0 ? (
+				{setWorkoutExercises?.length > 1 && tab !== 0 ? (
 					<BasicButton
 						onClick={() => tabChangeHandler(tab - 1)}
 						disabled={isLoading}
@@ -70,7 +99,8 @@ const WorkoutExercises = ({
 						Previous Exercise
 					</BasicButton>
 				) : null}
-				{workoutExercises?.length > 1 && tab !== workoutExercises.length - 1 ? (
+				{setWorkoutExercises?.length > 1 &&
+				tab !== setWorkoutExercises.length - 1 ? (
 					<BasicButton
 						onClick={() => tabChangeHandler(tab + 1)}
 						disabled={isLoading}
@@ -80,7 +110,8 @@ const WorkoutExercises = ({
 						Next Exercise
 					</BasicButton>
 				) : null}
-				{workoutExercises?.length > 0 && tab === workoutExercises.length - 1 ? (
+				{setWorkoutExercises?.length > 0 &&
+				tab === setWorkoutExercises.length - 1 ? (
 					<BasicButton
 						onClick={submitHandler}
 						disabled={isLoading}

@@ -4,7 +4,13 @@ import {
 } from '@/lib/helper/server-fetch';
 import WorkoutForm from './WorkoutForm';
 
-const WorkoutAdd = async ({ traineeId }: { traineeId: string }) => {
+const WorkoutAdd = async ({
+	traineeId,
+	trainingId,
+}: {
+	traineeId: string;
+	trainingId: string;
+}) => {
 	const { data: userWorkouts = [] } = await generateDataFromServer(
 		`workouts`,
 		nextProperties()
@@ -15,6 +21,7 @@ const WorkoutAdd = async ({ traineeId }: { traineeId: string }) => {
 			<WorkoutForm
 				traineeId={traineeId}
 				userWorkouts={userWorkouts}
+				trainingId={trainingId}
 			/>
 		</section>
 	);

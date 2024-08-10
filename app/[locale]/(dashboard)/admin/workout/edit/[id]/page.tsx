@@ -1,5 +1,6 @@
 import WorkoutEdit from '@/components/admin/workout/WorkoutEdit';
 import BackLinkWrapper from '@/components/common/backlink/BackLinkWrapper';
+import { redirect } from 'next/navigation';
 
 const page = ({
 	params,
@@ -8,6 +9,9 @@ const page = ({
 	params: { id: string };
 	searchParams: any;
 }) => {
+	if (!(searchParams?.trainee_id && searchParams?.training_id)) {
+		redirect('/admin/trainee');
+	}
 	return (
 		<BackLinkWrapper
 			href={`/admin/workout/manage?trainee_id=${searchParams?.trainee_id}`}
@@ -16,6 +20,7 @@ const page = ({
 			<WorkoutEdit
 				id={params?.id}
 				traineeId={searchParams?.trainee_id}
+				trainingId={searchParams?.training_id}
 			/>
 		</BackLinkWrapper>
 	);

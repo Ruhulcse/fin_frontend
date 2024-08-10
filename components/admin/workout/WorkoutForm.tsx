@@ -36,13 +36,15 @@ const WorkoutForm = ({
 	workout,
 	traineeId,
 	userWorkouts,
+	trainingId,
 }: {
 	workout?: any;
 	traineeId: string;
 	userWorkouts?: any;
+	trainingId: string;
 }) => {
 	const router = useRouter();
-	const [exercises, setExercises] = useState([]);
+	const [exercises, setExercises] = useState<any[]>([]);
 	const [editExercise, setEditExercise] = useState({});
 	const [addExercise, setAddExercise] = useState(false);
 	const {
@@ -77,9 +79,16 @@ const WorkoutForm = ({
 
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		if (exercises.length > 0) {
+			if (
+				exercises[exercises.length - 1]?.manipulation?.toLowerCase() !== 'set'
+			) {
+				toast.error('Please add set for last exercise');
+				return;
+			}
 			const payload = {
 				...data,
 				user_id: Number(traineeId),
+				training_id: Number(trainingId),
 				training: exercises.map((exercise: any) => {
 					const { exercise_name, ...rest } = exercise;
 					return rest;
@@ -89,7 +98,7 @@ const WorkoutForm = ({
 				const { training, ...rest } = payload;
 				await updateWorkoutExercises(exercises);
 				await updateWorkout({
-					data: rest,
+					data: { ...rest, training_id: Number(trainingId) },
 					id: workout.workout_id,
 				});
 			} else {
