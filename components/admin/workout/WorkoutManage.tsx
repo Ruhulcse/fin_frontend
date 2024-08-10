@@ -1,12 +1,10 @@
 import BasicCard from '@/components/common/BasicCard';
 import NotDataFound from '@/components/common/message/NotDataFound';
-import SkeletonGroup from '@/components/common/skeleton/SkeletonGroup';
-import { useTranslations } from 'next-intl';
-import WorkoutSmallInfo from './WorkoutSmallInfo';
 import {
 	generateDataFromServer,
 	nextProperties,
 } from '@/lib/helper/server-fetch';
+import WorkoutSmallInfo from './WorkoutSmallInfo';
 
 const WorkoutManage = async ({
 	traineeId,
@@ -15,8 +13,6 @@ const WorkoutManage = async ({
 	traineeId: string;
 	trainingId: string;
 }) => {
-	const t = useTranslations('admin');
-	const traineInfo = t.raw('traineeDetails');
 	const { data: workouts = [] } = await generateDataFromServer(
 		`workouts?user_id=${traineeId}&training_id=${trainingId}`,
 		nextProperties()
@@ -24,7 +20,9 @@ const WorkoutManage = async ({
 	return (
 		<section className="exercise-list-area">
 			<h3 className="section-title text-right mb-4 xl:mb-8">Manage Workout</h3>
-			<BasicCard link={`/admin/workout/add?trainee_id=${traineeId}`}>
+			<BasicCard
+				link={`/admin/workout/add?trainee_id=${traineeId}&training_id=${trainingId}`}
+			>
 				<strong>Add Workout</strong>
 			</BasicCard>
 			<br />
