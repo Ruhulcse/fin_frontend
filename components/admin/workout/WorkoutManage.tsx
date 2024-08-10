@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 
 const WorkoutManage = ({ traineeId }: { traineeId: string }) => {
   const t = useTranslations("admin");
-  const traineInfo = t.raw("traineeDetails");
+  const traineInfo = t.raw("workout");
   const { data = {}, isLoading } = useGetWorkoutsQuery(
     {
       query: `user_id=${traineeId}`,
@@ -20,9 +20,11 @@ const WorkoutManage = ({ traineeId }: { traineeId: string }) => {
   const { data: workouts = [] } = data || {};
   return (
     <section className="exercise-list-area">
-      <h3 className="section-title text-right mb-4 xl:mb-8">Manage Workout</h3>
+      <h3 className="section-title text-right mb-4 xl:mb-8">
+        {traineInfo.manageWorkout}
+      </h3>
       <BasicCard link={`/admin/workout/add?trainee_id=${traineeId}`}>
-        <strong>Add Workout</strong>
+        <strong>{traineInfo.addWorkout}</strong>
       </BasicCard>
       <br />
       <div className="grid grid-cols-1 gap-4">

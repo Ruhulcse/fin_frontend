@@ -62,8 +62,8 @@
     "target": "יעד"
   },
   "recipe": {
-    "title": "The Recipe Book Guide",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    "title": "מדריך ספר המתכונים",
+    "description": "Lorem Ipsum הוא פשוט טקסט דמה של תעשיית הדפוס והקביעה. Lorem Ipsum היה טקסט הדמה הסטנדרטי של התעשייה מאז שנות ה-1500, כאשר מדפסת לא ידועה לקחה גלריה של סוג וערבכה אותה כדי ליצור ספר דגימות."
   },
   "navbar": {
     "menus": {
@@ -85,7 +85,7 @@
       "joinBtn": "צפה בקורסים עכשיו"
     },
     "course": {
-      "title": "Gym For Beginners",
+      "title": "חדר כושר למתחילים",
       "description": "תיאור לתנאי המנוי והסבר על הקורסי טעימה"
     }
   },
@@ -100,7 +100,9 @@
       "formTitle": "יומן אכילה",
       "eatingTitle": "כתוב את כל מה שאכלת היום",
       "date": "תאריך יומן אכילה",
-      "saveBtn": "שמור יומן אכילה"
+      "saveBtn": "שמור יומן אכילה",
+      "update": "Update",
+      "save": "Save"
     },
     "errMsg": {
       "eatingErr": "נא למלא יומן אכילה",
@@ -112,7 +114,7 @@
       "title": "מעקב היקפים",
       "date": "תאריך מדידה",
       "weight": "חזה",
-      "bodyFat": "Body Fat Percentage",
+      "bodyFat": "אחוז שומן בגוף",
       "chest": "חזה",
       "waist": "מותן",
       "thighR": "ירך ימין",
@@ -126,8 +128,8 @@
     },
     "measurmentErr": {
       "dateErr": "תאריך חסר",
-      "weightErr": "Please enter weight",
-      "bodyFatErr": "Please enter body fat percentage",
+      "weightErr": "נא להזין משקל",
+      "bodyFatErr": "נא להזין אחוזי שומן בגוף",
       "chestErr": "תאריך חסר",
       "waistErr": "מותן חסר",
       "thighRErr": "ירך חסר",
@@ -136,6 +138,215 @@
       "armLErr": "זרוע חסר",
       "uploadFileErr": "מעקב תמונות (עד 4 תמונות)"
     }
+  },
+  "healthDeclaration": {
+    "title": "אנו מחויבים לספק מקום עבודה בטוח ובריא לכל העובדים. נא למלא את טופס הצהרת הבריאות למטה.",
+    "registrationForm": {
+      "phoneNumber": "מספר הטלפון שלך",
+      "age": "גיל",
+      "height": "גובה",
+      "currentWeight": "משקל נוכחי (משוער אם לא ידוע)",
+      "highestWeight": "המשקל הגבוה ביותר שהיה לך בחיים (אופציונלי לכתוב)",
+      "training": "כמה שנים אתה מתאמן?",
+      "weekTraine": "כמה פעמים בשבוע אתה מעדיף להתאמן? 1, 2, 3, 4, 5, 6, 7",
+      "traineLocation": "איפה אתה מעדיף להתאמן? חדר כושר, בבית",
+      "equipement": "אם בחרת בבית, איזה ציוד יש לך? למשל, רצועות, רצועות TRX, משקולות, מוט משוך, ספסל משקולות, או בכלל?",
+      "homeEquipement": "אם בחרתם בבית, איזה ציוד תרצו לרכוש מהרשימה שאין לכם כרגע (מומלץ: TRX או סט משקל קטן)?",
+      "currentStrength": "תאר את אימוני הכוח הנוכחיים שלך (אילו תרגילים אתה עושה, חזרות, תדרים וכו'): אם לא עושה, כתוב 'לא עושה'.",
+      "favouriteExercises": "מהם התרגילים האהובים עליך? אם אתה לא יודע, כתוב `לא יודע.`",
+      "areaTraining": "באילו תחומים תעדיף להתמקד יותר בתוכנית האימונים האישית שלך? חזה, ידיים, גב, רגליים, הדגשת גלוטה, כתפיים, שרירי בטן וכו'. ניתן גם לכתוב את כל הגוף באופן שווה או לציין אזורים מועדפים מסוימים.",
+      "injuries": "פציעות",
+      "favouriteFruite": "מה הם המזונות המועדפים עליך?",
+      "unfavouriteFruite": "איזה מזונות לא תיגע בהם?",
+      "trackingFruite": "האם אתה עוקב אחר צריכת המזון שלך? אם כן, האם אתה משתמש באפליקציה או בתפריט כתוב?",
+      "diets": "האם עשית דיאטות בעבר? האם הם הצליחו?",
+      "currentNutrition": "תאר יום שלם של התזונה הנוכחית שלך, איך נראה יום רגיל, מה אתה אוכל כשאתה מתעורר, צהריים, ערב, חטיפים.",
+      "dailyNutrition": "תזונה",
+      "weekend": "ועכשיו, איך נראה סוף השבוע שלך? אם יש ארוחה מיוחדת בשישי ושבת, מה היא כוללת בדרך כלל?",
+      "makeRecipe": "יש לך מתכונים שאתה אוהב להכין לעתים קרובות, נגיד פעם בשבוע? אם כן, רשום את כל המרכיבים והכמויות וכמה יחידות נובעות מכל הכנה (ניתן לרשום מספר מתכונים).",
+      "drinkAlcohol": "האם אתה שותה אלכוהול? אם כן, באיזה כמויות ותדירות?",
+      "medication": "תרופות ומרשמים שאתה משתמש בהם כעת או השתמשת בהם בעבר?",
+      "sleepingTime": "כמה שעות אתה ישן ביום?",
+      "currentJob": "מה העבודה הנוכחית שלך ושעות העבודה? (האם זו עבודה יושבנית?)",
+      "activeAvgDay": "כמה פעיל אתה ביום ממוצע? (מבחינת תנועה?)",
+      "currentSport": "האם אתה משתתף כיום באיזשהו ספורט?",
+      "lookMirrorTime": "כשאתה מסתכל במראה, איך אתה מרגיש?",
+      "goal": "מה המטרות שלך לטווח הארוך ולמה?",
+      "motivation": "מה רמת המוטיבציה שלך להשגת המטרה שלך?",
+      "prohibitedSubstances": "האם אתה מתחייב להצהיר ולשקוף לגבי כל שימוש בחומרים אסורים לפני תחילת שיתוף הפעולה ובמהלכו? זה מתייחס לחומרים כמו סטרואידים אנבוליים וכו'.",
+      "addToLike": "האם יש משהו נוסף שתרצה להוסיף?",
+      "mailAccepted": "אשר דיוור בדואר אלקטרוני",
+      "termsCondition": "אשר את תנאי הליווי",
+      "nextBtn": "להצהרת הבריאות"
+    },
+    "healthDeclarationInputs": {
+      "placeOfResidence": "מקום מגורים",
+      "idNmbr": "מספר תעודת זהות",
+      "fullName": "שם מלא",
+      "phone": "טלפון",
+      "email": "אימייל",
+      "birth": "שנת לידה",
+      "height": "גובה",
+      "weight": "משקל",
+      "date": "תאריך",
+      "medications": "האם אתה נוטל תרופות על בסיס קבוע?",
+      "physicalActivity": "האם אתה עוסק בפעילות גופנית?",
+      "suffer": "האם אתה סובל או סבלת בעבר מאחד מהבאים",
+      "recDoctor": "האם יש המלצה מרופא להימנע מפעילות גופנית?",
+      "equipment": "האם יש לך ציוד לבית",
+      "surgery": "האם עברת ניתוח בשנה האחרונה?",
+      "pregnant": "האם את בהריון, לאחרונה בהריון או מתכננת להיכנס להריון בקרוב? (נא לציין למטה",
+      "lungDiseases": "האם יש לך מחלות ריאה או קשיי נשימה?",
+      "beckNeckPrblm": "האם יש לך בעיות בגב התחתון ו/או בצוואר?",
+      "musclePain": "האם אתה חווה כאבי שרירים או בעיות במפרקים?",
+      "diabetes": "האם יש לך סוכרת או בעיות בבלוטת התריס?",
+      "smoke": "האם אתה מעשן סיגריות?",
+      "cholesterol": "האם יש לך כולסטרול גבוה או רמות שומנים גבוהות בדם?",
+      "obesity": "האם אתה סובל מהשמנה?",
+      "heartPrblm": "האם יש היסטוריה משפחתית של בעיות לב (אבא מתחת לגיל 55)?",
+      "hernia": "האם יש לך בקע או מצב אחר שעלול להחמיר מהרמת משקולות?",
+      "diet": "האם אתה בדיאטה קפדנית (מתחת ל-1200 קלוריות ביום)?",
+      "epilepsy": "האם יש לך אפילפסיה?",
+      "comments": "הערות או פרטים נוספים שתרצה לציין (אנא ציין למטה)",
+      "steroids": "האם השתמשת או אתה משתמש בסטרואידים, שורפי שומן וכו'? (נא לציין למטה) (סודי)",
+      "signature": "חתימה",
+      "prevBtn": "לשאלון ההיכרות",
+      "submitBtn": "הירשם לליווי"
+    }
+  },
+  "email": {
+    "title": "אֶלֶקטרוֹנִי",
+    "approveMailBtn": "אשר כתובת מייל",
+    "mailSuccess": "האימייל אושר בהצלחה",
+    "mailErr": "נא מלא כתובת דואר אלקטרוני לאישור"
+  },
+  "exercise": {
+    "exerciseForm": {
+      "title": "הוסף תרגיל לאימון",
+      "edit": "ערוך תרגיל",
+      "name": "שם תפריט התזונה",
+      "area": "איזור",
+      "equipment": "ציוד",
+      "description": "ציוד",
+      "uploadVideo": "העלה סרטון הדרכה לביצוע התרגיל",
+      "updateBtn": "לְעַדְכֵּן",
+      "saveBtn": "לְהַצִיל",
+      "nameErr": "נא מלא שם",
+      "exercise": "מַמתֵחַ",
+      "nameChrErr": "השם חייב להיות בן 3 תווים לפחות.",
+      "areaErr": "נא מלא איזור",
+      "areaChrErr": "האזור חייב להיות בן 3 תווים לפחות.",
+      "equipementErr": "נא מלא ציוד",
+      "eqpChrErr": "הציוד חייב להיות לפחות 3 תווים.",
+      "desErr": "נא מלא תיאור",
+      "desCherErr": "התיאור חייב להיות לפחות 3 תווים.",
+      "upVideoErr": "נא צרף סרטון"
+    }
+  },
+  "fileDownload": {
+    "click": "לחץ לצפייה"
+  },
+  "nutritionForm": {
+    "formLabel": {
+      "addNutrition": "הוסף מדריך תזונה",
+      "edit": "ערוך מדריכי תזונה",
+      "editPlan": "ערוך מדריך תזונה",
+      "title": "כּוֹתֶרֶת",
+      "description": "הסבר קצר",
+      "uploadPdf": "צרף קובץ PDF",
+      "updateBtn": "לְעַדְכֵּן",
+      "saveBtn": "לְהַצִיל",
+      "guide": "מַדְרִיך",
+      "name": "שם האימון",
+      "nameErr": "נא מלא שם",
+      "desErr": "- נא מלא שם",
+      "upPdfErr": "צרף קובץ PDF",
+      "createAssign": "צור תפריט תזונה חדש ושייך אותו למתאמן",
+      "plan": "תפריטי תזונה",
+      "clickView": "לחץ לצפייה",
+      "nutritionGuide": "מדריכי תזונה",
+      "nutriPlan": "תפריטי תזונה אישיים"
+    }
+  },
+  "traineeDetails": {
+    "traineeData": {
+      "traineeFiles": "קבצי חניכים"
+    },
+    "foodEntries": {
+      "foodEntries": "כניסות אוכל",
+      "userFoodEnt": "ערכי מזון למשתמש",
+      "userFoodReports": "דוחות מזון למשתמשים",
+      "editTodo": "ערוך Todo"
+    },
+    "measurementReports": {
+      "reports": "דוח מדדים",
+      "measurementsExe": "לחץ להורדת דוח מדדים אישי",
+      "userFoodReports": "דוחות מזון למשתמשים",
+      "chest": "חזה",
+      "waist": "מותן",
+      "thighR": "ירך ימין",
+      "thighL": "ירך שמאל",
+      "armR": "זרוע ימין",
+      "armL": "זרוע שמאל",
+      "date": "תאריך מדידה",
+      "progress": "הוסף/ערוך"
+    }
+  },
+  "workout": {
+    "addExcForm": {
+      "title": "הוסף תרגיל לאימון",
+      "selectExercise": "בחר תרגיל לאימון",
+      "exerciseDes": "הוראות לתרגיל",
+      "updateBtn": "לְעַדְכֵּן",
+      "add": "לְהוֹסִיף",
+      "exerciseBtn": "תַרגִיל"
+    },
+    "workoutExercInputs": {
+      "manipulation": "מניפולציה",
+      "weight": "משקל ",
+      "reps": "חזרות",
+      "sets": "סטים"
+    },
+    "workoutErr": {
+      "enter": "מלא",
+      "enterDes": "נא הכנס הוראות לתרגיל",
+      "descriptionCharecters": "התיאור חייב להיות לפחות 3 תווים.",
+      "selectExerc": "נא בחר תרגיל"
+    }
+  },
+  "workoutProgramm": {
+    "workoutDetails": {
+      "done": "נעשו",
+      "target": "נעשו",
+      "sets": "סטים",
+      "reps": "חזרות",
+      "weight": "משקל",
+      "viewWorkout": "צפה באימון",
+      "startWorkout": "החל אימון",
+      "curl": "תלתל דו-ראשי",
+      "instruction": "הוראות לתרגיל",
+      "startingPosition": "עמדת התחלה",
+      "sit": "1. שבו על ספסל עם הרגשה שטוחה על הרצפה.",
+      "hold": "2. החזק משקולת בכל יד, ידיים מושטות לגמרי.",
+      "move": "המהלך",
+      "slowly": "3. לאט לאט לקצר את המשקולת עד הכתף שלך, ואז לאט לאט להוריד אותו בחזרה למטה.",
+      "doReps": "4. בצע 8-12 חזרות.",
+      "lastTrData": "נתוני אימון אחרונים",
+      "goalWeight": "משקל יעד",
+      "weightDone": "משקל שבוצע",
+      "repsTarget": "יעד חזרות",
+      "repsDone": "חזרות שבוצעו",
+      "setsTarget": "יעד סטים",
+      "setsDone": "סטים שבוצעו",
+      "prevExercise": "לתרגיל הקודם",
+      "nextExercise": "לתרגיל הבא",
+      "finish": "סיים אימון"
+    }
+  },
+  "agreement": {
+    "agreementInfo": "הצהרת בריאות",
+    "signature": "חֲתִימָה",
+    "userAgreementInfo": "מידע על הסכם משתמש"
   },
   "admin": {
     "dashboard": {
@@ -148,20 +359,24 @@
       "title": "נהל מתאמנים"
     },
     "traineeDetails": {
-      "title": "Trainee Details",
+      "title": "פרטי חניך",
       "add": "הוסף/ערוך",
       "workoutMng": "הוסף/ערוך",
       "nutritionPlan": "הוסף/ערוך",
       "reports": "הוסף/ערוך",
       "measurementsEx": "הוסף/ערוך",
       "progress": "הוסף/ערוך",
-      "foodEnt": "Food Entries",
-      "userFdEnt": "User Food Entries",
+      "foodEnt": "כניסות אוכל",
+      "userFdEnt": "ערכי מזון למשתמש",
       "agreement": "מסמכים",
       "userAgreement": "מסמכים להורדה",
       "fileDwn": "קבצים להורדה",
       "trainingPrgm": "תוכניות אימו",
       "bTrBtn": "חזרה לרשימת המתאמנים",
+      "weight": "משקל",
+      "set": "סטים",
+      "reps": "חזרות",
+      "exercise": "לתרגיל",
       "workoutManagement": {
         "title": "נהל אימונים",
         "addWork": "הוסף אימון חדש",
@@ -171,6 +386,62 @@
         "addBtn": "הוסף תרגיל לאימון",
         "saveBtn": "שמור אימון"
       }
+    },
+    "progress": {
+      "title": "דוח מעקב מדדים עבור המתאמן"
+    },
+    "userNutrition": {
+      "nutritionPlan": "נהל תפריטי תזונה אישיים",
+      "createAssign": "צור תפריט תזונה חדש ושייך אותו למתאמן",
+      "assignExisting": "שייך למתאמן מתוך תפריטי תזונה קיימים",
+      "plans": "תפריטי תזונה",
+      "userPlan": "שמור תפריטי תזונה",
+      "userPlanErr": "אנא בחר תוכנית"
+    },
+    "workout": {
+      "name": "שם האימון",
+      "description": "הוראות לאימון",
+      "workout": "אימונים",
+      "addExercise": "הוסף תרגיל למאגר",
+      "addWorkout": "הוסף אימון חדש",
+      "editWorkout": "ערוך אימון",
+      "selectExercise": "הוסף תרגיל למאגר",
+      "excDesc": "תיאור התרגיל",
+      "manipulation": "מניפולציה",
+      "weight": "משקל ",
+      "reps": "חזרות",
+      "sets": "סטים",
+      "enterErr": "מלא",
+      "enterDesErr": "נא הכנס הוראות לתרגיל",
+      "descriptionCharectersErr": "התיאור חייב להיות לפחות 3 תווים.",
+      "selectExercErr": "נא בחר תרגיל",
+      "update": "לְעַדְכֵּן",
+      "add": "לְהוֹסִיף",
+      "exercise": "מאגר תרגילים",
+      "nameErr": "נא מלא שם",
+      "desErr": "נא מלא תיאור"
+    }
+  },
+  "exerciseLibrary": {
+    "exercise": {
+      "exerciseList": "רשימת תרגילים",
+      "all": "כֹּל",
+      "selectEquipment": "בחר ציוד",
+      "selectArea": "בחר אזור"
+    },
+    "exerciseSelect": {
+      "noEquipment": "אין ציוד",
+      "trx": "TRX",
+      "bands": "להקות",
+      "weights": "משקולות",
+      "machines": "מכונות",
+      "bars": "סורגים",
+      "armRight": "זרוע ימין",
+      "armLeft": "זרוע שמאל",
+      "thighR": "ירך ימין",
+      "thighL": "ירך שמאל",
+      "waist": "מוֹתֶן",
+      "chest": "חָזֶה"
     }
   },
   "footer": {
@@ -178,5 +449,8 @@
     "termsOfService": "תנאי השירות",
     "followUs": "לעקוב אחרינו",
     "copyRightMessage": "2024 FITAL מאת טל מועלם. כל הזכויות שמורות."
+  },
+  "noDataFound": {
+    "title": "לא נמצאו נתונים!"
   }
 }

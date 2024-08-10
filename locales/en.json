@@ -100,7 +100,9 @@
       "formTitle": "Food Entry",
       "eatingTitle": "Eating day free text",
       "date": "Result date",
-      "saveBtn": "Food Entry"
+      "saveBtn": "Food Entry",
+      "update": "Update",
+      "save": "Save"
     },
     "errMsg": {
       "eatingErr": "Please enter eating day",
@@ -137,6 +139,233 @@
       "uploadFileErr": "Upload File"
     }
   },
+  "healthDeclaration": {
+    "title": "We are committed to providing a safe and healthy workplace for all employees. Please complete the health declaration form below.",
+
+    "registrationForm": {
+      "phoneNumber": "Your Phone Number",
+      "age": "Age",
+      "height": "Height",
+      "currentWeight": "Current Weight (Approximate if unknown)",
+      "highestWeight": "Highest weight you've had in your life (Optional to write)",
+      "training": "How many years have you been training?",
+      "weekTraine": "How many times per week would you prefer to train? 1, 2, 3, 4, 5, 6, 7",
+      "traineLocation": "Where do you prefer to train? Gym, At home",
+      "equipement": "If you chose home, what equipment do you have? For example, bands, TRX straps, weights, pull-up bar, weight bench, or none at all?",
+      "homeEquipement": "If you chose home, what equipment would you like to purchase from the list you don't currently have (Recommended: TRX or small weight set)?",
+      "currentStrength": "Describe your current strength training (what exercises you do, repetitions, frequencies, etc.): If not doing, write 'not doing.'",
+      "favouriteExercises": "What are your favorite exercises? If you don't know, write `don't know.`",
+      "areaTraining": "Which areas would you prefer to focus on more in your personal training program? Chest, arms, back, legs, glute emphasis, shoulders, abs, etc. You can also write the whole body equally or specify certain preferred areas.",
+      "injuries": "Injuries",
+      "favouriteFruite": "What are your favorite foods?",
+      "unfavouriteFruite": "What foods will you not touch?",
+      "trackingFruite": "Do you track your food intake? If yes, do you use an app or a written menu?",
+      "diets": "Have you done diets in the past? Were they successful?",
+      "currentNutrition": "Describe a full day of your current nutrition, what a regular day looks like, what you eat when you wake up, lunch, dinner, snacks.",
+      "dailyNutrition": "Daily Nutrition",
+      "weekend": "And now, what does your weekend look like? If there's a special meal on Friday and Saturday, what does it usually include?",
+      "makeRecipe": "Do you have recipes you like to make frequently, say once a week? If yes, list all the ingredients and quantities and how many units result from each preparation (you can list several recipes).",
+      "drinkAlcohol": "Do you drink alcohol? If yes, in what quantities and frequency?",
+      "medication": "Medications and prescriptions you are currently and have previously used?",
+      "sleepingTime": "How many hours do you sleep a day?",
+      "currentJob": "What is your current job and work hours? (Is it a sedentary job?)",
+      "activeAvgDay": "How active are you on an average day? (Movement-wise?)",
+      "currentSport": "Are you currently participating in any sport?",
+      "lookMirrorTime": "When you look in the mirror, how do you feel?",
+      "goal": "What are your long-term goals and why?",
+      "motivation": "What is your level of motivation to achieve your goal?",
+      "prohibitedSubstances": "Do you commit to declaring and being transparent about any use of prohibited substances before starting and during the collaboration? This refers to substances like anabolic steroids, etc.",
+      "addToLike": "Anything else you would like to add?",
+      "mailAccepted": "Mailing Accepted",
+      "termsCondition": "Terms & Conditions Accepted",
+      "nextBtn": "Next"
+    },
+    "healthDeclarationInputs": {
+      "placeOfResidence": "Place of Residence",
+      "idNmbr": "Id Number",
+      "fullName": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "birth": "Year of Birth",
+      "height": "Height",
+      "weight": "Weight",
+      "date": "Date",
+      "medications": "Do you take medications on a regular basis?",
+      "physicalActivity": "Do you engage in physical activity?",
+      "suffer": "Do you suffer or have you ever suffered from the following",
+      "recDoctor": "Is there a recommendation from a doctor to avoid physical activity?",
+      "equipment": "Do you have any home Equipment",
+      "surgery": "Have you had surgery in the past year?",
+      "pregnant": "Are you currently pregnant, recently pregnant, or planning to become pregnant soon? (Please specify below",
+      "lungDiseases": "Do you have lung diseases or breathing difficulties?",
+      "beckNeckPrblm": "Do you have lower back and/or neck problems?",
+      "musclePain": "Do you experience muscle pain or joint problems?",
+      "diabetes": "Do you have diabetes or thyroid problems?",
+      "smoke": "Do you smoke cigarettes?",
+      "cholesterol": "Do you have high cholesterol or high blood lipid levels?",
+      "obesity": "Do you have obesity?",
+      "heartPrblm": "Is there a family history of heart problems (father under 55)?",
+      "hernia": "Do you have a hernia or other condition that may worsen from lifting weights?",
+      "diet": "Are you on a strict diet (below 1200 calories a day)?",
+      "epilepsy": "Do you have epilepsy?",
+      "comments": "Additional comments or details you would like to mention (Please specify below)",
+      "steroids": "Have you used or are you using steroids, fat burners, etc.? (Please specify below) (Confidential)",
+      "signature": "Signature",
+      "prevBtn": "Prev",
+      "submitBtn": "Submit"
+    }
+  },
+  "email": {
+    "title": "Email",
+    "approveMailBtn": "Approve Email",
+    "mailSuccess": "Email approved successfully",
+    "mailErr": "Please enter your email"
+  },
+  "exercise": {
+    "exerciseForm": {
+      "title": "Add Exercise",
+      "edit": "Edit Exercise",
+      "name": "Name",
+      "area": "Area",
+      "equipment": "Equipment",
+      "description": "Description",
+      "uploadVideo": "Upload Video",
+      "updateBtn": "Update",
+      "saveBtn": "Save",
+      "exercise": "Exerciser",
+      "nameErr": "Please Enter Name",
+      "nameChrErr": "Name must be at least 3 characters.",
+      "areaErr": "Please enter area",
+      "areaChrErr": "Area must be at least 3 characters.",
+      "equipementErr": "Please enter equipment",
+      "eqpChrErr": "Equipment must be at least 3 characters.",
+      "desErr": "Please enter description",
+      "desCherErr": "Description must be at least 3 characters.",
+      "upVideoErr": "required, Please upload your video"
+    }
+  },
+  "fileDownload": {
+    "click": "Click to View"
+  },
+  "nutritionForm": {
+    "formLabel": {
+      "addNutrition": "Add Nutrition Guides",
+      "nutritionPlan": "Add Nutrition Plan",
+      "edit": "Edit Nutrition Guides",
+      "editPlan": "Edit Nutrition Plan",
+      "title": "Title",
+      "description": "Description",
+      "uploadPdf": "Upload PDF",
+      "updateBtn": "Update",
+      "saveBtn": "Save",
+      "guide": "Guide",
+      "name": "Name",
+      "nameErr": "Please Enter Name",
+      "desErr": "Please enter description",
+      "upPdfErr": "required, Please upload your PDF",
+      "createAssign": "Create and assign",
+      "plan": "Plan",
+      "clickView": "Click to view",
+      "nutritionGuide": "Nutrition Guide",
+      "nutriPlan": "Nutrition Plan"
+    }
+  },
+  "traineeDetails": {
+    "traineeData": {
+      "traineeFiles": "Trainee Files"
+    },
+    "foodEntries": {
+      "foodEntries": "Food Entries",
+      "userFoodEnt": "User food entries",
+      "userFoodReports": "User Food Reports",
+      "editTodo": "Edit Todo"
+    },
+    "measurementReports": {
+      "reports": "Reports",
+      "measurementsExe": "Measurements & Exercise",
+      "userFoodReports": "User Food Reports",
+      "progress": "Progress",
+      "chest": "Chest",
+      "waist": "Waist",
+      "thighR": "Thigh (R)",
+      "thighL": "Thigh (L)",
+      "armR": "Arm (R)",
+      "armL": "Arm(L)",
+      "date": "Date"
+    }
+  },
+  "workout": {
+    "addExcForm": {
+      "title": "Add Exercise",
+      "selectExercise": "Select Exercise",
+      "exerciseDes": "Exercise Description",
+      "updateBtn": "Update",
+      "add": "Add",
+      "exerciseBtn": "Exercise"
+    },
+    "workoutExercInputs": {
+      "manipulation": "Manipulation",
+      "weight": "Weight",
+      "reps": "Reps",
+      "sets": "Sets"
+    },
+    "workoutErr": {
+      "enterErr": "Enter",
+      "enterDesErr": "Please enter description",
+      "descriptionCharectersErr": "Description must be at least 3 characters.",
+      "selectExercErr": "Please select your exercises"
+    },
+    "workoutForm": {
+      "addWorkOut": "Add Workout",
+      "addExercise": "Add Exercise",
+      "editWorkout": "Edit Workout",
+      "name": "Name",
+      "description": "Description",
+      "workoutList": "Exercise List",
+      "update": "Update",
+      "save": "Save",
+      "workout": "Workout",
+      "mngWorkout": "Manage Workout",
+      "nameErr": "Please Enter Name",
+      "nameChrErr": "Name must be at least 3 characters.",
+      "desErr": "Please enter description",
+      "desCherErr": "Description must be at least 3 characters."
+    }
+  },
+  "workoutProgramm": {
+    "workoutDetails": {
+      "done": "Done",
+      "target": "Target",
+      "sets": "Sets",
+      "reps": "Reps",
+      "weight": "Weight (lbs)",
+      "viewWorkout": "View Workout",
+      "startWorkout": "Start Workout",
+      "curl": "Bicep Curl",
+      "instruction": "Instruction",
+      "startingPosition": "Starting Position",
+      "sit": "1.Sit on a bench with your feel flat on the floor.",
+      "hold": "2.Hold a dumbbell in each hand, arms fully extended.",
+      "move": "The Move",
+      "slowly": "3.Slowly curt the dumbbell up to your shoulder, then slowly lower it back down.",
+      "doReps": "4.Do 8-12 reps.",
+      "lastTrData": "Last Training Data",
+      "goalWeight": "Goal Weight",
+      "weightDone": "Weight Done",
+      "repsTarget": "Reps Target",
+      "repsDone": "Reps Done",
+      "setsTarget": "Sets Target",
+      "setsDone": "Sets Done",
+      "prevExercise": "Previous Exercise",
+      "nextExercise": "Next Exercise",
+      "finish": "Finish"
+    }
+  },
+  "agreement": {
+    "agreementInfo": "Health Declaration",
+    "signature": "Signature",
+    "userAgreementInfo": "User Agreement Info"
+  },
   "admin": {
     "dashboard": {
       "activeUsers": "Active Users",
@@ -162,6 +391,10 @@
       "fileDwn": "File Download",
       "trainingPrgm": "Training Programms",
       "bTrBtn": "Back To Trainee",
+      "weight": "Weight",
+      "set": "Sets",
+      "reps": "Reps",
+      "exercise": "Exercise",
       "workoutManagement": {
         "title": "Manage Workout",
         "addWork": "Add Work",
@@ -171,6 +404,65 @@
         "addBtn": "Add Exercise",
         "saveBtn": "Save Workout"
       }
+    },
+    "progress": {
+      "title": "Progress"
+    },
+    "userNutrition": {
+      "nutritionPlan": "Manage Use Nutrition Plan",
+      "createAssign": "Create and assign",
+      "assignExisting": "Assign from Existing",
+      "plans": "Plans",
+      "userPlan": "User Nutrition Plan",
+      "userPlanErr": "Please select plan"
+    },
+    "workout": {
+      "name": "Name",
+      "description": "Description",
+      "exerciseList": "Exercise List",
+      "addExercise": "Add Exercise",
+      "addWorkout": "Add Workout",
+      "manageWorkout": "Manage Workout",
+      "editWorkout": "Edit Workout",
+      "selectExercise": "Select Exercise",
+      "excDesc": "Exercise Description",
+      "manipulation": "Manipulation",
+      "weight": "Weight",
+      "reps": "Reps",
+      "sets": "Sets",
+      "enterErr": "Enter",
+      "enterDesErr": "Please enter description",
+      "descriptionCharectersErr": "Description must be at least 3 characters.",
+      "selectExercErr": "Please select your exercises",
+      "update": "Update",
+      "add": "Add",
+      "save": "Save",
+      "workOut": "Workout",
+      "exercise": "Exercise",
+      "nameErr": "Please Enter Name",
+      "desErr": "Please enter description"
+    }
+  },
+  "exerciseLibrary": {
+    "exercise": {
+      "exerciseList": "Exercise List",
+      "all": "All",
+      "selectEquipment": "Select Equipment",
+      "selectArea": "Select Area"
+    },
+    "exerciseSelect": {
+      "noEquipment": "No equipment",
+      "trx": "TRX",
+      "bands": "Bands",
+      "weights": "Weights",
+      "machines": "Machines",
+      "bars": "Bars",
+      "armRight": "Arm Right",
+      "armLeft": "Arm Left",
+      "thighR": "Thigh Right",
+      "thighL": "Thigh Left",
+      "waist": "Waist",
+      "chest": "Chest"
     }
   },
   "footer": {
@@ -178,5 +470,8 @@
     "termsOfService": "Terms of Service",
     "followUs": "Follow Us",
     "copyRightMessage": "2024 FITAL by Tal Mualem. All rights reserved."
+  },
+  "noDataFound": {
+    "title": "No data found!"
   }
 }

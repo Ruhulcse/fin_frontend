@@ -126,7 +126,7 @@ const FoodEntryForm = ({
         {addTodoLoading || updateTodoLoading ? (
           <FaSpinner className="animate-spin" size={16} />
         ) : null}
-        {fooEntry?.id ? "Update" : "Save"} {foodData.saveBtn}
+        {fooEntry?.id ? foodData.update : foodData.save} {foodData.saveBtn}
       </BasicButton>
     </form>
   );

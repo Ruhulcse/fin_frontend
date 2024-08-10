@@ -1,11 +1,14 @@
+import { useTranslations } from "next-intl";
+
 const NotDataFound = () => {
-	return (
-		<section className="bg-card rounded p-8">
-			<strong className="text-textPrimary text-center block">
-				No data found!
-			</strong>
-		</section>
-	);
+  const t = useTranslations("noDataFound");
+  return (
+    <section className="bg-card rounded p-8">
+      <strong className="text-textPrimary text-center block">
+        {t("title")}
+      </strong>
+    </section>
+  );
 };
 
 export default NotDataFound;

@@ -4,50 +4,6 @@ import Link from "next/link";
 import { FaEdit } from "react-icons/fa";
 import Measurement from "./Measurement";
 
-// const preData = [
-// 	// {
-// 	// 	name: 'weight',
-// 	// 	label: 'Weight',
-// 	// 	unit: 'lbs',
-// 	// },
-// 	{
-// 		name: 'chest',
-// 		label: 'Chest',
-// 		unit: 'cm',
-// 	},
-// 	{
-// 		name: 'armr',
-// 		label: 'Arm Right',
-// 		unit: 'cm',
-// 	},
-// 	{
-// 		name: 'thighr',
-// 		label: 'Thigh Right',
-// 		unit: 'cm',
-// 	},
-// 	{
-// 		name: 'waist',
-// 		label: 'Waist',
-// 		unit: 'cm',
-// 	},
-// 	{
-// 		name: 'arml',
-// 		label: 'Arm Left',
-// 		unit: 'cm',
-// 	},
-
-// 	{
-// 		name: 'thighl',
-// 		label: 'Thigh Left',
-// 		unit: 'cm',
-// 	},
-// 	// {
-// 	// 	name: 'body_fat_percentage',
-// 	// 	label: 'Body Fat',
-// 	// 	unit: '%',
-// 	// },
-// ];
-
 const Measurements = async ({
   userId,
   homeI18n,

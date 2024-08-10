@@ -62,9 +62,7 @@ const MeasurementInput = ({
     waist: yup.string().required(waistErr),
     arml: yup.string().required(armRErr),
     armr: yup.string().required(armLErr),
-    body_fat_percentage: yup
-      .string()
-      .required("Please enter body fat percentage"),
+    body_fat_percentage: yup.string().required(bodyFatErr),
   });
   const {
     register,
@@ -152,7 +150,7 @@ const MeasurementInput = ({
       <Input
         type="number"
         name="body_fat_percentage"
-        label="Body Fat Percentage"
+        label={bodyFat}
         register={register}
         errors={errors}
       />
