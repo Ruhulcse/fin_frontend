@@ -12,10 +12,10 @@ const TraineeActions = ({ trainee }: { trainee: any }) => {
       <div className="grid gap-2 xl:gap-4">
         <h4 className="semi-section-title text-right">{traineInfo.add}</h4>
         <BasicCard
-          link={`/admin/workout/manage?trainee_id=${trainee?.user_id}`}
-        >
-          <strong>{traineInfo.workoutMng}</strong>
-        </BasicCard>
+					link={`/admin/training/manage?trainee_id=${trainee?.user_id}`}
+				>
+					<strong>Training Manage</strong>
+				</BasicCard>
         <BasicCard
           link={`/admin/user-nutrition-plan?trainee_id=${trainee?.user_id}`}
         >

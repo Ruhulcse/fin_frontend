@@ -24,6 +24,7 @@ type Inputs = {
 };
 
 const WorkoutForm = ({
+<<<<<<< HEAD
   workout,
   traineeId,
   userWorkouts,
@@ -56,6 +57,30 @@ const WorkoutForm = ({
   } = useForm<Inputs>({
     resolver: yupResolver(schema),
   });
+=======
+	workout,
+	traineeId,
+	userWorkouts,
+	trainingId,
+}: {
+	workout?: any;
+	traineeId: string;
+	userWorkouts?: any;
+	trainingId: string;
+}) => {
+	const router = useRouter();
+	const [exercises, setExercises] = useState<any[]>([]);
+	const [editExercise, setEditExercise] = useState({});
+	const [addExercise, setAddExercise] = useState(false);
+	const {
+		register,
+		handleSubmit,
+		setValue,
+		formState: { errors },
+	} = useForm<Inputs>({
+		resolver: yupResolver(schema),
+	});
+>>>>>>> 45f219952233fc7e34414a73014023d720f46644
 
   const [
     addWorkout,
@@ -78,6 +103,7 @@ const WorkoutForm = ({
 
   const [updateWorkoutExercises] = useEditWorkoutExercisesMutation();
 
+<<<<<<< HEAD
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     if (exercises.length > 0) {
       const payload = {
@@ -102,6 +128,39 @@ const WorkoutForm = ({
       toast.error("Please add atleast one exercise");
     }
   };
+=======
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
+		if (exercises.length > 0) {
+			if (
+				exercises[exercises.length - 1]?.manipulation?.toLowerCase() !== 'set'
+			) {
+				toast.error('Please add set for last exercise');
+				return;
+			}
+			const payload = {
+				...data,
+				user_id: Number(traineeId),
+				training_id: Number(trainingId),
+				training: exercises.map((exercise: any) => {
+					const { exercise_name, ...rest } = exercise;
+					return rest;
+				}),
+			};
+			if (workout?.workout_id) {
+				const { training, ...rest } = payload;
+				await updateWorkoutExercises(exercises);
+				await updateWorkout({
+					data: { ...rest, training_id: Number(trainingId) },
+					id: workout.workout_id,
+				});
+			} else {
+				await addWorkout(payload);
+			}
+		} else {
+			toast.error('Please add atleast one exercise');
+		}
+	};
+>>>>>>> 45f219952233fc7e34414a73014023d720f46644
 
   useEffect(() => {
     if (workout?.workout_id) {

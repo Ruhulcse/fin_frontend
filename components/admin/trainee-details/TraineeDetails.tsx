@@ -1,21 +1,15 @@
-import { useTranslations } from "next-intl";
+import { generateDataFromServer } from '@/lib/helper/server-fetch';
+import TraineeActions from './TraineeActions';
+import TraineeDetailsInfo from './TraineeDetailsInfo';
 
-const TraineeDetailsInfo = ({ trainee }: { trainee: any }) => {
-  const t = useTranslations("admin");
-  const traineInfo = t.raw("traineeDetails");
-  return (
-    <div>
-      <h3 className="section-title text-right">{traineInfo.title}</h3>
-      <h3 className="section-title text-right">
-        {trainee?.first_name ?? ""} {trainee?.last_name ?? ""}
-      </h3>
-      <p className="text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px] text-right">{`Age: ${
-        trainee?.UserDetail?.age ?? "N/A"
-      }, Height: ${trainee?.UserDetail?.height ?? `N/A`}, Weight: ${
-        trainee?.UserDetail?.weight ?? "N/A"
-      }`}</p>
-    </div>
-  );
+const TraineeDetails = async ({ id }: { id: string }) => {
+	const { data: trainee } = await generateDataFromServer(`users/${id}`);
+	return (
+		<section className="trainee-details grid gap-4 xl:gap-8">
+			<TraineeDetailsInfo trainee={trainee} />
+			<TraineeActions trainee={trainee} />
+		</section>
+	);
 };
 
-export default TraineeDetailsInfo;
+export default TraineeDetails;
