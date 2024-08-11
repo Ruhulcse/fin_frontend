@@ -4,48 +4,9 @@ import {
 	generateDataFromServer,
 	nextProperties,
 } from '@/lib/helper/server-fetch';
+import { getTranslations } from 'next-intl/server';
 import WorkoutSmallInfo from './WorkoutSmallInfo';
 
-<<<<<<< HEAD
-const WorkoutManage = ({ traineeId }: { traineeId: string }) => {
-  const t = useTranslations("admin");
-  const traineInfo = t.raw("workout");
-  const { data = {}, isLoading } = useGetWorkoutsQuery(
-    {
-      query: `user_id=${traineeId}`,
-    },
-    {
-      refetchOnMountOrArgChange: true,
-    }
-  );
-  const { data: workouts = [] } = data || {};
-  return (
-    <section className="exercise-list-area">
-      <h3 className="section-title text-right mb-4 xl:mb-8">
-        {traineInfo.manageWorkout}
-      </h3>
-      <BasicCard link={`/admin/workout/add?trainee_id=${traineeId}`}>
-        <strong>{traineInfo.addWorkout}</strong>
-      </BasicCard>
-      <br />
-      <div className="grid grid-cols-1 gap-4">
-        {isLoading ? (
-          <SkeletonGroup count={3} />
-        ) : workouts?.length > 0 ? (
-          workouts?.map((workout: any, index: number) => (
-            <WorkoutSmallInfo
-              workout={workout}
-              traineeId={traineeId}
-              key={index}
-            />
-          ))
-        ) : (
-          <NotDataFound />
-        )}
-      </div>
-    </section>
-  );
-=======
 const WorkoutManage = async ({
 	traineeId,
 	trainingId,
@@ -57,13 +18,17 @@ const WorkoutManage = async ({
 		`workouts?user_id=${traineeId}&training_id=${trainingId}`,
 		nextProperties()
 	);
+	const t = await getTranslations('admin');
+	const execData = t.raw('workout');
 	return (
 		<section className="exercise-list-area">
-			<h3 className="section-title text-right mb-4 xl:mb-8">Manage Workout</h3>
+			<h3 className="section-title text-right mb-4 xl:mb-8">
+				{execData.manageWorkout}
+			</h3>
 			<BasicCard
 				link={`/admin/workout/add?trainee_id=${traineeId}&training_id=${trainingId}`}
 			>
-				<strong>Add Workout</strong>
+				<strong>{execData.addWorkout}</strong>
 			</BasicCard>
 			<br />
 			<div className="grid grid-cols-1 gap-4">
@@ -82,7 +47,6 @@ const WorkoutManage = async ({
 			</div>
 		</section>
 	);
->>>>>>> 45f219952233fc7e34414a73014023d720f46644
 };
 
 export default WorkoutManage;
