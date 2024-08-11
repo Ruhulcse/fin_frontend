@@ -3,9 +3,9 @@ import BasicCard from "@/components/common/BasicCard";
 import Skeleton from "@/components/common/skeleton/Skeleton";
 import { axiosInstance } from "@/lib/helper/axios-api";
 import { PDFDownloadLink } from "@react-pdf/renderer";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import MeasurementReportPdf from "./MeasurementReportPdf";
-import { useTranslations } from "next-intl";
 
 const MeasurementReport = ({ trainee }: { trainee: any }) => {
   const [measurements, setMeasurements] = useState([]);
@@ -33,7 +33,7 @@ const MeasurementReport = ({ trainee }: { trainee: any }) => {
       <h4 className="semi-section-title text-right">{measurement.reports}</h4>
       {!loading ? (
         <PDFDownloadLink
-          document={<MeasurementReportPdf data={measurements} />}
+          document={<MeasurementReportPdf data={measurements} measurement={measurement} />}
           fileName={`${trainee?.name} measurement report.pdf`}
         >
           <BasicCard>
