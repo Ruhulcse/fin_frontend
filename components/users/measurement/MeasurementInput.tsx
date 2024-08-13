@@ -38,6 +38,7 @@ const MeasurementInput = ({
     clickFile,
     fileBtn,
     track,
+    trackSuccess,
   } = formLabel;
   const {
     dateErr,
@@ -106,7 +107,7 @@ const MeasurementInput = ({
     if (isError) {
       toast.error(getError(error));
     } else if (isSuccess) {
-      toast.success(`Tracked successfully`);
+      toast.success(trackSuccess);
       router.refresh();
       router.push("/");
     }

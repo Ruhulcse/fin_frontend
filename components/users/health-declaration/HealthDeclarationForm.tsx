@@ -36,6 +36,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 
   const [updateUser, { isLoading, isSuccess, isError, error }] =
     useUpdateUserMutation();
+  const common = useTranslations("common");
   const t = useTranslations("healthDeclaration");
   const regInput = t.raw("registrationForm");
   const healthInput = t.raw("healthDeclarationInputs");
@@ -418,7 +419,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
     if (isError) {
       toast.error(getError(error));
     } else if (isSuccess) {
-      toast.success("User updated successfully");
+      toast.success(common("userUpdSuccessfully"));
       router.push("/");
     }
   }, [isSuccess, isError, router, error]);
@@ -493,7 +494,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
           extraClasses="!m-0 !w-full !mt-6"
           disabled={isLoading}
         >
-          Next
+          {common("nextBtn")}
         </BasicButton>
       )}
     </form>

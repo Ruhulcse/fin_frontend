@@ -21,7 +21,7 @@ const ApproveEmail = () => {
     useAddApprovedEmailMutation();
   const t = useTranslations("email");
   const schema = yup.object({
-    email: yup.string().email().required(t("email.mailErr")),
+    email: yup.string().email().required(t("mailErr")),
   });
   const {
     register,

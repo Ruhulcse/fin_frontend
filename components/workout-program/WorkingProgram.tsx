@@ -16,7 +16,7 @@ const WorkingProgram = async ({ workoutProgram, userRole }: any) => {
 			/> */}
       <div className="workout-info">
         <h4 className="workout-program-title">
-          {workoutProgram.workout_name ?? "The Total Attack"}
+          {workoutProgram.workout_name ?? details.totalAttack}
         </h4>
         <div className="actions">
           <Link

@@ -31,22 +31,16 @@ const ExerciseForm = ({
   const router = useRouter();
   const schema = (edit: boolean) =>
     yup.object({
-      name: yup
-        .string()
-        .required(excForm.nameErr)
-        .min(3, "Name must be at least 3 characters."),
-      area: yup
-        .string()
-        .required(excForm.areaErr)
-        .min(3, "Area must be at least 3 characters."),
+      name: yup.string().required(excForm.nameErr).min(3, excForm.nameChrErr),
+      area: yup.string().required(excForm.areaErr).min(3, excForm.areaChrErr),
       equipment: yup
         .string()
         .required(excForm.equipementErr)
-        .min(3, "Equipment must be at least 3 characters."),
+        .min(3, excForm.eqpChrErr),
       description: yup
         .string()
         .required(excForm.desErr)
-        .min(3, "Description must be at least 3 characters."),
+        .min(3, excForm.desCherErr),
       file: edit
         ? yup.mixed().nullable().notRequired()
         : yup.mixed().test(excForm.upVideoErr, (value: any) => {
@@ -109,7 +103,9 @@ const ExerciseForm = ({
       toast.error(getError(updateExerciseError || addExerciseError));
     } else if (updateExerciseIsSuccess || addExerciseIsSuccess) {
       toast.success(
-        `Exercise ${exercise?.exercise_id ? "updated" : "added"} successfully`
+        `${excForm.exercise} ${
+          exercise?.exercise_id ? excForm.update : excForm.added
+        } ${excForm.successfully}`
       );
       router.refresh();
       router.push("/admin/exercise/manage");

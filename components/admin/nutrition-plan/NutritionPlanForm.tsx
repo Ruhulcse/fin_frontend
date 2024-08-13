@@ -33,11 +33,11 @@ const NutritionPlanForm = ({
       name: yup
         .string()
         .required(nutritionForm.nameErr)
-        .min(3, "Name must be at least 3 characters."),
+        .min(3, nutritionForm.nameChrErr),
       description: yup
         .string()
         .required(nutritionForm.desErr)
-        .min(3, "Description must be at least 3 characters."),
+        .min(3, nutritionForm.desChrErr),
       file: edit
         ? yup.mixed().nullable().notRequired()
         : yup.mixed().test(nutritionForm.upPdfErr, (value: any) => {
@@ -100,7 +100,11 @@ const NutritionPlanForm = ({
     if (updatePlanIsError || addPlanIsError) {
       toast.error(getError(updatePlanError || addPlanError));
     } else if (updatePlanIsSuccess || addPlanIsSuccess) {
-      toast.success(`Plan ${plan?.id ? "updated" : "added"} successfully`);
+      toast.success(
+        `${nutritionForm.plan} ${
+          plan?.id ? nutritionForm.update : nutritionForm.added
+        } ${nutritionForm.successfully}`
+      );
       router.refresh();
       router.push(
         userId

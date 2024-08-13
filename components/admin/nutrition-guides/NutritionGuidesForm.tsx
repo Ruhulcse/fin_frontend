@@ -33,11 +33,11 @@ const NutritionGuidesForm = ({
       title: yup
         .string()
         .required(nutritionForm.nameErr)
-        .min(3, "Name must be at least 3 characters."),
+        .min(3, nutritionForm.nameChrErr),
       description: yup
         .string()
         .required(nutritionForm.desErr)
-        .min(3, "Description must be at least 3 characters."),
+        .min(3, nutritionForm.desChrErr),
       file: edit
         ? yup.mixed().nullable().notRequired()
         : yup.mixed().test(nutritionForm.upPdfErr, (value: any) => {
@@ -100,7 +100,11 @@ const NutritionGuidesForm = ({
     if (updateGuidesIsError || addGuidesIsError) {
       toast.error(getError(updateGuidesError || addGuidesError));
     } else if (updateGuidesIsSuccess || addGuidesIsSuccess) {
-      toast.success(`Guides ${guide?.id ? "updated" : "added"} successfully`);
+      toast.success(
+        `${nutritionForm.guides} ${
+          guide?.id ? nutritionForm.update : nutritionForm.added
+        } ${nutritionForm.successfully}`
+      );
       router.refresh();
       router.push(
         userId
@@ -156,7 +160,7 @@ const NutritionGuidesForm = ({
           <FaSpinner className="animate-spin" size={16} />
         ) : null}
         {userId
-          ? "Create And Assign"
+          ? nutritionForm.createAssign
           : guide?.id
           ? nutritionForm.update
           : nutritionForm.save}{" "}

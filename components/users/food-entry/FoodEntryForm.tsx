@@ -86,7 +86,9 @@ const FoodEntryForm = ({
       toast.error(getError(updateTodoError || addTodoError));
     } else if (updateTodoIsSuccess || addTodoIsSuccess) {
       toast.success(
-        `Food entry ${fooEntry?.id ? "updated" : "added"} successfully`
+        `${foodData.foodEntry} ${
+          fooEntry?.id ? foodData.updated : foodData.added
+        } ${foodData.successfully}`
       );
       router.refresh();
       router.push("/");

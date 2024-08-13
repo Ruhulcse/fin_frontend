@@ -48,7 +48,7 @@ const AddExerciseForm = ({
     trainer_exp: yup
       .string()
       .required(execData.enterDesErr)
-      .min(3, "Description must be at least 3 characters."),
+      .min(3, execData.descriptionCharectersErr),
     exercise_id: yup.string().required(execData.selectExercErr),
   });
   const workoutExerciseInputs = [

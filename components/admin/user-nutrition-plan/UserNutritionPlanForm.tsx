@@ -73,7 +73,7 @@ const UserNutritionPlanForm = ({
       <Input
         type="multi-select"
         name="plan_ids"
-        label="Plans"
+        label={nutritionForm.plan}
         control={control}
         options={plans?.map((plan: any) => ({
           value: plan.id,

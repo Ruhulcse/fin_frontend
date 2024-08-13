@@ -33,8 +33,13 @@ const MeasurementReport = ({ trainee }: { trainee: any }) => {
       <h4 className="semi-section-title text-right">{measurement.reports}</h4>
       {!loading ? (
         <PDFDownloadLink
-          document={<MeasurementReportPdf data={measurements} measurement={measurement} />}
-          fileName={`${trainee?.name} measurement report.pdf`}
+          document={
+            <MeasurementReportPdf
+              data={measurements}
+              measurement={measurement}
+            />
+          }
+          fileName={`${trainee?.name} ${measurement.measurementReportpdf}`}
         >
           <BasicCard>
             <strong>{measurement.measurementsExe}</strong>

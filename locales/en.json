@@ -1,21 +1,59 @@
 {
   "common": {
-    "noData": "No data found!"
+    "noData": "No data found!",
+    "tryAgain": "Try again",
+    "returnHome": "Return Home",
+    "userUpdSuccessfully": "User updated successfully",
+    "nextBtn": "Next"
   },
   "auth": {
     "googleMessage": "Continue with Google",
     "login": {
       "title": "Welcome Back",
       "message": "Don't have an account?",
-      "redirect": "Sign Up"
+      "redirect": "Sign Up",
+      "login": "Login",
+      "email": "Email",
+      "password": "Password",
+      "forgotPass": "Forgot Password",
+      "emailErr": "Please enter your email",
+      "passErr": "Please enter your password",
+      "passChrErr": "Password must be at least 6 characters."
     },
     "registration": {
       "title": "Easy to Start!",
       "message": "Already have an account?",
-      "redirect": "Sign In"
+      "redirect": "Sign In",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "select": "Set Gender",
+      "password": "Password",
+      "forgotPass": "Forgot Password",
+      "createAccount": "Create Account",
+      "emailErr": "Please enter your email",
+      "passErr": "Please enter your password",
+      "passChrErr": "Password must be at least 6 characters.",
+      "fNameErr": "Please enter your first name",
+      "lNameErr": "Please enter your last name",
+      "fNameChrErr": "First name must be at least 3 characters.",
+      "lNameChrErr": "Last name must be at least 3 characters.",
+      "setGenderErr": "Please select your gender",
+      "signUpSuccess": "Sign Up Successful",
+      "errFound": "Error Found",
+      "gender": "Gender"
     },
     "logout": {
       "btnTitle": "Log Out"
+    },
+    "genderSet": {
+      "select": "Set Gender",
+      "setGenderErr": "Please select your gender",
+      "male": "Male",
+      "female": "Female",
+      "genderBtn": "Set Gender",
+      "genderSetSuccessfully": "Gender set Successfully",
+      "errFound": "Error Found"
     }
   },
   "navbar": {
@@ -91,7 +129,7 @@
   },
   "agreements": {
     "terms": "Terms & conditions",
-    "userDetails": "User Detailes",
+    "userDetails": "User Details",
     "health": "Health Declaration",
     "lastUpdate": "Last Update on"
   },
@@ -102,6 +140,10 @@
       "date": "Result date",
       "saveBtn": "Food Entry",
       "update": "Update",
+      "updated": "updated",
+      "added": "added",
+      "foodEntry": "Food entry",
+      "successfully": "successfully",
       "save": "Save"
     },
     "errMsg": {
@@ -124,7 +166,8 @@
       "uploadFile": "Upload File",
       "clickFile": "Click here to upload your file",
       "fileBtn": "Add more File ",
-      "track": "Tracking"
+      "track": "Tracking",
+      "trackSuccess": "Tracked successfully"
     },
     "measurmentErr": {
       "dateErr": "Please enter date",
@@ -223,7 +266,8 @@
   },
   "exercise": {
     "exerciseForm": {
-      "title": "Add Exercise",
+      "addExc": "Add Exercise",
+      "mngExc": "Manage Exercise",
       "edit": "Edit Exercise",
       "name": "Name",
       "area": "Area",
@@ -232,7 +276,7 @@
       "uploadVideo": "Upload Video",
       "updateBtn": "Update",
       "saveBtn": "Save",
-      "exercise": "Exerciser",
+      "exercise": "Exercise",
       "nameErr": "Please Enter Name",
       "nameChrErr": "Name must be at least 3 characters.",
       "areaErr": "Please enter area",
@@ -241,15 +285,21 @@
       "eqpChrErr": "Equipment must be at least 3 characters.",
       "desErr": "Please enter description",
       "desCherErr": "Description must be at least 3 characters.",
-      "upVideoErr": "required, Please upload your video"
+      "upVideoErr": "required, Please upload your video",
+      "successfully": "successfully",
+      "added": "added"
     }
   },
   "fileDownload": {
-    "click": "Click to View"
+    "click": "Click to View",
+    "agreement": "Agreement 01",
+    "guide": "A guide to eating to keep your energy up"
   },
   "nutritionForm": {
     "formLabel": {
       "addNutrition": "Add Nutrition Guides",
+      "mngNutrition": "Manage Nutrition Guides",
+      "mngNutritionPlan": "Manage Nutrition Plan",
       "nutritionPlan": "Add Nutrition Plan",
       "edit": "Edit Nutrition Guides",
       "editPlan": "Edit Nutrition Plan",
@@ -261,29 +311,43 @@
       "guide": "Guide",
       "name": "Name",
       "nameErr": "Please Enter Name",
+      "nameChrErr": "Name must be at least 3 characters.",
       "desErr": "Please enter description",
+      "desChrErr": "Description must be at least 3 characters.",
       "upPdfErr": "required, Please upload your PDF",
       "createAssign": "Create and assign",
       "plan": "Plan",
       "clickView": "Click to view",
       "nutritionGuide": "Nutrition Guide",
-      "nutriPlan": "Nutrition Plan"
+      "nutriPlan": "Nutrition Plan",
+      "guides": "Guides",
+      "successfully": "successfully",
+      "added": "added",
+      "update": "Updated",
+      "training": "Training"
     }
   },
   "traineeDetails": {
     "traineeData": {
-      "traineeFiles": "Trainee Files"
+      "traineeFiles": "Trainee Files",
+      "addTraining": "Add Training",
+      "mngTrainig": "Manage Trainings",
+      "editTraining": "Edit Training",
+      "workoutMng": "Workout Manage",
+      "trainigMng": "Training Manage"
     },
     "foodEntries": {
       "foodEntries": "Food Entries",
       "userFoodEnt": "User food entries",
       "userFoodReports": "User Food Reports",
-      "editTodo": "Edit Todo"
+      "editTodo": "Edit Todo",
+      "foodPDF": "food report.pdf"
     },
     "measurementReports": {
       "reports": "Reports",
       "measurementsExe": "Measurements & Exercise",
       "userFoodReports": "User Food Reports",
+      "measurementReportpdf": "measurement report.pdf",
       "progress": "Progress",
       "chest": "Chest",
       "waist": "Waist",
@@ -358,7 +422,9 @@
       "setsDone": "Sets Done",
       "prevExercise": "Previous Exercise",
       "nextExercise": "Next Exercise",
-      "finish": "Finish"
+      "finish": "Finish",
+      "totalAttack": "Total Attack",
+      "excUpdated": "Exercises Updated"
     }
   },
   "agreement": {
@@ -374,7 +440,17 @@
       "apvEmailAdd": "Approve email address"
     },
     "mngUsers": {
-      "title": "Manage Users"
+      "title": "Manage Users",
+      "user": "user",
+      "trainer": "trainer",
+      "trainee": "Trainee",
+      "trainerr": "Trainer",
+      "inactive": "inactive",
+      "active": "active",
+      "userUpdSuccessfully": "User updated successfully",
+      "makeUserInactivate": "Make User Inactivate",
+      "makeUserActivate": "Make User Activate",
+      "searchUser": "Search User"
     },
     "traineeDetails": {
       "title": "Trainee Details",
@@ -436,11 +512,44 @@
       "selectExercErr": "Please select your exercises",
       "update": "Update",
       "add": "Add",
+      "updated": "updated",
+      "added": "added",
       "save": "Save",
       "workOut": "Workout",
       "exercise": "Exercise",
       "nameErr": "Please Enter Name",
-      "desErr": "Please enter description"
+      "nameChrErr": "Name must be at least 3 characters.",
+      "desErr": "Please enter description",
+      "lastExrErr": "Please add set for last exercise",
+      "oneChrErr": "Please add atleast one exercise",
+      "successfully": "successfully"
+    },
+    "progressChart": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec",
+      "sat": "Sat",
+      "sun": "Sun",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "lastWeek": "Last 2 Week",
+      "lastMonth": "Last Month",
+      "lastYear": "Last Year",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "exercise": "Exercise"
     }
   },
   "exerciseLibrary": {
@@ -448,7 +557,8 @@
       "exerciseList": "Exercise List",
       "all": "All",
       "selectEquipment": "Select Equipment",
-      "selectArea": "Select Area"
+      "selectArea": "Select Area",
+      "area": "Area"
     },
     "exerciseSelect": {
       "noEquipment": "No equipment",

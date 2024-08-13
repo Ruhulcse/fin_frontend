@@ -11,10 +11,10 @@ const FileDownload = ({ file }: { file: any }) => {
       <Image className="col-span-1" src={pdfImage} alt="pdf" />
       <div className="grid grid-rows-[auto_auto_1fr] col-span-2 xl:col-span-1 gap-1 xl:gap-2">
         <h3 className="semi-section-title text-right">
-          {file?.name ?? "Agreement 01"}
+          {file?.name ?? t("agreement")}
         </h3>
         <p className="nutrition-guide-info text-right text-[#F1D7B5] text-[12px] sm:text-[16px] xl:text-[20px]">
-          {file?.description ?? `A guide to eating to keep your energy up`}
+          {file?.description ?? t("guide")}
         </p>
         <Link href="/admin/file-download/232" className="ml-auto block mt-auto">
           <BasicButton extraClasses="border-[#333333] bg-[#333333]">
