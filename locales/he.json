@@ -502,7 +502,9 @@
       "desErr": "נא מלא תיאור",
       "lastExrErr": "נא להוסיף סט לתרגיל האחרון",
       "oneChrErr": "נא להוסיף לפחות תרגיל אחד",
-      "successfully": "בְּהַצלָחָה"
+      "successfully": "בְּהַצלָחָה",
+      "backToWorkout": "חזרה לאימון",
+      "backToWorkoutMng": "חזרה לניהול אימון"
     },
     "progressChart": {
       "jan": "ינואר",

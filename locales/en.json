@@ -522,7 +522,9 @@
       "desErr": "Please enter description",
       "lastExrErr": "Please add set for last exercise",
       "oneChrErr": "Please add atleast one exercise",
-      "successfully": "successfully"
+      "successfully": "successfully",
+      "backToWorkout": "Back To Workout",
+      "backToWorkoutMng": "Back To Workout Manage"
     },
     "progressChart": {
       "jan": "Jan",

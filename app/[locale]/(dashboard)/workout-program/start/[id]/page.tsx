@@ -1,15 +1,15 @@
-import BackLinkWrapper from '@/components/common/backlink/BackLinkWrapper';
-import WorkingProgramStart from '@/components/workout-program/WorkingProgramStart';
+import BackLinkWrapper from "@/components/common/backlink/BackLinkWrapper";
+import WorkingProgramStart from "@/components/workout-program/WorkingProgramStart";
+import { useTranslations } from "next-intl";
 
 const Page = ({ params }: { params: { id: string } }) => {
-	return (
-		<BackLinkWrapper
-			href="/workout-program"
-			title="Back To Workout"
-		>
-			<WorkingProgramStart id={params.id} />
-		</BackLinkWrapper>
-	);
+  const t = useTranslations("admin");
+  const workout = t.raw("workout");
+  return (
+    <BackLinkWrapper href="/workout-program" title={workout.backToWorkout}>
+      <WorkingProgramStart id={params.id} />
+    </BackLinkWrapper>
+  );
 };
 
 export default Page;
