@@ -19,6 +19,7 @@ const WorkoutEdit = async ({
 		`admin/training/${id}`,
 		nextProperties(0)
 	);
+	console.log('workoutExercises', workoutExercises);
 	const t = await getTranslations('admin');
 	const execData = t.raw('workout');
 	return (
