@@ -13,7 +13,7 @@ const AuthRedirect = ({
 	};
 }) => {
 	return (
-		<span className="text-[12px] text-textPrimary flex items-center gap-1">
+		<span className="text-[12px] text-textPrimary flex items-center gap-1 justify-end">
 			{data?.message}
 			<Link
 				className="text-secondary cursor-pointer font-bold"
