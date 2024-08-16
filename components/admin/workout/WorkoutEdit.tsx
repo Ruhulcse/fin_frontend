@@ -36,6 +36,7 @@ const WorkoutEdit = async ({
 						trainer_exp: exercise?.trainer_exp ?? '',
 						exercise_name: exercise?.Exercise?.name ?? '',
 						training_id: exercise?.training_id ?? null,
+						training_record_id: exercise?.training_record_id ?? null,
 					})),
 				}}
 				traineeId={traineeId}
