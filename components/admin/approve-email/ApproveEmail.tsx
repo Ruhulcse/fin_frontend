@@ -42,7 +42,7 @@ const ApproveEmail = () => {
       toast.success(t("mailSuccess"));
       router.push("/admin");
     }
-  }, [isSuccess, isError, router, error]);
+  }, [isSuccess, isError, router, error, t]);
 
   return (
     <form
