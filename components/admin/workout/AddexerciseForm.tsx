@@ -87,12 +87,8 @@ const AddExerciseForm = ({
 			exercise_id: data.exercise_id.split('__')[0],
 			exercise_name: data.exercise_id.split('__')[1],
 		};
-		if (workoutId) {
-			if (editExercise?.training_record_id) {
-				payload.training_record_id = editExercise.training_record_id;
-			} else {
-				payload.workout_id = workoutId;
-			}
+		if (editExercise?.training_record_id) {
+			payload.training_record_id = editExercise.training_record_id;
 		}
 		const findItem = exercises.find(
 			(item: any) => Number(item.exercise_id) === Number(payload.exercise_id)

@@ -103,6 +103,7 @@ const WorkoutForm = ({
 					exercises.map((item) => ({
 						...item,
 						training_id: Number(trainingId),
+						workout_id: workout.workout_id,
 					}))
 				);
 				await updateWorkout({
