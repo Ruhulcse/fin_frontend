@@ -6,7 +6,7 @@ const WorkingProgramInfo = ({ workProgramDetails, currentExercise }: any) => {
   const details = t.raw("workoutDetails");
   return (
     <section className="workout-program-info">
-      <h3 className="section-title text-center">{details.curl}</h3>
+      <h3 className="section-title text-center">{currentExercise?.Exercise?.name}</h3>
       <Player
         autoplay={false}
         src={currentExercise?.Exercise?.video_url ?? null}
