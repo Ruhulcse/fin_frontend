@@ -11,16 +11,11 @@ const WorkoutProgramWrapperView = ({
 	workout: any;
 	workoutExercises: any;
 }) => {
-	const [currentExercise, setCurrentExercise] = useState({});
 	return (
 		<section className="grid gap-2 xl:gap-4">
-			<WorkingProgramInfo
-				currentExercise={currentExercise}
-				workProgramDetails={workout}
-			/>
 			<WorkoutExercisesView
 				workoutExercises={workoutExercises}
-				setCurrentExercise={setCurrentExercise}
+				workout={workout}
 			/>
 		</section>
 	);
