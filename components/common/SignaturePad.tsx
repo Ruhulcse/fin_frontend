@@ -9,6 +9,7 @@ const SignaturePadWrapper = ({ setImageURL }: { setImageURL: any }) => {
 	const clear = () => {
 		if (sigCanvas?.current) {
 			sigCanvas.current.clear();
+			setImageURL('');
 			setIsEmpty(true);
 		}
 	};

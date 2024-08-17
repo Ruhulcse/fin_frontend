@@ -24,6 +24,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 		handleSubmit,
 		resetField,
 		setValue,
+		getValues,
 		control,
 		formState: { errors },
 	} = useForm<any>({
@@ -372,33 +373,59 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 	];
 
 	const onSubmit: any = async (data: any) => {
-		const health_declaration: any = {};
-		const user_details: any = {};
-		for (const key in data) {
-			const [type, name] = key.split('__');
-			if (type === 'health_declaration' && data[key]) {
-				health_declaration[name] = data[key];
-			} else if (type === 'user_details' && data[key]) {
-				user_details[name] = data[key];
+		let condition = true;
+		const values = getValues();
+		for (let i = 0; i < healthDeclarationInputs.length; i++) {
+			if (!values[`health_declaration__${healthDeclarationInputs[i].name}`]) {
+				toast.error(`${healthDeclarationInputs[i].label} is required`);
+				condition = false;
+				break;
 			}
 		}
-		const updatedData: any = {
-			file: data?.file[0],
-			user_details: JSON.stringify({
-				...user_details,
-				user_id: user?.id,
-			}),
-			health_declaration: JSON.stringify(health_declaration),
-		};
-		const formData = new FormData();
-		for (const key in updatedData) {
-			formData.append(key, updatedData[key]);
+		if (condition && !imageURL) {
+			toast.error(`Signature is required`);
+			condition = false;
 		}
-		await updateUser({ data: formData, id: user?.id });
+		if (condition) {
+			const health_declaration: any = {};
+			const user_details: any = {};
+			for (const key in data) {
+				const [type, name] = key.split('__');
+				if (type === 'health_declaration' && data[key]) {
+					health_declaration[name] = data[key];
+				} else if (type === 'user_details' && data[key]) {
+					user_details[name] = data[key];
+				}
+			}
+			const updatedData: any = {
+				file: data?.file[0],
+				user_details: JSON.stringify({
+					...user_details,
+					user_id: user?.id,
+				}),
+				health_declaration: JSON.stringify(health_declaration),
+			};
+			const formData = new FormData();
+			for (const key in updatedData) {
+				formData.append(key, updatedData[key]);
+			}
+			await updateUser({ data: formData, id: user?.id });
+		}
 	};
 
 	const changeTab = (tab: number) => {
-		setTab(tab);
+		const values = getValues();
+		let condition = true;
+		if (tab === 2) {
+			for (let i = 0; i < registrationInputs.length; i++) {
+				if (!values[`user_details__${registrationInputs[i].name}`]) {
+					condition = false;
+					toast.error(`${registrationInputs[i].label} is required`);
+					break;
+				}
+			}
+		}
+		condition && setTab(tab);
 	};
 
 	useEffect(() => {
@@ -469,7 +496,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 			{tab === 2 ? (
 				<div className="flex items-center gap-4">
 					<BasicButton
-						onClick={() => changeTab(1)}
+						onClick={() => setTab(1)}
 						hard
 						extraClasses="!m-0 !w-full !mt-6"
 						disabled={isLoading}
