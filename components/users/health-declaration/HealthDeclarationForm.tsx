@@ -397,6 +397,10 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 		await updateUser({ data: formData, id: user?.id });
 	};
 
+	const changeTab = (tab: number) => {
+		setTab(tab);
+	};
+
 	useEffect(() => {
 		if (imageURL) {
 			const file = base64StringToFile(imageURL, 'signature.png');
@@ -418,7 +422,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 			toast.success(common('userUpdSuccessfully'));
 			router.push('/');
 		}
-	}, [isSuccess, isError, router, error]);
+	}, [isSuccess, isError, router, error, common]);
 
 	return (
 		<form
@@ -465,7 +469,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 			{tab === 2 ? (
 				<div className="flex items-center gap-4">
 					<BasicButton
-						onClick={() => setTab(1)}
+						onClick={() => changeTab(1)}
 						hard
 						extraClasses="!m-0 !w-full !mt-6"
 						disabled={isLoading}
@@ -485,7 +489,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
 			) : (
 				<BasicButton
 					type="button"
-					onClick={() => setTab(2)}
+					onClick={() => changeTab(2)}
 					hard
 					extraClasses="!m-0 !w-full !mt-6"
 					disabled={isLoading}
