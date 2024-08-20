@@ -88,7 +88,6 @@ const WorkoutExercises = ({
 							/>
 							<WorkingProgramPrevData prevWorkout={prevWorkout} />
 							<WorkingProgramStartInput
-								extraClass={`${tab !== index ? 'hidden' : ''}`}
 								workProgramDetails={
 									supersetWorkoutExercises[exercise?.training_record_id]
 								}
@@ -96,18 +95,17 @@ const WorkoutExercises = ({
 							/>
 						</>
 					) : null}
-					<>
+					<div className={`${tab !== index ? 'hidden' : ''}`}>
 						<WorkingProgramInfo
 							workProgramDetails={workout}
 							currentExercise={currentExercise}
 						/>
 						<WorkingProgramPrevData prevWorkout={prevWorkout} />
 						<WorkingProgramStartInput
-							extraClass={`${tab !== index ? 'hidden' : ''}`}
 							workProgramDetails={exercise}
 							setUpdatedData={setWorkoutExercisesData}
 						/>
-					</>
+					</div>
 				</>
 			))}
 
