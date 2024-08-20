@@ -82,7 +82,10 @@ const WorkoutExercises = ({
 	return (
 		<>
 			{setWorkoutExercises?.map((exercise: any, index: number) => (
-				<>
+				<div
+					key={index}
+					className={`${tab !== index ? 'hidden' : ''}`}
+				>
 					{supersetWorkoutExercises[exercise?.training_record_id] ? (
 						<>
 							<WorkingProgramInfo
@@ -100,18 +103,16 @@ const WorkoutExercises = ({
 							/>
 						</>
 					) : null}
-					<div className={`${tab !== index ? 'hidden' : ''}`}>
-						<WorkingProgramInfo
-							workProgramDetails={workout}
-							currentExercise={currentExercise}
-						/>
-						<WorkingProgramPrevData prevWorkout={prevWorkout} />
-						<WorkingProgramStartInput
-							workProgramDetails={exercise}
-							setUpdatedData={setWorkoutExercisesData}
-						/>
-					</div>
-				</>
+					<WorkingProgramInfo
+						workProgramDetails={workout}
+						currentExercise={currentExercise}
+					/>
+					<WorkingProgramPrevData prevWorkout={prevWorkout} />
+					<WorkingProgramStartInput
+						workProgramDetails={exercise}
+						setUpdatedData={setWorkoutExercisesData}
+					/>
+				</div>
 			))}
 
 			<div className="actions flex justify-center xl:justify-end gap-2 xl:gap-4 mt-2">
