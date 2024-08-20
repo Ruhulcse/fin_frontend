@@ -56,11 +56,6 @@ const WorkoutExercises = ({
 	useEffect(() => {
 		if (workoutExercises?.length > 0) {
 			setCurrentExercise(setWorkoutExercises[0]);
-			setSetWorkoutExercises(
-				workoutExercises.filter(
-					(elm: any) => elm.manipulation.toLowerCase() === 'set'
-				)
-			);
 			workoutExercises.forEach((element: any, index: number) => {
 				if (element.manipulation.toLowerCase() === 'superset') {
 					const nextElm = workoutExercises[index + 1];
@@ -72,7 +67,17 @@ const WorkoutExercises = ({
 				}
 			});
 		}
-	}, [setCurrentExercise, setWorkoutExercises, workoutExercises]);
+	}, [setWorkoutExercises, workoutExercises]);
+
+	useEffect(() => {
+		if (workoutExercises?.length > 0) {
+			setSetWorkoutExercises(
+				workoutExercises.filter(
+					(elm: any) => elm.manipulation.toLowerCase() === 'set'
+				)
+			);
+		}
+	}, [workoutExercises]);
 
 	return (
 		<>
