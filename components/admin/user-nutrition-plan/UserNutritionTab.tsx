@@ -48,6 +48,7 @@ const UserNutritionTab = ({
 					traineeId={traineeId}
 					plans={plans}
 					existingPlans={existingPlans}
+					nutritionForm={nutrition}
 				/>
 			) : null}
 		</>
