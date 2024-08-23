@@ -65,7 +65,6 @@ const Navbar = () => {
       : newUser
       ? menuFilter(menusForNewUser)
       : menuFilter(menusForOldUser);
-  console.log();
 
   const logoutHandler = async () => {
     await signOut({
