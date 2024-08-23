@@ -3,7 +3,7 @@
 	.workout-program {
 		@apply relative rounded-md overflow-hidden;
 		.workout-info {
-			@apply w-full p-4 h-full grid gap-[180px] bg-[#024059] relative z-10 overflow-hidden;
+			@apply w-full p-4 h-full grid gap-[80px] bg-[#024059] relative z-10 overflow-hidden;
 			.workout-program-title {
 				@apply text-right font-bold text-white text-[20px];
 			}
