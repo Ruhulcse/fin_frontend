@@ -137,8 +137,8 @@ const TrainingSmallInfo = ({
 				)}
 				<Input
 					type="textarea"
-					name={traineData.des}
-					label="Description"
+					name="training_description"
+					label={traineData.des}
 					register={register}
 					errors={errors}
 				/>
