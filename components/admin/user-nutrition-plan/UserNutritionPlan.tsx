@@ -1,8 +1,12 @@
 import { generateDataFromServer } from '@/lib/helper/server-fetch';
 import { getTranslations } from 'next-intl/server';
+import { redirect } from 'next/navigation';
 import UserNutritionTab from './UserNutritionTab';
 
 const UserNutritionPlan = async ({ traineeId }: { traineeId: string }) => {
+	if (!traineeId) {
+		redirect(`/`);
+	}
 	const { data: plans } = await generateDataFromServer('nutrition-plans');
 	const { data: existingPlans } = await generateDataFromServer(
 		`nutrition-plans/user?user_id=${traineeId}`
