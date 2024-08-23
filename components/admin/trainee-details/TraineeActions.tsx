@@ -7,7 +7,6 @@ import TrainingReport from './TrainingReport';
 const TraineeActions = async ({ trainee }: { trainee: any }) => {
 	const t = await getTranslations('admin');
 	const traineInfo = t.raw('traineeDetails');
-	console.log('mngTrainig', traineInfo);
 	return (
 		<>
 			<div className="grid gap-2 xl:gap-4">
