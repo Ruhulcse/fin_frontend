@@ -104,7 +104,17 @@ const TrainingSmallInfo = ({
 			router.refresh();
 			router.back();
 		}
-	}, [addTrainingError, addTrainingIsError, addTrainingIsSuccess, router, updateTrainingError, updateTrainingIsError, updateTrainingIsSuccess, training?.training_id, traineData.training, traineData.update, traineData.added, traineData.successfully]);
+	}, [
+		addTrainingError,
+		addTrainingIsError,
+		addTrainingIsSuccess,
+		router,
+		updateTrainingError,
+		updateTrainingIsError,
+		updateTrainingIsSuccess,
+		training?.training_id,
+		traineData,
+	]);
 	return (
 		<>
 			<form
