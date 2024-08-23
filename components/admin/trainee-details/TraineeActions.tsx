@@ -7,6 +7,7 @@ import TrainingReport from './TrainingReport';
 const TraineeActions = async ({ trainee }: { trainee: any }) => {
 	const t = await getTranslations('admin');
 	const traineInfo = t.raw('traineeDetails');
+	console.log('mngTrainig', traineInfo);
 	return (
 		<>
 			<div className="grid gap-2 xl:gap-4">
@@ -14,7 +15,7 @@ const TraineeActions = async ({ trainee }: { trainee: any }) => {
 				<BasicCard
 					link={`/admin/training/manage?trainee_id=${trainee?.user_id}`}
 				>
-					<strong>{traineInfo.trainingMng}</strong>
+					<strong>{traineInfo.mngTrainig}</strong>
 				</BasicCard>
 				<BasicCard
 					link={`/admin/user-nutrition-plan?trainee_id=${trainee?.user_id}`}
