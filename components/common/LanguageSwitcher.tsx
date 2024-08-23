@@ -35,7 +35,7 @@ const LanguageSwitcher = ({ extraClass = '' }: { extraClass?: string }) => {
 					value={locale}
 					className="text-black bg-card p-1 border-card"
 				>
-					{locale}
+					{locale === 'he' ? 'HE' : 'EN'}
 				</option>
 			))}
 		</select>
