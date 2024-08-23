@@ -9,10 +9,10 @@ import WorkingProgram from './WorkingProgram';
 import WorkoutSearch from './WorkoutSearch';
 
 const WorkingPrograms = async ({ searchParams }: { searchParams: any }) => {
-	const queryParams = new URLSearchParams(searchParams);
+	const queryParams = searchParams ? new URLSearchParams(searchParams) : '';
 	const { data: workoutPrograms = [] } = await generateDataFromServer(
 		`workouts?${queryParams}`,
-		nextProperties(0)
+		nextProperties()
 	);
 	const session = await getServerSession(authOptions());
 	const userRole = session?.user?.role;
