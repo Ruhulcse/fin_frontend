@@ -429,6 +429,7 @@
 	},
 	"agreement": {
 		"agreementInfo": "Health Declaration",
+		"userDetails": "User Details",
 		"signature": "Signature",
 		"userAgreementInfo": "User Agreement Info"
 	},

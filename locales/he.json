@@ -412,6 +412,7 @@
 	},
 	"agreement": {
 		"agreementInfo": "הצהרת בריאות",
+		"userDetails": "שאלון הפתיחה",
 		"signature": "חֲתִימָה",
 		"userAgreementInfo": "מידע על הסכם משתמש"
 	},
