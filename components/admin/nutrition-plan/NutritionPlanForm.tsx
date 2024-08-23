@@ -112,17 +112,7 @@ const NutritionPlanForm = ({
           : "/admin/nutrition-plan/manage"
       );
     }
-  }, [
-    addPlanError,
-    addPlanIsError,
-    addPlanIsSuccess,
-    plan?.id,
-    router,
-    updatePlanError,
-    updatePlanIsError,
-    updatePlanIsSuccess,
-    userId,
-  ]);
+  }, [addPlanError, addPlanIsError, addPlanIsSuccess, nutritionForm.added, nutritionForm.plan, nutritionForm.successfully, nutritionForm.update, plan?.id, router, updatePlanError, updatePlanIsError, updatePlanIsSuccess, userId]);
 
   return (
     <form className="grid gap-2 xl:gap-4" onSubmit={handleSubmit(onSubmit)}>
