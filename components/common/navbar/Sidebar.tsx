@@ -1,17 +1,19 @@
 'use client';
 import useOutsideClick from '@/hooks/useOutsideClick';
+import { clearCookie } from '@/lib/helper/server-func';
+import { signOut } from 'next-auth/react';
 import { useRef } from 'react';
 import { IoIosLogOut, IoMdCloseCircleOutline } from 'react-icons/io';
 import { RiMenu5Fill } from 'react-icons/ri';
 import LanguageSwitcher from '../LanguageSwitcher';
 import NavLink from './NavLink';
-import { clearCookie } from '@/lib/helper/server-func';
-import { signOut } from 'next-auth/react';
 
 const Sidebar = ({
 	userWiseMenu,
+	loginBtn,
 }: {
 	userWiseMenu: { name: string; path: string }[];
+	loginBtn: any;
 }) => {
 	const sidebar: any = useRef();
 
@@ -56,7 +58,7 @@ const Sidebar = ({
 					{userWiseMenu.map((menu) => (
 						<li
 							key={menu.path}
-							className="border-b border-card py-0.5"
+							className="border-b border-card py-0.5 text-right"
 						>
 							<NavLink href={menu.path}>{menu.name}</NavLink>
 						</li>
@@ -69,7 +71,7 @@ const Sidebar = ({
 					onClick={logoutHandler}
 					className="logout rounded bg-card text-secondary p-[6px_18px] flex items-center justify-center gap-2"
 				>
-					<span>Log Out</span> <IoIosLogOut size={20} />
+					<span>{loginBtn.btnTitle}</span> <IoIosLogOut size={20} />
 				</button>
 			</div>
 		</div>
