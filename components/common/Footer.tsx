@@ -47,7 +47,7 @@ const Footer = () => {
 						</li>
 					</ul>
 				</div>
-				<p>© {t('copyRightMessage')}</p>
+				<p>{t('copyRightMessage')}</p>
 			</div>
 		</footer>
 	);
