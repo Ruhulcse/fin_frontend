@@ -15,7 +15,9 @@ const WorkingProgramStartInput = ({
 		setUpdatedData((prev: any) => ({
 			...prev,
 			exercises: prev.exercises.map((item: any) => {
-				if (item.training_id === workProgramDetails?.training_id) {
+				if (
+					item.training_record_id === workProgramDetails?.training_record_id
+				) {
 					return {
 						...item,
 						[name]: value,
