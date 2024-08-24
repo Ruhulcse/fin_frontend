@@ -7,6 +7,7 @@ import {
 	useEditNutritionPlanMutation,
 } from '@/store/features/nutrition-plans/api';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -21,13 +22,13 @@ type Inputs = {
 const NutritionPlanForm = ({
 	plan,
 	userId,
-	nutritionForm,
 }: {
 	plan?: any;
 	userId?: string;
-	nutritionForm?: any;
 }) => {
 	const router = useRouter();
+	const t = useTranslations('nutritionForm');
+	const nutritionForm = t.raw('formLabel');
 	const schema = (edit: boolean) =>
 		yup.object({
 			name: yup

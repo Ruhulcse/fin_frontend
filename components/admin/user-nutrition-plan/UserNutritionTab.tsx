@@ -39,10 +39,7 @@ const UserNutritionTab = ({
 				</button>
 			</div>
 			{activeTab === 1 ? (
-				<NutritionPlanForm
-					userId={traineeId}
-					nutritionForm={nutrition}
-				/>
+				<NutritionPlanForm userId={traineeId} />
 			) : activeTab === 2 ? (
 				<UserNutritionPlanForm
 					traineeId={traineeId}

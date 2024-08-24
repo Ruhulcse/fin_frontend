@@ -10,7 +10,6 @@ import TrainingReportPDF from './TrainingReportPDF';
 const TrainingReport = ({ trainee }: { trainee: any }) => {
 	const [trainingData, setTrainingData] = useState([]);
 	const [loading, setLoading] = useState(false);
-	console.log('trainee', trainee);
 	useEffect(() => {
 		const getReport = async () => {
 			setLoading(true);
@@ -18,7 +17,6 @@ const TrainingReport = ({ trainee }: { trainee: any }) => {
 				const { data } = await axiosInstance.get(
 					`api/tracking/training-report?user_id=${trainee?.user_id}`
 				);
-				console.log('data', data);
 				const updatedData: any = Object.keys(data.data).map((item) => {
 					return {
 						name: item,
