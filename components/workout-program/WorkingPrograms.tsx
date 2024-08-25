@@ -17,6 +17,7 @@ const WorkingPrograms = async ({ searchParams }: { searchParams: any }) => {
 		queryParams ? `workouts?${queryParams}` : 'workouts',
 		nextProperties()
 	);
+	console.log('workoutPrograms', workoutPrograms);
 	const { data: trainings = [] } = await generateDataFromServer(
 		`trainings`,
 		nextProperties()
