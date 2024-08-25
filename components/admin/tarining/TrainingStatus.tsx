@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { toast } from 'sonner';
 const TrainingStatus = ({ training }: any) => {
-	const { status } = training;
+	const { status, training_id, ...rest } = training;
 	const t = useTranslations('common');
 	const router = useRouter();
 	const success = t('updateSuccess');
@@ -17,9 +17,10 @@ const TrainingStatus = ({ training }: any) => {
 		event.preventDefault();
 		update({
 			data: {
+				...rest,
 				status: status === 'active' ? 'inactive' : 'active',
 			},
-			id: training?.training_id,
+			id: training_id,
 		});
 	};
 
