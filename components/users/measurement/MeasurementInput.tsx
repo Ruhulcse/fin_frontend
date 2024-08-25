@@ -111,7 +111,7 @@ const MeasurementInput = ({
 			router.refresh();
 			router.push('/');
 		}
-	}, [error, isError, isSuccess, router]);
+	}, [error, isError, isSuccess, router, trackSuccess]);
 
 	useEffect(() => {
 		if (measurement?.date) {
