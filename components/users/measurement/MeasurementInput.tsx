@@ -4,6 +4,7 @@ import Input from '@/components/common/input/Input';
 import { getError } from '@/lib/helper/common';
 import { useUserMeasurementMutation } from '@/store/features/user/api';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { addDays, format } from 'date-fns';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -91,6 +92,10 @@ const MeasurementInput = ({
 		}
 		const formData = new FormData();
 		formData.append('user_id', user?.id);
+		formData.append(
+			'renew_date',
+			format(addDays(staticData.date, 30), 'yyyy-MM-dd')
+		);
 		if (taskId) {
 			formData.append('task_id', taskId);
 		}
