@@ -9,13 +9,12 @@ import WorkingProgram from './WorkingProgram';
 import WorkoutSearch from './WorkoutSearch';
 
 const WorkingPrograms = async ({ searchParams }: { searchParams: any }) => {
-	console.log('searchParams', searchParams);
 	const queryParams =
 		Object.keys(searchParams).length > 0
 			? new URLSearchParams(searchParams)
 			: '';
 	const { data: workoutPrograms = [] } = await generateDataFromServer(
-		`workouts?${queryParams}`,
+		queryParams ? `workouts?${queryParams}` : 'workouts',
 		nextProperties()
 	);
 	const { data: trainings = [] } = await generateDataFromServer(
