@@ -40,10 +40,13 @@ const WorkoutSearch = ({
 			<SelectInput
 				changeHandler={stateChangeHandler}
 				name="training_id"
-				options={trainings.map((training: any) => ({
-					label: training.training_name,
-					value: training.training_id,
-				}))}
+				options={[
+					{ label: 'Select All', value: '' },
+					...trainings.map((training: any) => ({
+						label: training.training_name,
+						value: training.training_id,
+					})),
+				]}
 				defaultValue={searchParams?.training_id ?? ''}
 				placeholder={t('search')}
 				extraClassName="rounded"
