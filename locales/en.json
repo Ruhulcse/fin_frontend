@@ -4,7 +4,8 @@
 		"tryAgain": "Try again",
 		"returnHome": "Return Home",
 		"userUpdSuccessfully": "User updated successfully",
-		"nextBtn": "Next"
+		"nextBtn": "Next",
+		"search": "Search"
 	},
 	"auth": {
 		"googleMessage": "Continue with Google",

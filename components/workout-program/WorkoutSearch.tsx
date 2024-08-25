@@ -1,11 +1,20 @@
 'use client';
 
 import { toQueryString } from '@/lib/helper/common';
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { ChangeEvent } from 'react';
 import SearchInput from '../common/input/SearchInput';
+import SelectInput from '../common/input/SelectInput';
 
-const WorkoutSearch = ({ searchParams }: { searchParams: any }) => {
+const WorkoutSearch = ({
+	searchParams,
+	trainings,
+}: {
+	searchParams: any;
+	trainings: any;
+}) => {
+	const t = useTranslations('common');
 	const router = useRouter();
 	let timeout: any;
 	const stateChangeHandler = (
@@ -19,13 +28,23 @@ const WorkoutSearch = ({ searchParams }: { searchParams: any }) => {
 	};
 
 	return (
-		<>
+		<div className="grid grid-cols-2 gap-2 mb-4">
 			<SearchInput
 				changeHandler={stateChangeHandler}
 				defaultValue={searchParams.search}
 			/>
-			<br />
-		</>
+			<SelectInput
+				changeHandler={stateChangeHandler}
+				name="training_id"
+				options={trainings.map((training: any) => ({
+					label: training.training_name,
+					value: training.training_id,
+				}))}
+				defaultValue={searchParams?.training_id ?? ''}
+				placeholder={t('search')}
+				extraClassName="rounded"
+			/>
+		</div>
 	);
 };
 

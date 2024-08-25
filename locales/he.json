@@ -4,7 +4,8 @@
 		"tryAgain": "נסה שוב",
 		"returnHome": "חזור הביתה",
 		"userUpdSuccessfully": "המשתמש עודכן בהצלחה",
-		"nextBtn": "להצהרת הבריאות"
+		"nextBtn": "להצהרת הבריאות",
+		"search": "לְחַפֵּשׂ"
 	},
 	"auth": {
 		"googleMessage": "המשך עם גוגל",

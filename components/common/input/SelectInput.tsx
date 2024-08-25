@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { ChangeEvent, useEffect, useRef } from 'react';
 
 const SelectInput = ({
@@ -6,6 +7,7 @@ const SelectInput = ({
 	name,
 	placeholder = 'Select',
 	defaultValue = '',
+	extraClassName = '',
 }: {
 	changeHandler: (e: ChangeEvent<HTMLSelectElement>) => void;
 	options?: {
@@ -15,6 +17,7 @@ const SelectInput = ({
 	name?: string;
 	placeholder?: string;
 	defaultValue?: string;
+	extraClassName?: string;
 }) => {
 	const inputRef: any = useRef();
 
@@ -26,7 +29,10 @@ const SelectInput = ({
 
 	return (
 		<select
-			className="bg-card text-textPrimary rounded-full px-3 py-1 outline-none"
+			className={cn(
+				'bg-card text-textPrimary rounded-full px-3 py-1 outline-none',
+				extraClassName
+			)}
 			name={name}
 			onChange={changeHandler}
 			defaultValue={defaultValue ?? ''}
