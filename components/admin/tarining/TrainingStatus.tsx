@@ -9,6 +9,7 @@ const TrainingStatus = ({ training }: any) => {
 	const { status } = training;
 	const t = useTranslations('common');
 	const router = useRouter();
+	const success = t('updateSuccess');
 	const [update, { isLoading, error, isError, isSuccess }] =
 		useEditTrainingMutation();
 
@@ -17,7 +18,6 @@ const TrainingStatus = ({ training }: any) => {
 		update({
 			data: {
 				status: status === 'active' ? 'inactive' : 'active',
-				...training,
 			},
 			id: training?.training_id,
 		});
@@ -25,12 +25,12 @@ const TrainingStatus = ({ training }: any) => {
 
 	useEffect(() => {
 		if (isSuccess) {
-			toast.success(t('updateSuccess'));
+			toast.success(success);
 			router.refresh();
 		} else if (isError) {
 			toast.error(getError(isError));
 		}
-	}, [isSuccess, isError, router, t, error]);
+	}, [isSuccess, isError, router, error, success]);
 
 	return (
 		<button
