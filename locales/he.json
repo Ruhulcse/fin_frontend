@@ -5,7 +5,10 @@
 		"returnHome": "חזור הביתה",
 		"userUpdSuccessfully": "המשתמש עודכן בהצלחה",
 		"nextBtn": "להצהרת הבריאות",
-		"search": "לְחַפֵּשׂ"
+		"search": "לְחַפֵּשׂ",
+		"active": "פָּעִיל",
+		"inactive": "לֹא פָּעִיל",
+		"updateSuccess": "עדכן בהצלחה"
 	},
 	"auth": {
 		"googleMessage": "המשך עם גוגל",

@@ -5,7 +5,10 @@
 		"returnHome": "Return Home",
 		"userUpdSuccessfully": "User updated successfully",
 		"nextBtn": "Next",
-		"search": "Search"
+		"search": "Search",
+		"active": "Active",
+		"inactive": "Inactive",
+		"updateSuccess": "Update successfully"
 	},
 	"auth": {
 		"googleMessage": "Continue with Google",
