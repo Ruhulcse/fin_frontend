@@ -3,7 +3,7 @@
 import { toQueryString } from '@/lib/helper/common';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import SearchInput from '../common/input/SearchInput';
 import SelectInput from '../common/input/SelectInput';
 
@@ -16,6 +16,7 @@ const WorkoutSearch = ({
 }) => {
 	const t = useTranslations('common');
 	const router = useRouter();
+	const [searchValues, setSearchValues] = useState({});
 	let timeout: any;
 	const stateChangeHandler = (
 		e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -23,7 +24,10 @@ const WorkoutSearch = ({
 		clearTimeout(timeout);
 		timeout = setTimeout(() => {
 			const { name, value } = e.target;
-			router.push(`/workout-program${toQueryString({ [name]: value })}`);
+			setSearchValues((prev: any) => ({ ...prev, [name]: value }));
+			router.push(
+				`/workout-program${toQueryString({ ...searchValues, [name]: value })}`
+			);
 		}, 500);
 	};
 
