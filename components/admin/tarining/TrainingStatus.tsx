@@ -44,9 +44,9 @@ const TrainingStatus = ({ training }: any) => {
 			className="text-bold text-xs border text-textPrimary border-textPrimary rounded p-[2px_6px]"
 		>
 			{status === 'active'
-				? t('inactive')
+				? t('inactive') + ' ' + t('training')
 				: status === 'inactive'
-				? t('active')
+				? t('active') + ' ' + t('training')
 				: status === 'pending'
 				? t('pending')
 				: null}

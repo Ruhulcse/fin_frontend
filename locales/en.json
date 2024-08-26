@@ -9,6 +9,7 @@
 		"active": "Active",
 		"inactive": "Inactive",
 		"pending": "Pending",
+		"training": "Training",
 		"updateSuccess": "Update successfully"
 	},
 	"auth": {
