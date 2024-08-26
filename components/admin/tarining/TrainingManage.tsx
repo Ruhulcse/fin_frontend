@@ -12,6 +12,7 @@ const TrainingManage = async ({ traineeId }: { traineeId: string }) => {
 		`trainings?user_id=${traineeId}`,
 		nextProperties()
 	);
+	console.log('trainings', trainings);
 	const t = await getTranslations('traineeDetails');
 	const traineData = t.raw('traineeData');
 	return (

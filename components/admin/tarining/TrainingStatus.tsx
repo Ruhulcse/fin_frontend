@@ -1,6 +1,6 @@
 'use client';
 import { getError } from '@/lib/helper/common';
-import { useEditTrainingMutation } from '@/store/features/training/api';
+import { useStatusUpdateMutation } from '@/store/features/training/api';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -11,13 +11,12 @@ const TrainingStatus = ({ training }: any) => {
 	const router = useRouter();
 	const success = t('updateSuccess');
 	const [update, { isLoading, error, isError, isSuccess }] =
-		useEditTrainingMutation();
+		useStatusUpdateMutation();
 
 	const updateTraining = (event: any) => {
 		event.preventDefault();
 		update({
 			data: {
-				...rest,
 				status: status === 'active' ? 'inactive' : 'active',
 			},
 			id: training_id,

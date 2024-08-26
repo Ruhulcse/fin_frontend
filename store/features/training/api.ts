@@ -26,6 +26,13 @@ export const trainingApi = apiSlice.injectEndpoints({
 				body: payload?.data,
 			}),
 		}),
+		statusUpdate: builder.mutation({
+			query: (payload) => ({
+				url: `trainings/update/${payload?.id}`,
+				method: 'PUT',
+				body: payload?.data,
+			}),
+		}),
 	}),
 });
 
@@ -34,4 +41,5 @@ export const {
 	useEditTrainingMutation,
 	useGetTrainingQuery,
 	useGetTrainingsQuery,
+	useStatusUpdateMutation,
 } = trainingApi;
