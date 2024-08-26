@@ -8,6 +8,7 @@
 		"search": "Search",
 		"active": "Active",
 		"inactive": "Inactive",
+		"pending": "Pending",
 		"updateSuccess": "Update successfully"
 	},
 	"auth": {

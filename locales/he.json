@@ -8,7 +8,8 @@
 		"search": "לְחַפֵּשׂ",
 		"active": "פָּעִיל",
 		"inactive": "לֹא פָּעִיל",
-		"updateSuccess": "עדכן בהצלחה"
+		"updateSuccess": "עדכן בהצלחה",
+		"pending": "תָלוּי וְעוֹמֵד"
 	},
 	"auth": {
 		"googleMessage": "המשך עם גוגל",

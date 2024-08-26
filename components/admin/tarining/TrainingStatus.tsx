@@ -17,7 +17,12 @@ const TrainingStatus = ({ training }: any) => {
 		event.preventDefault();
 		update({
 			data: {
-				status: status === 'active' ? 'inactive' : 'active',
+				status:
+					status === 'active'
+						? 'inactive'
+						: status === 'inactive'
+						? 'active'
+						: status,
 			},
 			id: training_id,
 		});
@@ -42,6 +47,8 @@ const TrainingStatus = ({ training }: any) => {
 				? t('inactive')
 				: status === 'inactive'
 				? t('active')
+				: status === 'pending'
+				? t('pending')
 				: null}
 		</button>
 	);
