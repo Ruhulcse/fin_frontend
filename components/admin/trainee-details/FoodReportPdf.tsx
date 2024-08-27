@@ -1,6 +1,22 @@
 'use client';
 import { dateFormat } from '@/lib/helper/common';
-import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
+import {
+	Document,
+	Font,
+	Page,
+	StyleSheet,
+	Text,
+	View,
+} from '@react-pdf/renderer';
+
+Font.register({
+	family: 'Rubik',
+	fonts: [
+		{
+			src: './fonts/rubik.ttf',
+		},
+	],
+});
 
 const styles = StyleSheet.create({
 	page: {
@@ -8,6 +24,7 @@ const styles = StyleSheet.create({
 		paddingBottom: 65,
 		paddingHorizontal: 35,
 		color: '#000000',
+		fontFamily: 'Rubik',
 	},
 	title: {
 		fontSize: 24,

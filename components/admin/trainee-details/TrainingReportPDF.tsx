@@ -1,4 +1,11 @@
-import { Document, Page, StyleSheet, Text, View } from '@react-pdf/renderer';
+import {
+	Document,
+	Font,
+	Page,
+	StyleSheet,
+	Text,
+	View,
+} from '@react-pdf/renderer';
 
 const TrainingReportPDF = ({
 	data = [],
@@ -7,12 +14,21 @@ const TrainingReportPDF = ({
 	data: any;
 	traineeDetails: any;
 }) => {
+	Font.register({
+		family: 'Rubik',
+		fonts: [
+			{
+				src: './fonts/rubik.ttf',
+			},
+		],
+	});
 	const styles = StyleSheet.create({
 		page: {
 			paddingTop: 10,
 			paddingBottom: 65,
 			paddingHorizontal: 10,
 			color: '#000',
+			fontFamily: 'Rubik',
 		},
 		table: {
 			width: '100%',
