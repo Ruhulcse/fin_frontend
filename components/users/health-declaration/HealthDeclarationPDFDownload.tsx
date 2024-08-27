@@ -24,7 +24,7 @@ const HealthDeclarationPDFDownload = ({
           healthDec={healthDec}
         />
       }
-      fileName="health-declaration.pdf"
+      fileName={t("healthDeclarationPdf")}
       className={cn(children ? "" : "text-secondary underline w-max h-max")}
     >
       {children ?? t("agreementInfo")}

@@ -142,7 +142,9 @@
     "lastUpdate": "Last Update on",
     "agreementInfo": "Health Declaration",
     "signature": "Signature",
-    "userAgreementInfo": "User Agreement Info"
+    "userAgreementInfo": "User Agreement Info",
+    "userDetailsPdf": "user-details.pdf",
+    "healthDeclarationPdf": "health-declaration.pdf"
   },
   "foodEntry": {
     "foodForm": {
@@ -180,6 +182,15 @@
       "Tracking": "Tracking",
       "track": "Track",
       "trackSuccess": "Tracked successfully"
+    },
+    "measurementReportpdf": {
+      "frontHandLeft": "front hand (left)",
+      "frontHandRight": "front hand (right)",
+      "hipLeft": "hip (left)",
+      "thighRight": "thigh (right)",
+      "chest": "chest",
+      "waist": "waist",
+      "measurementDate": "measurement date"
     },
     "measurmentErr": {
       "dateErr": "Please enter date",
@@ -491,6 +502,7 @@
       "reps": "Reps",
       "exercise": "Exercise",
       "mngTrainig": "Manage Trainings",
+      "measurementReportPdf": "measurement report.pdf",
       "workoutManagement": {
         "title": "Manage Workout",
         "addWork": "Add Work",
