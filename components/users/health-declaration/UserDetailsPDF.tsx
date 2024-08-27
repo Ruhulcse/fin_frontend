@@ -37,12 +37,20 @@ const styles = StyleSheet.create({
   },
 });
 
+const getlabel = (key: string, locale: string) => {
+  const found = registrationInputs?.find((input: any) => input.name === key);
+  const label = locale === "en" ? found?.label : found?.label_he;
+  return label;
+};
+
 const UserDetailsPDF = ({
   userDetails,
   userDetl,
+  locale = "he",
 }: {
   userDetails: any;
   userDetl: string;
+  locale: string;
 }) => (
   <Document>
     <Page size="A4" style={styles.page}>
@@ -53,8 +61,11 @@ const UserDetailsPDF = ({
         Object.entries(userDetails).map(([key, value]: any) => (
           <View key={key} style={styles.view}>
             <Text style={styles.text}>
-              {registrationInputs.find((input) => input.name === key)?.label ??
-                key?.split("_").join(" ").toUpperCase()}
+              {
+                // registrationInputs.find((input) => input.name === key)?.label ??
+                //   key?.split("_").join(" ").toUpperCase()
+                getlabel(key, locale)
+              }
             </Text>
             <Text style={styles.answer}>
               {value?.length > 0 ? value : "N/A"}

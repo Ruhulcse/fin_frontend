@@ -56,14 +56,24 @@ const styles = StyleSheet.create({
   },
 });
 
+const getlabel = (key: string, locale: string) => {
+  const found = healthDeclarationInputs?.find(
+    (input: any) => input.name === key
+  );
+  const label = locale === "en" ? found?.label : found?.label_he;
+  return label;
+};
+
 const HealthDeclarationPDF = ({
   healthDeclaration,
   signature,
   healthDec,
+  locale = "he",
 }: {
   healthDeclaration: any;
   signature: any;
   healthDec: string;
+  locale: string;
 }) => (
   <Document>
     <Page size="A4" style={styles.page}>
@@ -73,12 +83,7 @@ const HealthDeclarationPDF = ({
       {healthDeclaration &&
         Object.entries(healthDeclaration).map(([key, value]: any) => (
           <View key={key} style={styles.view}>
-            <Text style={styles.text}>
-              {
-                healthDeclarationInputs.find((input) => input.name === key)
-                  ?.label
-              }
-            </Text>
+            <Text style={styles.text}>{getlabel(key, locale)}</Text>
             <Text style={styles.answer}>
               {value?.length > 0 ? value : "N/A"}
             </Text>

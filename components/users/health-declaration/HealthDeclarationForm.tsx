@@ -480,7 +480,10 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
             resetField={resetField}
             hidden
           />
-          <SignaturePadWrapper setImageURL={setImageURL} />
+          <SignaturePadWrapper
+            setImageURL={setImageURL}
+            healthInput={healthInput}
+          />
         </>
       ) : (
         <>

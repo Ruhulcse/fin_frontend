@@ -12,7 +12,8 @@ const AgreementUserInfo = ({ userDetails = {} }: { userDetails: any }) => {
   const healthDeclaration = health_declaration
     ? JSON.parse(health_declaration)
     : {};
-  const t = useTranslations("agreements");
+  const t = useTranslations("agreement");
+  // const { locale } = useAppSelecton((state) => state.theme);
   return (
     <div>
       <div className="user-details grid gap-2">

@@ -3,6 +3,7 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import HealthDeclarationPDF from "./HealthDeclarationPDF";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import { useAppSelector } from "@/store/hooks";
 
 const HealthDeclarationPDFDownload = ({
   healthDeclaration,
@@ -14,7 +15,8 @@ const HealthDeclarationPDFDownload = ({
   children?: React.ReactNode;
 }) => {
   const t = useTranslations("agreement");
-  const healthDec = t("agreementInfo");
+  const healthDec = t("health");
+  const { locale } = useAppSelector((state) => state.theme);
   return (
     <PDFDownloadLink
       document={
@@ -22,12 +24,13 @@ const HealthDeclarationPDFDownload = ({
           healthDeclaration={healthDeclaration}
           signature={signature}
           healthDec={healthDec}
+          locale={locale}
         />
       }
       fileName={t("healthDeclarationPdf")}
       className={cn(children ? "" : "text-secondary underline w-max h-max")}
     >
-      {children ?? t("agreementInfo")}
+      {children ?? healthDec}
     </PDFDownloadLink>
   );
 };
