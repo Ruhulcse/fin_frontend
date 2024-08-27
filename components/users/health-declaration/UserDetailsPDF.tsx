@@ -13,7 +13,7 @@ Font.register({
 	family: 'Rubik',
 	fonts: [
 		{
-			src: './fonts/rubik.ttf',
+			src: '/fonts/rubik.ttf',
 		},
 	],
 });
