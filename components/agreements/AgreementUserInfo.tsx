@@ -1,9 +1,11 @@
+"use client";
 import { healthDeclarationInputs } from "@/lib/helper/inputs";
 import Image from "next/image";
 import PDFLinkDownload from "../common/pdf/PDFLinkDownload";
 import HealthDeclarationPDFDownload from "../users/health-declaration/HealthDeclarationPDFDownload";
 import UserDetailsPDFDownload from "../users/health-declaration/UserDetailsPDFDownload";
 import { useTranslations } from "next-intl";
+import { useAppSelector } from "@/store/hooks";
 
 const AgreementUserInfo = ({ userDetails = {} }: { userDetails: any }) => {
   const { UserDetail: { health_declaration = "", ...userDetailsInfo } = {} } =
@@ -13,7 +15,14 @@ const AgreementUserInfo = ({ userDetails = {} }: { userDetails: any }) => {
     ? JSON.parse(health_declaration)
     : {};
   const t = useTranslations("agreement");
-  // const { locale } = useAppSelecton((state) => state.theme);
+  const { locale } = useAppSelector((state) => state.theme);
+  const getlabel = (key: string, locale: string) => {
+    const found = healthDeclarationInputs?.find(
+      (input: any) => input.name === key
+    );
+    const label = locale === "en" ? found?.label : found?.label_he;
+    return label;
+  };
   return (
     <div>
       <div className="user-details grid gap-2">
@@ -38,8 +47,9 @@ const AgreementUserInfo = ({ userDetails = {} }: { userDetails: any }) => {
               key={key}
             >
               <span className="text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px] text-right font-semibold">
-                {healthDeclarationInputs.find((input) => input.name === key)
-                  ?.label ?? key?.split("_").join(" ").toUpperCase()}
+                {/* {healthDeclarationInputs.find((input) => input.name === key)
+                  ?.label ?? key?.split("_").join(" ").toUpperCase()} */}
+                {getlabel(key, locale)}
               </span>
               <span className="text-textPrimary text-[12px] sm:text-[16px] xl:text-[20px] font-bold">
                 {value?.length > 0 ? value : "N/A"}

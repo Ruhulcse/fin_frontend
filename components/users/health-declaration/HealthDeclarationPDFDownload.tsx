@@ -16,6 +16,7 @@ const HealthDeclarationPDFDownload = ({
 }) => {
   const t = useTranslations("agreement");
   const healthDec = t("health");
+  const healthSignature = t("signature");
   const { locale } = useAppSelector((state) => state.theme);
   return (
     <PDFDownloadLink
@@ -25,6 +26,7 @@ const HealthDeclarationPDFDownload = ({
           signature={signature}
           healthDec={healthDec}
           locale={locale}
+          healthSignature={healthSignature}
         />
       }
       fileName={t("healthDeclarationPdf")}
