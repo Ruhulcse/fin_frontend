@@ -1,11 +1,14 @@
 import TrainingAdd from "@/components/admin/tarining/TrainingAdd";
 import BackLinkWrapper from "@/components/common/backlink/BackLinkWrapper";
+import { useTranslations } from "next-intl";
 
-const page = ({ searchParams }: { searchParams: any }) => {
+const Page = ({ searchParams }: { searchParams: any }) => {
+  const admin = useTranslations("admin");
+  const dashboard = admin.raw("dashboard");
   return (
     <BackLinkWrapper
       href={`/admin/training/manage?trainee_id=${searchParams?.trainee_id}`}
-      title="חזרה לניהול הדרכה"
+      title={dashboard.backToTrainingMng}
       // title="Back To Training Manage"
     >
       <TrainingAdd traineeId={searchParams?.trainee_id} />;
@@ -13,4 +16,4 @@ const page = ({ searchParams }: { searchParams: any }) => {
   );
 };
 
-export default page;
+export default Page;

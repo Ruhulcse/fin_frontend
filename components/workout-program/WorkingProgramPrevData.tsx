@@ -5,15 +5,15 @@ const WorkingProgramPrevData = ({ prevWorkout }: any) => {
   const t = useTranslations("workoutProgramm");
   const details = t.raw("workoutDetails");
   const prevData = {
-    Workout: prevWorkout?.Workout ?? "N/A",
-    Exercise: prevWorkout?.Exercise ?? "N/A",
-    Manipulation: prevWorkout?.Manipulation ?? "N/A",
-    "Goal Weight": prevWorkout[details.goalWeight] ?? 0,
-    "Weight Done": prevWorkout[details.weightDone] ?? 0,
-    "Reps Target": prevWorkout[details.repsTarget] ?? 0,
-    "Reps Done": prevWorkout[details.repsDone] ?? 0,
-    "Sets Target": prevWorkout[details.setsTarget] ?? 0,
-    "Sets Done": prevWorkout[details.setsDone] ?? 0,
+    [details.workout]: prevWorkout?.Workout ?? "N/A",
+    [details.exercise]: prevWorkout?.Exercise ?? "N/A",
+    [details.manipulation]: prevWorkout?.Manipulation ?? "N/A",
+    [details.goalWeight]: prevWorkout[details.goalWeight] ?? 0,
+    [details.weightDone]: prevWorkout[details.weightDone] ?? 0,
+    [details.repsTarget]: prevWorkout[details.repsTarget] ?? 0,
+    [details.repsDone]: prevWorkout[details.repsDone] ?? 0,
+    [details.setsTarget]: prevWorkout[details.setsTarget] ?? 0,
+    [details.setsDone]: prevWorkout[details.setsDone] ?? 0,
   };
 
   if (!prevWorkout) {

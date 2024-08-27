@@ -8,10 +8,10 @@ const ExerciseAdd = () => {
   return (
     <BackLinkWrapper
       href="/admin/exercise/manage"
-      title="Back To Manage Exercises"
+      title={excForm.backToMngExercise}
     >
       <section className="add-exercise grid gap-4 xl:gap-8">
-        <h3 className="section-title text-right">{excForm.title}</h3>
+        <h3 className="section-title text-right">{excForm.addExc}</h3>
         <ExerciseForm excForm={excForm} />
       </section>
     </BackLinkWrapper>

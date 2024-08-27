@@ -3,20 +3,22 @@ import BackLinkWrapper from "@/components/common/backlink/BackLinkWrapper";
 import { useTranslations } from "next-intl";
 import { redirect } from "next/navigation";
 
-const page = ({
+const Page = ({
   params,
   searchParams,
 }: {
   params: { id: string };
   searchParams: any;
 }) => {
+  const admin = useTranslations("admin");
+  const workout = admin.raw("workout");
   if (!(searchParams?.trainee_id && searchParams?.training_id)) {
     redirect("/admin/trainee");
   }
   return (
     <BackLinkWrapper
       href={`/admin/workout/manage?trainee_id=${searchParams?.trainee_id}`}
-      title="חזרה לניהול אימון"
+      title={workout.backToWorkoutMng}
       // title="Back To Workout Manage"
     >
       <WorkoutEdit
@@ -28,4 +30,4 @@ const page = ({
   );
 };
 
-export default page;
+export default Page;

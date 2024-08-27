@@ -11,10 +11,10 @@ const NutritionPlan = ({ plan }: any) => {
       <Image className="col-span-1" src={pdfImage} alt="pdf" />
       <div className="grid grid-rows-[auto_auto_1fr] col-span-2 xl:col-span-1 gap-1 xl:gap-2">
         <h3 className="semi-section-title text-right">
-          {plan?.name ?? "Eating for Energy"}
+          {plan?.name ?? click.eatingForEnergy}
         </h3>
         <p className="nutrition-guide-info text-right text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px]">
-          {plan?.description ?? `A guide to eating healthy when you are busy`}
+          {plan?.description ?? click.eatingBusy}
         </p>
         <Link
           href={`/nutrition-plan/${plan?.id}`}

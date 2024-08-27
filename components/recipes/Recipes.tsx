@@ -8,7 +8,7 @@ import SkeletonGroup from "../common/skeleton/SkeletonGroup";
 const Recipes = () => {
   const [asset, { isLoading, data: { data: recipe = "" } = {} }]: any =
     useGetUserAssetsMutation();
-  const t = useTranslations("recipe");
+  const recipes = useTranslations("recipe");
   useEffect(() => {
     asset({
       path: "Assets/Recipes_book.pdf",
@@ -20,9 +20,11 @@ const Recipes = () => {
     </div>
   ) : (
     <section className="recipes grid gap-2 grid-rows-[auto_auto_1fr] xl:gap-4 h-full">
-      <h3 className="section-title text-right">{recipe?.name ?? t("title")}</h3>
+      <h3 className="section-title text-right">
+        {recipe?.name ?? recipes("title")}
+      </h3>
       <p className="recipe-info text-right text-textSecondary text-[12px] sm:text-[16px] xl:text-[20px]">
-        {recipe?.description ?? t("description")}
+        {recipe?.description ?? recipes("description")}
       </p>
       <div className="img-area bg-card xl:bg-[#33393F] rounded-lg grid place-items-center xl:mt-8 p-3 xl:p-6 xl:py-12">
         <PdfView pdf={recipe} />
