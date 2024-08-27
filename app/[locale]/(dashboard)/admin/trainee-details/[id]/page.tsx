@@ -1,11 +1,14 @@
 import TraineeDetails from "@/components/admin/trainee-details/TraineeDetails";
 import BackLinkWrapper from "@/components/common/backlink/BackLinkWrapper";
+import { useTranslations } from "next-intl";
 
-const page = ({ params }: { params: { id: string } }) => {
+const Page = ({ params }: { params: { id: string } }) => {
+  const admin = useTranslations("admin");
+  const dashboard = admin.raw("dashboard");
   return (
     <BackLinkWrapper
       href="/admin/trainee"
-      title="חזרה למתאמן"
+      title={dashboard.backToTrainee}
       // title="Back To Trainee"
     >
       <TraineeDetails id={params?.id} />
@@ -13,4 +16,4 @@ const page = ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default page;
+export default Page;

@@ -1,11 +1,14 @@
 import NutritionGuidesAdd from "@/components/admin/nutrition-guides/NutritionGuidesAdd";
 import BackLinkWrapper from "@/components/common/backlink/BackLinkWrapper";
+import { useTranslations } from "next-intl";
 
-const page = () => {
+const Page = () => {
+  const admin = useTranslations("admin");
+  const dashboard = admin.raw("dashboard");
   return (
     <BackLinkWrapper
       href="/admin/nutrition-guides/manage"
-      title="חזרה למדריכי תזונה"
+      title={dashboard.backToNutritionGuides}
       // title="Back To Nutrition Guides"
     >
       <NutritionGuidesAdd />
@@ -13,4 +16,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -1,11 +1,14 @@
 import NutritionPlanEdit from "@/components/admin/nutrition-plan/NutritionPlanEdit";
 import BackLinkWrapper from "@/components/common/backlink/BackLinkWrapper";
+import { useTranslations } from "next-intl";
 
-const page = ({ params }: { params: { id: string } }) => {
+const Page = ({ params }: { params: { id: string } }) => {
+  const admin = useTranslations("admin");
+  const dashboard = admin.raw("dashboard");
   return (
     <BackLinkWrapper
       href="/admin/nutrition-plan/manage"
-      title="חזרה לתוכנית התזונה"
+      title={dashboard.backToNutritionPlan}
       // title="Back To Nutrition Plan"
     >
       <NutritionPlanEdit id={params?.id} />
@@ -13,4 +16,4 @@ const page = ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default page;
+export default Page;

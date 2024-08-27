@@ -12,7 +12,7 @@ const AgreementUserInfo = ({ userDetails = {} }: { userDetails: any }) => {
   const healthDeclaration = health_declaration
     ? JSON.parse(health_declaration)
     : {};
-  const t = useTranslations("agreement");
+  const t = useTranslations("agreements");
   return (
     <div>
       <div className="user-details grid gap-2">
@@ -51,7 +51,7 @@ const AgreementUserInfo = ({ userDetails = {} }: { userDetails: any }) => {
       <div className="flex justify-end">
         <PDFLinkDownload
           url="Assets/Terms_and_conditions.pdf"
-          label="Terms and Conditions"
+          label={t("terms")}
         />
       </div>
       <div className="flex flex-col items-end justify-end mt-4">
