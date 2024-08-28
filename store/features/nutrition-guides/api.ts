@@ -9,11 +9,16 @@ export const nutritionGuideApi = apiSlice.injectEndpoints({
 		}),
 		getNutritionGuide: builder.query({
 			query: (id) => ({
-				url: `nutrition-guides/${id}`,
+				url: `nutrition-guides?id=${id}`,
 			}),
 			transformResponse: (response: any) => ({
 				...response,
 				data: response.data[0],
+			}),
+		}),
+		getSingleNutritionGuide: builder.query({
+			query: (id) => ({
+				url: `nutrition-guides/${id}`,
 			}),
 		}),
 		addNutritionGuide: builder.mutation({
@@ -38,4 +43,5 @@ export const {
 	useGetNutritionGuideQuery,
 	useGetNutritionGuidesQuery,
 	useAddNutritionGuideMutation,
+	useGetSingleNutritionGuideQuery,
 } = nutritionGuideApi;

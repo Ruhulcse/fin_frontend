@@ -1,9 +1,9 @@
 'use client';
-import { useGetNutritionGuideQuery } from '@/store/features/nutrition-guides/api';
+import { useGetSingleNutritionGuideQuery } from '@/store/features/nutrition-guides/api';
 import PdfView from '../common/pdf/PdfView';
 
 const NutritionGuideView = ({ id }: { id: string }) => {
-	const { data = {} } = useGetNutritionGuideQuery(id, {
+	const { data = {} } = useGetSingleNutritionGuideQuery(id, {
 		skip: !id,
 		refetchOnMountOrArgChange: true,
 	});
