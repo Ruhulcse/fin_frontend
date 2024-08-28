@@ -22,11 +22,6 @@ const WorkoutExercisesView = ({ workoutExercises, workout }: any) => {
 	useEffect(() => {
 		if (workoutExercises?.length > 0) {
 			setCurrentExercise(setWorkoutExercises[0]);
-			setSetWorkoutExercises(
-				workoutExercises.filter(
-					(elm: any) => elm.manipulation.toLowerCase() === 'set'
-				)
-			);
 			workoutExercises.forEach((element: any, index: number) => {
 				if (element.manipulation.toLowerCase() === 'superset') {
 					const nextElm = workoutExercises[index + 1];
@@ -38,12 +33,25 @@ const WorkoutExercisesView = ({ workoutExercises, workout }: any) => {
 				}
 			});
 		}
-	}, [setCurrentExercise, setWorkoutExercises, workoutExercises]);
+	}, [setWorkoutExercises, workoutExercises]);
+
+	useEffect(() => {
+		if (workoutExercises?.length > 0) {
+			setSetWorkoutExercises(
+				workoutExercises.filter(
+					(elm: any) => elm.manipulation.toLowerCase() === 'set'
+				)
+			);
+		}
+	}, [workoutExercises]);
 
 	return (
 		<>
 			{setWorkoutExercises?.map((exercise: any, index: number) => (
-				<>
+				<div
+					key={index}
+					className={`${tab !== index ? 'hidden' : ''}`}
+				>
 					{supersetWorkoutExercises[exercise?.training_record_id] ? (
 						<>
 							<WorkingProgramInfo
@@ -53,7 +61,6 @@ const WorkoutExercisesView = ({ workoutExercises, workout }: any) => {
 								workProgramDetails={workout}
 							/>
 							<WorkingExerciseInfo
-								extraClasses={tab === index ? 'block' : 'hidden'}
 								workProgramDetails={
 									supersetWorkoutExercises[exercise?.training_record_id]
 								}
@@ -64,11 +71,8 @@ const WorkoutExercisesView = ({ workoutExercises, workout }: any) => {
 						currentExercise={currentExercise}
 						workProgramDetails={workout}
 					/>
-					<WorkingExerciseInfo
-						workProgramDetails={exercise}
-						extraClasses={tab === index ? 'block' : 'hidden'}
-					/>
-				</>
+					<WorkingExerciseInfo workProgramDetails={exercise} />
+				</div>
 			))}
 
 			<div className="actions flex justify-center xl:justify-end gap-2 xl:gap-4 mt-2">
