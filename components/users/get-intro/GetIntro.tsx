@@ -19,7 +19,7 @@ const GetIntro = ({ gender }: { gender: string }) => {
       router.push("/");
     }
   }, [gender, getVideo, router]);
-  const t = useTranslations("agreements");
+  const t = useTranslations("agreement");
   return (
     <section className="container h-full grid grid-rows-[1fr_auto] gap-4 p-4 xl:gap-8 xl:p-8">
       <Player src={video ?? ""} />
