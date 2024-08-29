@@ -1,7 +1,7 @@
 import Agreements from "@/components/agreements/Agreements";
 
 const Page = () => {
-	return <Agreements/>;
+  return <Agreements />;
 };
 
 export default Page;
