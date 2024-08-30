@@ -14,6 +14,7 @@ const UpdateMeasurement = async ({ taskId }: { taskId?: string }) => {
   const { data: measurement } = await generateDataFromServer(
     `tracking/latest-measurement/${user?.id}`
   );
+  console.log(user.gender);
   return (
     <section>
       <h3 className="section-title text-right">{formLabel.title}</h3>

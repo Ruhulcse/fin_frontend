@@ -37,7 +37,6 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
   const t = useTranslations("healthDeclaration");
   const regInput = t.raw("registrationForm");
   const healthInput = t.raw("healthDeclarationInputs");
-  console.log(healthInput.signature);
   const registrationInputs = [
     {
       name: "phone",

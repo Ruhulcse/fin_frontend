@@ -12,13 +12,10 @@ const ExerciseList = async ({ searchParams }: { searchParams: any }) => {
     `exercises?${queryParams}`,
     nextProperties(0)
   );
-  const t = await getTranslations("exerciseLibrary");
-  const exercise = t.raw("exercise");
+  // const t = await getTranslations("exerciseLibrary");
+  // const exercise = t.raw("exercise");
   return (
     <section className="exercise-list-area">
-      <h3 className="section-title text-right mb-4 xl:mb-8">
-        {exercise.exerciseList}
-      </h3>
       {exercises?.length > 0 ? (
         <div className="grid grid-cols-1 gap-4">
           {exercises?.map((exercise: any, index: number) => (

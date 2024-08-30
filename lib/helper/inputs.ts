@@ -19,6 +19,12 @@ export const workoutExerciseInputs = [
 
 export const registrationInputs = [
   {
+    name: "email",
+    label: "Email",
+    label_he: "אימייל",
+    type: "text",
+  },
+  {
     name: "phone",
     label: "Your Phone Number",
     label_he: "מספר הטלפון שלך",
