@@ -183,7 +183,8 @@
       "fileBtn": "Add more File ",
       "Tracking": "Tracking",
       "track": "Track",
-      "trackSuccess": "Tracked successfully"
+      "trackSuccess": "Tracked successfully",
+      "measurementPictureGuide": "Measurements Picture Guide"
     },
     "measurementReportpdf": {
       "frontHandLeft": "front hand (left)",
@@ -505,6 +506,8 @@
       "exercise": "Exercise",
       "mngTrainig": "Manage Trainings",
       "measurementReportPdf": "measurement report.pdf",
+      "age": "Age",
+      "height": "Height",
       "workoutManagement": {
         "title": "Manage Workout",
         "addWork": "Add Work",
@@ -524,7 +527,8 @@
       "assignExisting": "Assign from Existing",
       "plans": "Plans",
       "userPlan": "User Nutrition Plan",
-      "userPlanErr": "Please select plan"
+      "userPlanErr": "Please select plan",
+      "nutriPlanUpdatedSuccessfully": "Nutrition plan updated successfully"
     },
     "workout": {
       "name": "Name",

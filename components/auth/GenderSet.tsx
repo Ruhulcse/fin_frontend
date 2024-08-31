@@ -73,7 +73,6 @@ const GenderSet = ({ userId }: { userId: string }) => {
         <Input
           type="select"
           name="gender"
-          extraClasses="flex justify-center"
           left
           label={gender.setGender}
           options={genderOptions}

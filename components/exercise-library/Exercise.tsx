@@ -25,12 +25,12 @@ const Exercise = ({ exerciseId }: { exerciseId: string }) => {
     <Skeleton />
   ) : (
     <section className="exercise grid grid-cols-2 xl:grid-cols-3 gap-4 bg-card rounded-lg p-4 xl:p-6">
-      <div className="relative col-span-1">
-        <Image
+      <div className="relative col-span-1 w-full h-full object-cover rounded bg-[#E2564C]">
+        {/* <Image
           className="w-full h-full col-span-1 object-cover rounded"
           src={exerciseImg}
           alt="pdf"
-        />
+        /> */}
         <div className="abs-center">
           <PlayButton onClick={() => setOpen(true)} />
         </div>

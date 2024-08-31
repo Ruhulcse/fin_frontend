@@ -12,8 +12,6 @@ const ExerciseList = async ({ searchParams }: { searchParams: any }) => {
     `exercises?${queryParams}`,
     nextProperties(0)
   );
-  // const t = await getTranslations("exerciseLibrary");
-  // const exercise = t.raw("exercise");
   return (
     <section className="exercise-list-area">
       {exercises?.length > 0 ? (

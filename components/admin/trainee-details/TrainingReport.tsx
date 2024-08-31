@@ -34,6 +34,7 @@ const TrainingReport = ({ trainee }: { trainee: any }) => {
   }, [trainee]);
   const t = useTranslations("admin");
   const traineeDetails = t.raw("traineeDetails");
+  console.log(traineeDetails);
   return (
     <div className="grid gap-2 xl:gap-4">
       <h4 className="semi-section-title text-right">

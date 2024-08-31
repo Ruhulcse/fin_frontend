@@ -5,6 +5,7 @@ import MeasurementInput from "./MeasurementInput";
 import MeasurementWomenVideo from "./MeasurementWomenVideo";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import PDFLinkDownload from "@/components/common/pdf/PDFLinkDownload";
 
 const UpdateMeasurement = async ({ taskId }: { taskId?: string }) => {
   const t = await getTranslations("userMeasurments");
@@ -14,7 +15,6 @@ const UpdateMeasurement = async ({ taskId }: { taskId?: string }) => {
   const { data: measurement } = await generateDataFromServer(
     `tracking/latest-measurement/${user?.id}`
   );
-  console.log(user.gender);
   return (
     <section>
       <h3 className="section-title text-right">{formLabel.title}</h3>
@@ -24,13 +24,25 @@ const UpdateMeasurement = async ({ taskId }: { taskId?: string }) => {
         <MeasurementWomenVideo src="https://www.youtube.com/watch?v=uUo9Bw5ytrI" />
       )}
       {user ? (
-        <MeasurementInput
-          taskId={taskId}
-          user={user}
-          measurement={measurement}
-          formLabel={formLabel}
-          formErr={formErr}
-        />
+        <div>
+          <div className="flex justify-end">
+            <PDFLinkDownload
+              url={
+                user.gender === "male"
+                  ? "Assets/Male_photo_tracking.pdf"
+                  : "Assets/Female_photo_tracking.pdf"
+              }
+              label={formLabel.measurementPictureGuide}
+            />
+          </div>
+          <MeasurementInput
+            taskId={taskId}
+            user={user}
+            measurement={measurement}
+            formLabel={formLabel}
+            formErr={formErr}
+          />
+        </div>
       ) : null}
     </section>
   );

@@ -116,7 +116,7 @@ const Input = ({
         ) : type === "textarea" ? (
           <textarea
             className={cn(
-              `w-full text-textPrimary rounded px-3 py-2 outline-none text-end`,
+              `w-full text-textPrimary rounded px-3 py-2 outline-none`,
               left ? "bg-primary text-left" : "bg-card text-end"
             )}
             id={name}

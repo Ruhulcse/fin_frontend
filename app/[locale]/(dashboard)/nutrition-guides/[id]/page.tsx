@@ -1,7 +1,15 @@
-import NutritionGuideView from '@/components/nutrition-guides/NutritionGuideView';
+import BackLinkWrapper from "@/components/common/backlink/BackLinkWrapper";
+import NutritionGuideView from "@/components/nutrition-guides/NutritionGuideView";
+import { useTranslations } from "next-intl";
 
-const page = ({ params }: { params: { id: string } }) => {
-	return <NutritionGuideView id={params?.id} />;
+const Page = ({ params }: { params: { id: string } }) => {
+  const admin = useTranslations("admin");
+  const { backToDashboard } = admin.raw("dashboard");
+  return (
+    <BackLinkWrapper href="/admin" title={backToDashboard}>
+      <NutritionGuideView id={params?.id} />
+    </BackLinkWrapper>
+  );
 };
 
-export default page;
+export default Page;

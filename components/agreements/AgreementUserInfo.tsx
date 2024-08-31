@@ -23,6 +23,7 @@ const AgreementUserInfo = ({ userDetails = {} }: { userDetails: any }) => {
     const label = locale === "en" ? found?.label : found?.label_he;
     return label;
   };
+  console.log("user", userDetails);
   return (
     <div>
       <div className="user-details grid gap-2">
