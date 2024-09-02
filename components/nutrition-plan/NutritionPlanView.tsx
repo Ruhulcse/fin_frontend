@@ -18,10 +18,11 @@ const NutritionPlanView = ({ id }: { id: string }) => {
 					{nutritionPlan?.description ?? ''}
 				</p>
 				{nutritionPlan?.pdf_link ? (
-					<div className="img-area bg-card rounded-lg grid place-items-center mt-4 xl:mt-8 px-4 py-8 xl:p-6 xl:py-24 h-full">
+					<div className="img-area bg-card rounded-lg grid place-items-center mt-4 xl:mt-8 p-4 h-full">
 						<PdfView pdf={nutritionPlan?.pdf_link} />
 					</div>
 				) : null}
+				<br />
 			</section>
 		</>
 	);

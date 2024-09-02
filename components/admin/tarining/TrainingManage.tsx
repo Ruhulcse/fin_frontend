@@ -6,6 +6,7 @@ import {
 } from '@/lib/helper/server-fetch';
 import { getTranslations } from 'next-intl/server';
 import TrainingSmallInfo from './TrainingSmallInfo';
+import { sortArray } from '@/lib/helper/common';
 
 const TrainingManage = async ({ traineeId }: { traineeId: string }) => {
 	const { data: trainings = [] } = await generateDataFromServer(
@@ -25,13 +26,15 @@ const TrainingManage = async ({ traineeId }: { traineeId: string }) => {
 			<br />
 			<div className="grid grid-cols-1 gap-4">
 				{trainings?.length > 0 ? (
-					trainings?.map((training: any, index: number) => (
-						<TrainingSmallInfo
-							training={training}
-							traineeId={traineeId}
-							key={index}
-						/>
-					))
+					sortArray(trainings, 'training_id')?.map(
+						(training: any, index: number) => (
+							<TrainingSmallInfo
+								training={training}
+								traineeId={traineeId}
+								key={index}
+							/>
+						)
+					)
 				) : (
 					<NotDataFound />
 				)}

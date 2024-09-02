@@ -73,3 +73,7 @@ export const publicPaths = () => {
 	);
 	return paths.flat();
 };
+
+export const sortArray = (arr: any[], index: string) => {
+	return arr.sort((a, b) => a[index] - b[index]);
+};

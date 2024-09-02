@@ -131,26 +131,27 @@ const WorkoutForm = ({
 			toast.error(getError(updateWorkoutError || addWorkoutError));
 		} else if (updateWorkoutIsSuccess || addWorkoutIsSuccess) {
 			toast.success(
-				`${workoutData.workout} ${
+				`${workoutData.workOut} ${
 					workout?.workout_id ? workoutData.updated : workoutData.added
 				} ${workoutData.successfully}`
 			);
+			router.push(
+				`/admin/workout/manage?trainee_id=${traineeId}&training_id=${trainingId}`
+			);
 			router.refresh();
-			router.back();
 		}
 	}, [
 		addWorkoutError,
 		addWorkoutIsError,
 		addWorkoutIsSuccess,
 		router,
+		traineeId,
+		trainingId,
 		updateWorkoutError,
 		updateWorkoutIsError,
 		updateWorkoutIsSuccess,
 		workout?.workout_id,
-		workoutData.added,
-		workoutData.successfully,
-		workoutData.updated,
-		workoutData.workout,
+		workoutData,
 	]);
 	return (
 		<>

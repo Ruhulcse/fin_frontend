@@ -1,4 +1,5 @@
 import { authOptions } from '@/lib/auth-options';
+import { sortArray } from '@/lib/helper/common';
 import {
 	generateDataFromServer,
 	nextProperties,
@@ -23,7 +24,7 @@ const NutritionPlans = async () => {
 			</h3>
 			{nutritionPlans?.length > 0 ? (
 				<div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-					{nutritionPlans.map((plan: any, index: number) => (
+					{sortArray(nutritionPlans, 'id').map((plan: any, index: number) => (
 						<NutritionPlan
 							plan={{ ...plan, ...plan.NutritionPlan }}
 							key={index}

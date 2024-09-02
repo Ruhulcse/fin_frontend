@@ -106,12 +106,12 @@ const NutritionPlanForm = ({
 					plan?.id ? nutritionForm.update : nutritionForm.added
 				} ${nutritionForm.successfully}`
 			);
-			router.refresh();
 			router.push(
 				userId
 					? `/admin/trainee-details/${userId}`
 					: '/admin/nutrition-plan/manage'
 			);
+			router.refresh();
 		}
 	}, [
 		addPlanError,

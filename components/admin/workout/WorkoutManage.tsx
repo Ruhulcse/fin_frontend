@@ -6,6 +6,7 @@ import {
 } from '@/lib/helper/server-fetch';
 import { getTranslations } from 'next-intl/server';
 import WorkoutSmallInfo from './WorkoutSmallInfo';
+import { sortArray } from '@/lib/helper/common';
 
 const WorkoutManage = async ({
 	traineeId,
@@ -33,14 +34,16 @@ const WorkoutManage = async ({
 			<br />
 			<div className="grid grid-cols-1 gap-4">
 				{workouts?.length > 0 ? (
-					workouts?.map((workout: any, index: number) => (
-						<WorkoutSmallInfo
-							workout={workout}
-							traineeId={traineeId}
-							trainingId={trainingId}
-							key={index}
-						/>
-					))
+					sortArray(workouts, 'workout_id')?.map(
+						(workout: any, index: number) => (
+							<WorkoutSmallInfo
+								workout={workout}
+								traineeId={traineeId}
+								trainingId={trainingId}
+								key={index}
+							/>
+						)
+					)
 				) : (
 					<NotDataFound />
 				)}

@@ -105,12 +105,12 @@ const NutritionGuidesForm = ({
 					guide?.id ? nutritionForm.update : nutritionForm.added
 				} ${nutritionForm.successfully}`
 			);
-			router.refresh();
 			router.push(
 				userId
 					? `/admin/trainee-details/${userId}`
 					: '/admin/nutrition-guides/manage'
 			);
+			router.refresh();
 		}
 	}, [
 		addGuidesError,

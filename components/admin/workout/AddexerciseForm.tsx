@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import WorkoutExercisePredefined from './WorkoutExercisePredefined';
+import { sortArray } from '@/lib/helper/common';
 
 type Inputs = {
 	trainer_exp: string;
@@ -77,10 +78,12 @@ const AddExerciseForm = ({
 	} = useForm<Inputs>({
 		resolver: yupResolver(schema),
 	});
-	const exerciseOptions = exerciseData?.map((exercise: any) => ({
-		label: exercise?.name,
-		value: `${exercise?.exercise_id}__${exercise?.name}`,
-	}));
+	const exerciseOptions = sortArray(exerciseData, 'exercise_id')?.map(
+		(exercise: any) => ({
+			label: exercise?.name,
+			value: `${exercise?.exercise_id}__${exercise?.name}`,
+		})
+	);
 	const onSubmit: SubmitHandler<any> = (data) => {
 		const payload = {
 			...data,

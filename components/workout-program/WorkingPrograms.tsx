@@ -7,6 +7,7 @@ import { getServerSession } from 'next-auth';
 import NotDataFound from '../common/message/NotDataFound';
 import WorkingProgram from './WorkingProgram';
 import WorkoutSearch from './WorkoutSearch';
+import { sortArray } from '@/lib/helper/common';
 
 const WorkingPrograms = async ({ searchParams }: { searchParams: any }) => {
 	const queryParams =
@@ -31,15 +32,17 @@ const WorkingPrograms = async ({ searchParams }: { searchParams: any }) => {
 			/>
 			{workoutPrograms?.length > 0 ? (
 				<section className="workout-programs">
-					{workoutPrograms?.map((program: any, index: number) => {
-						return (
-							<WorkingProgram
-								key={index}
-								workoutProgram={program}
-								userRole={userRole}
-							/>
-						);
-					})}
+					{sortArray(workoutPrograms, 'workout_id')?.map(
+						(program: any, index: number) => {
+							return (
+								<WorkingProgram
+									key={index}
+									workoutProgram={program}
+									userRole={userRole}
+								/>
+							);
+						}
+					)}
 				</section>
 			) : (
 				<NotDataFound />

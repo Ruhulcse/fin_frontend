@@ -101,8 +101,8 @@ const TrainingSmallInfo = ({
 					training?.training_id ? traineData.update : traineData.added
 				} ${traineData.successfully}`
 			);
+			router.push(`/admin/training/manage?trainee_id=${traineeId}`);
 			router.refresh();
-			router.back();
 		}
 	}, [
 		addTrainingError,
@@ -114,6 +114,7 @@ const TrainingSmallInfo = ({
 		updateTrainingIsSuccess,
 		training?.training_id,
 		traineData,
+		traineeId,
 	]);
 	return (
 		<>
