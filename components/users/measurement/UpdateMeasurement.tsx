@@ -24,25 +24,13 @@ const UpdateMeasurement = async ({ taskId }: { taskId?: string }) => {
         <MeasurementWomenVideo src="https://www.youtube.com/watch?v=uUo9Bw5ytrI" />
       )}
       {user ? (
-        <div>
-          <div className="flex justify-end">
-            <PDFLinkDownload
-              url={
-                user.gender === "male"
-                  ? "Assets/Male_photo_tracking.pdf"
-                  : "Assets/Female_photo_tracking.pdf"
-              }
-              label={formLabel.measurementPictureGuide}
-            />
-          </div>
-          <MeasurementInput
-            taskId={taskId}
-            user={user}
-            measurement={measurement}
-            formLabel={formLabel}
-            formErr={formErr}
-          />
-        </div>
+        <MeasurementInput
+          taskId={taskId}
+          user={user}
+          measurement={measurement}
+          formLabel={formLabel}
+          formErr={formErr}
+        />
       ) : null}
     </section>
   );

@@ -78,10 +78,10 @@ const ExerciseFilter = ({ searchParams }: { searchParams: any }) => {
           placeholder={exercise.selectEquipment}
           defaultValue={searchParams?.equipment ?? ""}
         />
-        <SearchInput
+        <SelectInput
           changeHandler={stateChangeHandler}
           name="area"
-          searchIconOff
+          options={areaOptions}
           placeholder={exercise.selectArea}
           defaultValue={searchParams?.area ?? ""}
         />
