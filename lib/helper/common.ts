@@ -75,5 +75,5 @@ export const publicPaths = () => {
 };
 
 export const sortArray = (arr: any[], index: string) => {
-	return arr.sort((a, b) => a[index] - b[index]);
+	return [...arr].sort((a, b) => a[index] - b[index]);
 };
