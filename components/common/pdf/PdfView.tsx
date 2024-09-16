@@ -1,23 +1,18 @@
-'use client';
-import { useEffect, useState } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 
 const PdfView = ({ pdf }: { pdf: string }) => {
-	const [url, setUrl] = useState<string>('');
+  const [url, setUrl] = useState<string>("");
 
-	useEffect(() => {
-		if (pdf) {
-			const pdfUrl =
-				pdf + `#toolbar=0${window.innerWidth < 991 ? '&zoom=28' : ''}`;
-			setUrl(pdfUrl);
-		}
-	}, [pdf]);
+  useEffect(() => {
+    if (pdf) {
+      const pdfUrl =
+        pdf + `#toolbar=0${window.innerWidth < 991 ? "&zoom=26" : ""}`;
+      setUrl(pdfUrl);
+    }
+  }, [pdf]);
 
-	return url ? (
-		<iframe
-			src={url}
-			className="rounded-lg h-dvh w-full"
-		/>
-	) : null;
+  return url ? <iframe src={url} className="rounded-lg h-dvh w-full" /> : null;
 };
 
 export default PdfView;
