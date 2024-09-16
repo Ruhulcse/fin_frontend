@@ -12,13 +12,9 @@ const AgreementView = async ({ id }: { id: string }) => {
   );
   const agreementDetails = agreement[0] || {};
   const t = await getTranslations("agreement");
-  console.log(agreementDetails);
   return (
     <section className="nutrition-plan grid gap-2 xl:gap-4 grid-cols_[auto_auto_1fr] min-h-full">
       <h3 className="section-title text-right">{t("userAgreementInfo")}</h3>
-      <h4 className="semi-section-title text-right">
-        {agreementDetails?.name ?? ""}
-      </h4>
       {agreementDetails ? (
         <AgreementUserInfo userDetails={agreementDetails} />
       ) : null}
