@@ -5,7 +5,11 @@ import UserDetailsPDFDownload from "../users/health-declaration/UserDetailsPDFDo
 import Agreement from "./Agreement";
 import BackLinkWrapper from "../common/backlink/BackLinkWrapper";
 
-const AgreementUserInfo = async ({ userDetails = {} }: { userDetails: any }) => {
+const AgreementUserInfo = async ({
+  userDetails = {},
+}: {
+  userDetails: any;
+}) => {
   const t = await getTranslations("agreement");
   const admin = await getTranslations("admin");
   const { backToDashboard } = admin.raw("dashboard");

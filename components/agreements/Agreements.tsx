@@ -29,94 +29,46 @@ const Agreements = async () => {
     : {};
   const userRole = session?.user?.role;
   return (
-    <section>
-      {userRole === "admin" ? (
-        <BackLinkWrapper href="/" title={backToDashboard}>
-          <section className="agreements">
-            {Object.keys(agreementDetails).length > 0 ? (
-              <PDFLinkDownload url="Assets/Terms_and_conditions.pdf">
-                <Agreement
-                  agreement={{
-                    ...agreementDetails,
-                    date: healthDeclaration?.date,
-                  }}
-                  title={t("terms")}
-                  update={t("lastUpdate")}
-                />
-              </PDFLinkDownload>
-            ) : null}
-            {Object.keys(remaining).length > 0 ? (
-              <UserDetailsPDFDownload userDetails={remaining}>
-                <Agreement
-                  agreement={{
-                    ...agreementDetails,
-                    date: healthDeclaration?.date,
-                  }}
-                  title={t("userDetails")}
-                  update={t("lastUpdate")}
-                />
-              </UserDetailsPDFDownload>
-            ) : null}
-            {Object.keys(healthDeclaration).length > 0 ? (
-              <HealthDeclarationPDFDownload
-                healthDeclaration={healthDeclaration}
-                signature={signature}
-              >
-                <Agreement
-                  agreement={{
-                    ...agreementDetails,
-                    date: healthDeclaration?.date,
-                  }}
-                  title={t("health")}
-                  update={t("lastUpdate")}
-                />
-              </HealthDeclarationPDFDownload>
-            ) : null}
-          </section>
-        </BackLinkWrapper>
-      ) : (
-        <section className="agreements">
-          {Object.keys(agreementDetails).length > 0 ? (
-            <PDFLinkDownload url="Assets/Terms_and_conditions.pdf">
-              <Agreement
-                agreement={{
-                  ...agreementDetails,
-                  date: healthDeclaration?.date,
-                }}
-                title={t("terms")}
-                update={t("lastUpdate")}
-              />
-            </PDFLinkDownload>
-          ) : null}
-          {Object.keys(remaining).length > 0 ? (
-            <UserDetailsPDFDownload userDetails={remaining}>
-              <Agreement
-                agreement={{
-                  ...agreementDetails,
-                  date: healthDeclaration?.date,
-                }}
-                title={t("userDetails")}
-                update={t("lastUpdate")}
-              />
-            </UserDetailsPDFDownload>
-          ) : null}
-          {Object.keys(healthDeclaration).length > 0 ? (
-            <HealthDeclarationPDFDownload
-              healthDeclaration={healthDeclaration}
-              signature={signature}
-            >
-              <Agreement
-                agreement={{
-                  ...agreementDetails,
-                  date: healthDeclaration?.date,
-                }}
-                title={t("health")}
-                update={t("lastUpdate")}
-              />
-            </HealthDeclarationPDFDownload>
-          ) : null}
-        </section>
-      )}
+    <section className="agreements">
+      {Object.keys(agreementDetails).length > 0 ? (
+        <PDFLinkDownload url="Assets/Terms_and_conditions.pdf">
+          <Agreement
+            agreement={{
+              ...agreementDetails,
+              date: healthDeclaration?.date,
+            }}
+            title={t("terms")}
+            update={t("lastUpdate")}
+          />
+        </PDFLinkDownload>
+      ) : null}
+      {Object.keys(remaining).length > 0 ? (
+        <UserDetailsPDFDownload userDetails={remaining}>
+          <Agreement
+            agreement={{
+              ...agreementDetails,
+              date: healthDeclaration?.date,
+            }}
+            title={t("userDetails")}
+            update={t("lastUpdate")}
+          />
+        </UserDetailsPDFDownload>
+      ) : null}
+      {Object.keys(healthDeclaration).length > 0 ? (
+        <HealthDeclarationPDFDownload
+          healthDeclaration={healthDeclaration}
+          signature={signature}
+        >
+          <Agreement
+            agreement={{
+              ...agreementDetails,
+              date: healthDeclaration?.date,
+            }}
+            title={t("health")}
+            update={t("lastUpdate")}
+          />
+        </HealthDeclarationPDFDownload>
+      ) : null}
     </section>
   );
 };
