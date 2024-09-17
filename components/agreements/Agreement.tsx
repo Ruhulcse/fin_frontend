@@ -16,8 +16,8 @@ const Agreement = ({
       <div className="agreement-pdf">
         <Image src={agreement?.img ?? pdfImage} alt="pdf" />
 
-        <strong>{agreement?.name ?? "N/A"}</strong>
-        <span>{`${update} ${agreement?.date ?? "N/A"}`}</span>
+        <strong>{agreement?.name ?? ""}</strong>
+        <span>{`${update} ${agreement?.date ?? ""}`}</span>
       </div>
     </div>
   );

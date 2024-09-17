@@ -4,13 +4,8 @@ import {
 } from "@/lib/helper/server-fetch";
 import AgreementUserInfo from "./AgreementUserInfo";
 import { getTranslations } from "next-intl/server";
-import BackLinkWrapper from "../common/backlink/BackLinkWrapper";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth-options";
 
 const AgreementView = async ({ id }: { id: string }) => {
-  const session = await getServerSession(authOptions());
-  const userRole = session?.user?.role;
   const { data: agreement = [] } = await generateDataFromServer(
     `users/agreements?user_id=${id}`,
     nextProperties(0)

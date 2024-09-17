@@ -77,16 +77,8 @@ const UserDetailsPDF = ({
       {userDetails &&
         Object.entries(userDetails).map(([key, value]: any) => (
           <View key={key} style={styles.view}>
-            <Text style={styles.text}>
-              {
-                // registrationInputs.find((input) => input.name === key)?.label ??
-                //   key?.split("_").join(" ").toUpperCase()
-                getlabel(key, locale)
-              }
-            </Text>
-            <Text style={styles.answer}>
-              {value?.length > 0 ? value : "N/A"}
-            </Text>
+            <Text style={styles.text}>{getlabel(key, locale)}</Text>
+            <Text style={styles.answer}>{value?.length > 0 ? value : ""}</Text>
           </View>
         ))}
       <Text
