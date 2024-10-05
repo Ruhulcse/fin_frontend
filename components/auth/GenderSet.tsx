@@ -63,7 +63,7 @@ const GenderSet = ({ userId }: { userId: string }) => {
 	};
 
 	return (
-		<main className="bg-[#cecece] h-dvh grid place-items-center">
+		<main className="bg-white h-dvh grid place-items-center">
 			<form
 				className="bg-card w-[300px] grid gap-4 rounded p-4"
 				onSubmit={handleSubmit(onSubmit)}

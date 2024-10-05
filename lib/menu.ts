@@ -48,7 +48,7 @@ export const menusForOldUser = [
 	'/nutrition-guides',
 ];
 
-export const menusForNewUser = ['/', '/recipes', '/courses', '/agreements'];
+export const menusForNewUser = ['/', '/recipes', '/courses', ''];
 
 export const menusForAdmin = [
 	'/admin',

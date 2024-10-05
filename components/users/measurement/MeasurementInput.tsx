@@ -155,13 +155,7 @@ const MeasurementInput = ({
         register={register}
         errors={errors}
       />
-      <Input
-        type="number"
-        name="body_fat_percentage"
-        label={bodyFat}
-        register={register}
-        errors={errors}
-      />
+    
       <Input
         type="number"
         name="chest"
@@ -206,7 +200,8 @@ const MeasurementInput = ({
       />
       <div>
         <div className="flex justify-end">
-          <PDFLinkDownload
+         <button className="flex justify-center items-center bg-[#FAEAEB] px-3 py-2 text-red-500 rounded-full">
+         <PDFLinkDownload
             url={
               user.gender === "male"
                 ? "Assets/Male_photo_tracking.pdf"
@@ -214,6 +209,8 @@ const MeasurementInput = ({
             }
             label={formLabel.measurementPictureGuide}
           />
+         </button>
+         
         </div>
       </div>
 

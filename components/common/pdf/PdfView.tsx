@@ -12,7 +12,7 @@ const PdfView = ({ pdf }: { pdf: string }) => {
     }
   }, [pdf]);
 
-  return url ? <iframe src={url} className="rounded-lg h-dvh w-full" /> : null;
+  return url ? <iframe src={url} className="rounded-lg h-dvh w-full " /> : null;
 };
 
 export default PdfView;

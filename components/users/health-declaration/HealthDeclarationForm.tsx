@@ -63,11 +63,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
       label: regInput.highestWeight,
       type: "number",
     },
-    {
-      name: "training_years",
-      label: regInput.training,
-      type: "number",
-    },
+  
     {
       name: "training_frequency",
       label: regInput.weekTraine,
@@ -87,11 +83,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
       label: regInput.traineLocation,
       type: "text",
     },
-    {
-      name: "home_equipment",
-      label: regInput.equipement,
-      type: "text",
-    },
+  
     {
       name: "desired_equipment",
       label: regInput.homeEquipement,
@@ -128,11 +120,6 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
       type: "text",
     },
     {
-      name: "food_tracking_method",
-      label: regInput.trackingFruite,
-      type: "text",
-    },
-    {
       name: "past_diets",
       label: regInput.diets,
       type: "text",
@@ -140,11 +127,6 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
     {
       name: "current_cardio_routine",
       label: regInput.currentNutrition,
-      type: "text",
-    },
-    {
-      name: "daily_nutrition",
-      label: regInput.dailyNutrition,
       type: "text",
     },
     {
@@ -168,26 +150,6 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
       type: "text",
     },
     {
-      name: "sleep_hours",
-      label: regInput.sleepingTime,
-      type: "number",
-    },
-    {
-      name: "current_job",
-      label: regInput.currentJob,
-      type: "text",
-    },
-    {
-      name: "activity_level",
-      label: regInput.activeAvgDay,
-      type: "text",
-    },
-    {
-      name: "sports_participation",
-      label: regInput.currentSport,
-      type: "text",
-    },
-    {
       name: "mirror_reflection",
       label: regInput.lookMirrorTime,
       type: "text",
@@ -197,11 +159,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
       label: regInput.goal,
       type: "text",
     },
-    {
-      name: "motivation_level",
-      label: regInput.motivation,
-      type: "text",
-    },
+   
     {
       name: "commitment_declaration",
       label: regInput.prohibitedSubstances,
@@ -469,7 +427,7 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
               errors={errors}
             />
           ))}
-          <Input
+           <Input
             type="file"
             name="file"
             label={healthInput.signature}
@@ -483,7 +441,8 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
           <SignaturePadWrapper
             setImageURL={setImageURL}
             healthInput={healthInput}
-          />
+          /> 
+          {/* helerel */}
         </>
       ) : (
         <>

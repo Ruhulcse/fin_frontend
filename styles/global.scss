@@ -4,102 +4,104 @@
 @tailwind utilities;
 
 // add page styles file here
-@import 'home';
-@import 'courses';
-@import 'agreements';
-@import 'workout-programs';
-@import 'modal';
+@import "home";
+@import "courses";
+@import "agreements";
+@import "workout-programs";
+@import "modal";
 
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 // add global styles here
 body {
-	@apply bg-primary text-textPrimary;
-	scroll-behavior: smooth;
+  @apply bg-primary text-textPrimary;
+  font-family: "Rubik", sans-serif !important;
+  scroll-behavior: smooth;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	transition: background-color 5000s ease-in-out 0s;
-	-webkit-text-fill-color: #222222 !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #222222 !important;
 }
 .basic-input .input-area {
-	input[type='date']::-webkit-calendar-picker-indicator {
-		background: transparent;
-		bottom: 0;
-		color: transparent;
-		cursor: pointer;
-		height: auto;
-		left: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: auto;
-	}
-	select {
-		appearance: none;
-	}
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
+  select {
+    appearance: none;
+  }
 }
 .simple-basic-input {
-	@apply bg-[#00000000] text-center border-b-2 xl:border-b-4 border-textPrimary w-[60px] xl:w-[100px] outline-0;
+  @apply bg-[#00000000] text-center border-b-2 xl:border-b-4 border-textPrimary w-[60px] xl:w-[100px] outline-0;
 }
 .auth-header {
-	@apply relative mb-4;
-	span {
-		@apply text-[15px] leading-[15px] bg-card block relative w-max m-auto px-[6px] xl:px-[12px] z-10;
-	}
-	.line {
-		height: 0.5px;
-		border-bottom: 1px solid;
-		width: 100%;
-		@apply border-textPrimary  absolute z-[5] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-	}
+  @apply relative mb-4;
+  span {
+    @apply text-[15px] leading-[15px] bg-card block relative w-max m-auto px-[6px] xl:px-[12px] z-10;
+  }
+  .line {
+    height: 0.5px;
+    border-bottom: 1px solid;
+    width: 100%;
+    @apply border-textPrimary  absolute z-[5] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
 }
 .abs-center {
-	@apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 .flex-center-between {
-	@apply flex items-center justify-between;
+  @apply flex items-center justify-between;
 }
 .dashboard {
-	@apply min-h-dvh grid grid-rows-[auto_1fr_auto];
+  @apply min-h-dvh grid grid-rows-[auto_1fr_auto];
 }
 .auth {
-	@apply min-h-dvh;
+  @apply min-h-dvh;
 }
 .section-title {
-	@apply text-textPrimary;
-	font-size: 36px;
-	font-weight: 700;
-	@media (max-width: 1024px) {
-		font-size: 30px;
-	}
-	@media (max-width: 640px) {
-		font-size: 24px;
-	}
+  @apply text-textPrimary;
+  font-size: 36px;
+  font-weight: 700;
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+  @media (max-width: 640px) {
+    font-size: 24px;
+  }
 }
 .semi-section-title {
-	@apply text-textPrimary;
-	font-size: 28px;
-	font-weight: 700;
-	@media (max-width: 1024px) {
-		font-size: 22px;
-	}
-	@media (max-width: 640px) {
-		font-size: 18px;
-	}
+  @apply text-textPrimary;
+  font-size: 28px;
+  font-weight: 700;
+  @media (max-width: 1024px) {
+    font-size: 22px;
+  }
+  @media (max-width: 640px) {
+    font-size: 18px;
+  }
 }
 .react-multi-select {
-	* {
-		outline: none !important;
-		border: none !important;
-		background-color: #FAEAEB !important;
-		color: #222222 !important;
-		text-align: end !important;
-		box-shadow: none !important;
-		&:active {
-			outline: none !important;
-			border: none !important;
-			box-shadow: none !important;
-		}
-	}
+  * {
+    outline: none !important;
+    border: none !important;
+    background-color: #faeaeb !important;
+    color: #222222 !important;
+    text-align: end !important;
+    box-shadow: none !important;
+    &:active {
+      outline: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
 }

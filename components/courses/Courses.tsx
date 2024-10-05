@@ -7,11 +7,15 @@ import BasicButton from "../common/BasicButton";
 import Course from "./Course";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { useState } from "react";
 
 const Courses = async () => {
   const courses = await generateDataFromServer("courses", nextProperties(0));
   const t = await getTranslations("courses");
   const courseHeading = t.raw("coursesHeader");
+  
+
+  
   return (
     <section className="course-area">
       <h3 className="section-title text-right">{courseHeading.label}</h3>
