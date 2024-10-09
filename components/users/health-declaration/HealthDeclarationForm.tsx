@@ -333,19 +333,21 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
   const onSubmit: any = async (data: any) => {
     let condition = true;
     const values = getValues();
-    for (let i = 0; i < healthDeclarationInputs.length; i++) {
-      if (!values[`health_declaration__${healthDeclarationInputs[i].name}`]) {
-        toast.error(
-          `${healthDeclarationInputs[i].label} ${common("required")}`
-        );
-        condition = false;
-        break;
-      }
-    }
-    if (condition && !imageURL) {
-      toast.error(common("signatureRequired"));
-      condition = false;
-    }
+    // for (let i = 0; i < healthDeclarationInputs.length; i++) {
+    //   if (!values[`health_declaration__${healthDeclarationInputs[i].name}`]) {
+    //     toast.error(
+    //       `${healthDeclarationInputs[i].label} ${common("required")}`
+    //     );
+    //     condition = false;
+    //     break;
+    //   }
+    // }
+    //signature part
+    // if (condition && !imageURL) {
+    //   toast.error(common("signatureRequired"));
+    //   condition = false;
+    // }
+
     if (condition) {
       const health_declaration: any = {};
       const user_details: any = {};
@@ -357,18 +359,21 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
           user_details[name] = data[key];
         }
       }
+
       const updatedData: any = {
-        file: data?.file[0],
+        // file: data?.file[0],
         user_details: JSON.stringify({
           ...user_details,
           user_id: user?.id,
         }),
-        health_declaration: JSON.stringify(health_declaration),
+        // health_declaration: JSON.stringify(health_declaration),
       };
+      console.log("before form data ",updatedData)
       const formData = new FormData();
       for (const key in updatedData) {
         formData.append(key, updatedData[key]);
       }
+      console.log("form data ",formData)
       await updateUser({ data: formData, id: user?.id });
     }
   };
@@ -479,16 +484,57 @@ const HealthDeclarationForm = ({ user }: { user: any }) => {
         </div>
       ) : (
         <BasicButton
-          type="button"
-          onClick={() => changeTab(2)}
-          hard
-          extraClasses="!m-0 !w-full !mt-6"
-          disabled={isLoading}
-        >
-          {common("nextBtn")}
-        </BasicButton>
+        type="submit"
+        extraClasses="!m-0 !w-full !mt-6 flex gap-1 justify-center items-center"
+        disabled={isLoading}
+      >
+        {isLoading ? <FaSpinner className="animate-spin" /> : null}
+        {healthInput.submitBtn}
+      </BasicButton>
       )}
     </form>
+  //   <form
+  //   className="health-declaration-form grid gap-2"
+  //   onSubmit={handleSubmit(onSubmit)}
+  // >
+  //   {healthDeclarationInputs.map((input, index) => (
+  //     <Input
+  //       key={index}
+  //       {...input}
+  //       name={`health_declaration__${input.name}`}
+  //       register={register}
+  //       errors={errors}
+  //     />
+  //   ))}
+    
+  //   <Input
+  //     type="file"
+  //     name="file"
+  //     label={healthInput.signature}
+  //     register={register}
+  //     errors={errors}
+  //     accept="image/png, image/gif, image/jpeg"
+  //     control={control}
+  //     resetField={resetField}
+  //     hidden
+  //   />
+    
+  //   <SignaturePadWrapper
+  //     setImageURL={setImageURL}
+  //     healthInput={healthInput}
+  //   />
+    
+  //   <div className="flex items-center gap-4">
+  //     <BasicButton
+  //       type="submit"
+  //       extraClasses="!m-0 !w-full !mt-6 flex gap-1 justify-center items-center"
+  //       disabled={isLoading}
+  //     >
+  //       {isLoading ? <FaSpinner className="animate-spin" /> : null}
+  //       {healthInput.submitBtn}
+  //     </BasicButton>
+  //   </div>
+  // </form>
   );
 };
 

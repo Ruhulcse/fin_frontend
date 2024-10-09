@@ -31,6 +31,7 @@ const MeasurementInput = ({
     weight,
     bodyFat,
     chest,
+    butt,
     waist,
     thighR,
     thighL,
@@ -139,6 +140,7 @@ const MeasurementInput = ({
     }
   }, [measurement, setValue]);
 
+
   return (
     <form className="grid gap-2 xl:gap-4" onSubmit={handleSubmit(onSubmit)}>
       <Input
@@ -159,7 +161,7 @@ const MeasurementInput = ({
       <Input
         type="number"
         name="chest"
-        label={chest}
+        label={user.gender=== 'male' ? chest : butt}
         register={register}
         errors={errors}
       />
