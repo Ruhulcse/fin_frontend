@@ -34,10 +34,17 @@ const StepsEntryForm = ({ taskId }: { taskId?: string }) => {
   ] = useSetUserStepTaskMutation();
 
   const onSubmit: any = async (data: any) => {
+    // const payload = {
+    //   task_id: taskId,
+    //   ...data,
+    // };
     const payload = {
       task_id: taskId,
-      ...data,
+      ...Object.fromEntries(
+        Object.entries(data).map(([key, value]) => [key, Number(value)])
+      ),
     };
+    console.log("step entry",payload)
     await addSteps(payload);
   };
 
