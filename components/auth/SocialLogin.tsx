@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'sonner';
+import AuthHeader from './AuthHeader';
 
 interface SocialLoginProps {
 	type: 'normal_user' | 'recipe_user';
@@ -16,6 +17,8 @@ const SocialLogin = ({ type="" }) => {
 	const errorMessage = searchParams.get('error');
 	const t = useTranslations('auth');
 	const googleMessage = t.raw('googleMessage');
+
+	console.log("type from social login", type);
 
 	const googleLogin = async () => {
 		await signIn('google', {
@@ -31,23 +34,22 @@ const SocialLogin = ({ type="" }) => {
 	}, [router, errorMessage]);
 
 	return (
-		<section>
-			{/* {['/login'].includes(pathName) ? (
-				<h4 className="auth-header">
-					<span>or continue with</span>
-					<div className="line"></div>
-				</h4>
-			) : null} */}
-			<div className="login-options grid gap-3 xl:gap-4">
-				<button
-					onClick={googleLogin}
-					className="bg-primary text-center flex items-center justify-center gap-2 p-2 rounded"
-				>
-					<FcGoogle size={20} />
-					<span>{googleMessage}</span>
-				</button>
-			</div>
-		</section>
+		<>
+			<AuthHeader title={`${type==="normal_user" ? "Normal User Login" : "Recipe User Login"}`} />
+			{/* <h1 className="text-center mb-6">{"hello"}</h1> */}
+			<section>
+				{/* <h1 className="text-center mb-6">{"hello"}</h1> */}
+				<div className="login-options grid gap-3 xl:gap-4">
+					<button
+						onClick={googleLogin}
+						className="bg-primary text-center flex items-center justify-center gap-2 p-2 rounded"
+					>
+						<FcGoogle size={20} />
+						<span>{googleMessage}</span>
+					</button>
+				</div>
+			</section>
+		</>
 	);
 };
 

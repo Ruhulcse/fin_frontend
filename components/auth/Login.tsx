@@ -30,12 +30,14 @@ const Login = ({ type }: LoginProps) => {
 	const t = useTranslations('auth');
 	const loginData = t.raw('login');
 
+	console.log("type from login", type);
+
 	const title = type === 'normal_user' ? loginData.title : loginData.title1;
 
 	return (
 		<>
-			<AuthHeader title={title} /> 
-			<AuthRedirect data={loginData} type="login" />
+			{/* <AuthHeader title={title} />  */}
+			{/* <AuthRedirect data={loginData} type="login" /> */}
 		</>
 	);
 };
