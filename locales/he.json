@@ -16,7 +16,9 @@
     "required": "נדרש",
     "signatureRequired": "יש צורך בחתימה"
   },
+
   "auth": {
+    "loginPageTitle":"ברוך שובך",
     "googleMessage": "המשך עם גוגל",
     "login": {
       "title": "ברוך שובך",

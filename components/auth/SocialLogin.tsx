@@ -6,7 +6,11 @@ import { useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { toast } from 'sonner';
 
-const SocialLogin = () => {
+interface SocialLoginProps {
+	type: 'normal_user' | 'recipe_user';
+  }
+
+const SocialLogin = ({ type="" }) => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const errorMessage = searchParams.get('error');

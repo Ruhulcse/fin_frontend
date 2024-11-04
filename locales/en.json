@@ -16,10 +16,13 @@
 		"required": "is required",
 		"signatureRequired": "Signature is required"
 	},
+	
 	"auth": {
+		"loginPageTitle":"Welcome Back",
 		"googleMessage": "Continue with Google",
 		"login": {
-			"title": "Welcome Back",
+			"title": "Regular_user",
+			"title1":"recepy_user",
 			"message": "Don't have an account?",
 			"redirect": "Sign Up",
 			"login": "Login",
