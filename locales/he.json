@@ -21,7 +21,8 @@
     "loginPageTitle":"ברוך שובך",
     "googleMessage": "המשך עם גוגל",
     "login": {
-      "title": "ברוך שובך",
+      "title": "כניסה רגילה למשתמש",
+      "title1":"כניסה למשתמש מתכון",
       "message": "אין לך חשבון?",
       "redirect": "הירשם",
       "login": "כניסה למערכת",

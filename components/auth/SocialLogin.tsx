@@ -17,12 +17,14 @@ const SocialLogin = ({ type="" }) => {
 	const errorMessage = searchParams.get('error');
 	const t = useTranslations('auth');
 	const googleMessage = t.raw('googleMessage');
+	const title = type === 'normal_user' ? t('login.title') : t('login.title1');
 
 	console.log("type from social login", type);
 
 	const googleLogin = async () => {
 		await signIn('google', {
 			redirect: true,
+			callbackUrl: type === 'recipe_user' ? '/purches' : '/',
 		});
 	};
 
@@ -35,7 +37,7 @@ const SocialLogin = ({ type="" }) => {
 
 	return (
 		<>
-			<AuthHeader title={`${type==="normal_user" ? "Normal User Login" : "Recipe User Login"}`} />
+			<AuthHeader title={title} />
 			{/* <h1 className="text-center mb-6">{"hello"}</h1> */}
 			<section>
 				{/* <h1 className="text-center mb-6">{"hello"}</h1> */}

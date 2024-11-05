@@ -21,8 +21,8 @@
 		"loginPageTitle":"Welcome Back",
 		"googleMessage": "Continue with Google",
 		"login": {
-			"title": "Regular_user",
-			"title1":"recepy_user",
+			"title": "Regular user login",
+			"title1":"Recipe User Login",
 			"message": "Don't have an account?",
 			"redirect": "Sign Up",
 			"login": "Login",
