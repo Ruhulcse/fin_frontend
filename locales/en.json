@@ -81,6 +81,13 @@
 			"nutritionGuide": "Nutrition Guides"
 		}
 	},
+	"recepie":{
+		"buttonText":"Purchase",
+		"succesTitle":"Payment succesfull",
+		"successSubTitle":"Thank you! Your payment has been received.",
+		"successButton":"Submit",
+		"placeholder":"Plese enter your email"
+	},                             
 	"dashboard": {
 		"home": {
 			"measurementTitle": "Measurements",

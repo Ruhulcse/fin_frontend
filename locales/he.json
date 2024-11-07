@@ -69,6 +69,15 @@
       "errFound": "נמצאה שגיאה"
     }
   },
+  "recepie":{
+		"buttonText":"לִרְכּוֹשׁ",
+		"succesTitle":"התשלום הצליח",
+		"successSubTitle":"תודה לך! התשלום שלך התקבל",
+		"successButton":"לְהַגִישׁ",
+    "placeholder":"אנא הכנס את המייל שלך"
+	}, 
+
+
   "dashboard": {
     "home": {
       "measurementTitle": "מדדים",
